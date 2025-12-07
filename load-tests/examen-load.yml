@@ -1,0 +1,14 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 60
+      arrivalRate: 20   # 20 usuarios nuevos por segundo
+scenarios:
+  - flow:
+      - get:
+          url: "/api/ping"
+      - post:
+          url: "/api/examen"
+          json:
+            documento: "00000000"
+            resultados: { detail: [], score: 0 }
