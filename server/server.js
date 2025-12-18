@@ -22,13 +22,21 @@ const ADMIN_API_KEY =
   process.env.ADMIN_API_KEY || "admin_key_change_me_in_production";
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://tu-frontend.vercel.app"
+    ],
+    credentials: true
+  })
+);
 app.use(express.json());
 
 // Configuración de Multer para la subida de archivos CSV
 const upload = multer({
-  dest: "./uploads/", // Directorio temporal para los archivos subidos
-  limits: { fileSize: 5 * 1024 * 1024 }, // Límite de 5MB
+  dest: "uploads/", // Directorio temporal para los archivos subidos
+  limits: { fileSize: 2 * 1024 * 1024 }, // Límite de 5MB
 });
 
 // Middleware para validar API key en endpoints administrativos
@@ -48,10 +56,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// Ruta de salud
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "Servidor funcionando" });
+  res.status(200).json({
+    status: "ok",
+    service: "exam-platform-api",
+    environment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString()
+  });
 });
+
 
 // Verificar si estudiante existe y si ya realizó el examen
 app.get("/api/estudiante/:documento", async (req, res) => {
@@ -806,10 +819,11 @@ app.get(/^\/(?!api).*/, (req, res) => {
 });
 
 const server = app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
-  console.log(`📡 Accesible desde la red local en http://[IP-LOCAL]:${PORT}`);
+  console.log(`🚀 Servidor iniciado correctamente`);
+  console.log(`🌐 Entorno: ${process.env.NODE_ENV || "development"}`);
   console.log(`🗄️  Base de datos: ${dbFunctions ? "Conectada" : "Error"}`);
 });
+
 
 server.on("error", (err) => {
   if (err && err.code === "EADDRINUSE") {
@@ -827,4 +841,10 @@ process.on("uncaughtException", (err) => {
 });
 process.on("unhandledRejection", (reason) => {
   console.error("Unhandled Rejection:", reason);
+});
+process.on("SIGTERM", () => {
+  console.log("🛑 Cerrando servidor...");
+  server.close(() => {
+    console.log("✅ Servidor cerrado");
+  });
 });
