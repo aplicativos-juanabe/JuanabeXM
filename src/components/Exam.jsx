@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNotification } from "../hooks/useNotification";
 import { examApi } from "../api/examApi";
 import ZoomableImage from "./ZoomableImage";
+import { formatDateForDisplay, getCurrentYear, formatForFilename } from "../utils/dateUtils";
 
 export default function Exam({ student, config, onDone }) {
   const notify = useNotification();
@@ -10,23 +11,122 @@ export default function Exam({ student, config, onDone }) {
   const [t, setT] = useState(config.time);
   const [finished, setFinished] = useState(false);
   const [results, setResults] = useState(null);
+  const [examProgressId, setExamProgressId] = useState(null); // Para guardar el ID del progreso
 
+  // Cargar progreso guardado al inicio
   useEffect(() => {
+    const loadProgress = async () => {
+      try {
+        const savedProgress = await examApi.obtenerProgresoExamen(student.documento);
+        if (savedProgress && savedProgress.questions_json && savedProgress.config_json) {
+          // Si hay progreso completo guardado, usar los datos guardados
+          const savedQuestions = JSON.parse(savedProgress.questions_json);
+          const savedConfig = JSON.parse(savedProgress.config_json);
+
+          setI(savedProgress.current_question_index);
+          setAns(savedProgress.answersJson);
+          // Use the saved remaining time, or fall back to full time if not available
+          const remainingTime = savedProgress.remaining_time_seconds || (savedConfig.tiempo_limite_minutos * 60);
+          setT(remainingTime);
+          setExamProgressId(savedProgress.exam_id);
+
+          // Override the config with saved data to ensure consistency
+          config.questions = savedQuestions;
+          config.config = savedConfig;
+          config.time = savedConfig.tiempo_limite_minutos * 60;
+
+          notify.push("info", "Progreso del examen cargado automáticamente.");
+        } else {
+          // No hay progreso guardado, guardar el estado inicial del examen
+          await examApi.guardarProgresoExamen(
+            student.documento,
+            0, // currentQuestionIndex
+            {}, // answers
+            config.questions, // questions
+            config.config, // config
+            null // examId
+          );
+        }
+      } catch (error) {
+        console.error("Error cargando progreso guardado:", error);
+        notify.push("error", "No se pudo cargar el progreso del examen.");
+      }
+    };
+    loadProgress();
+
     const interval = setInterval(() => {
       setT((s) => (s > 0 ? s - 1 : 0));
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [student.documento, config.time]);
 
   useEffect(() => {
     if (t === 0 && !finished) finish();
-  }, [t, finished]);
+  }, [student.documento, config.time]);
 
-  const q = config.questions[i];
+  // Guardado automático del progreso solo cuando cambian las respuestas
+  useEffect(() => {
+    const saveProgress = async () => {
+      if (finished) return; // No guardar si el examen ya terminó
+      try {
+        await examApi.guardarProgresoExamen(
+          student.documento,
+          i,
+          ans,
+          config.questions, // Guardar las preguntas asignadas
+          config.config, // Guardar la configuración del examen
+          examProgressId, // Pasa el examId si ya se generó
+          t // Guardar el tiempo restante en segundos
+        );
+        console.log("Progreso guardado automáticamente.");
+      } catch (error) {
+        console.error("Error guardando progreso automáticamente:", error);
+      }
+    };
+
+    // Guardar solo cuando cambian las respuestas (no por tiempo)
+    const handler = setTimeout(saveProgress, 1000); // Delay de 1 segundo para respuestas
+    return () => clearTimeout(handler);
+  }, [ans, finished, student.documento, examProgressId, config.questions, config.config]); // Solo dependencias de respuestas y configuración
+
+  // Eliminar progreso guardado al finalizar (ya sea por submit o por onDone)
+  useEffect(() => {
+    if (finished) {
+      const clearProgress = async () => {
+        try {
+          await examApi.eliminarProgresoExamen(student.documento);
+          console.log("Progreso del examen eliminado.");
+        } catch (error) {
+          console.error("Error eliminando progreso guardado:", error);
+        }
+      };
+      clearProgress();
+    }
+  }, [finished, student.documento]);
+
+  const q = config.questions?.[i];
 
   const handle = (o) => {
+    if (!q) return;
     setAns((prev) => ({ ...prev, [q.id]: o }));
   };
+
+  // Loading state when questions are not available
+  if (!config.questions || config.questions.length === 0) {
+    return (
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-red-600 mx-auto mb-4"></div>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">
+            Cargando Examen...
+          </h2>
+          <p className="text-gray-600">
+            Preparando las preguntas del examen.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const finish = async () => {
     try {
@@ -54,7 +154,8 @@ export default function Exam({ student, config, onDone }) {
 
       // Guardar en la base de datos
       try {
-        await examApi.guardarExamen(student.documento, resultados, tiempoUsado);
+        const newExam = await examApi.guardarExamen(student.documento, resultados, tiempoUsado);
+        setExamProgressId(newExam.examenId); // Almacena el ID del examen finalizado
         notify.push("success", "Resultados guardados correctamente");
       } catch (error) {
         console.error("Error guardando en BD:", error);
@@ -67,6 +168,8 @@ export default function Exam({ student, config, onDone }) {
       setResults(resultados);
       setFinished(true);
       notify.push("info", "Examen finalizado");
+
+      // Limpiar progreso guardado (se maneja en un useEffect separado ahora)
     } catch (error) {
       console.error("Error al finalizar examen:", error);
       notify.push("error", "Ocurrió un error al procesar los resultados");
@@ -123,13 +226,7 @@ export default function Exam({ student, config, onDone }) {
     <p><strong>Email:</strong> ${student.email}</p>
     <p><strong>Teléfono:</strong> ${student.telefono}</p>
     <p><strong>Grado:</strong> ${student.grado}</p>
-    <p><strong>Fecha:</strong> ${new Date().toLocaleDateString("es-CO", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      })}</p>
+    <p><strong>Fecha:</strong> ${formatDateForDisplay(new Date())}</p>
   </div>
   <div class="result ${results.passed ? "passed" : "failed"}">
     ${results.passed ? "✓ EXAMEN APROBADO" : "✗ EXAMEN REPROBADO"}
@@ -179,7 +276,7 @@ export default function Exam({ student, config, onDone }) {
     </tbody>
   </table>
   <div class="footer">
-    <p>© ${new Date().getFullYear()} JUANABE - Sistema de Admisión</p>
+    <p>© ${getCurrentYear()} JUANABE - Sistema de Admisión</p>
     <p>Documento generado automáticamente</p>
   </div>
   <div class="no-print" style="text-align: center; margin-top: 30px;">
@@ -210,7 +307,7 @@ export default function Exam({ student, config, onDone }) {
 
   if (finished && results) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
         {/* NUEVO: Mostrar información del estudiante */}
         <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-4 mb-6">
           <h3 className="text-lg font-semibold text-gray-700">Aspirante:</h3>
@@ -272,7 +369,10 @@ export default function Exam({ student, config, onDone }) {
             🖨️ Imprimir/Guardar PDF
           </button>
           <button
-            onClick={onDone}
+            onClick={() => {
+              onDone(); // Llamar a la función de finalización original
+              // El progreso se elimina automáticamente en un useEffect cuando finished es true
+            }}
             className="flex-1 px-6 py-3 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-700 transition font-semibold"
           >
             Finalizar
@@ -283,7 +383,7 @@ export default function Exam({ student, config, onDone }) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
+    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-6">
       <div className="flex justify-between items-center mb-6 pb-4 border-b">
         <div className="font-medium text-gray-700">
           Pregunta {i + 1} de {config.questions.length}
@@ -320,10 +420,8 @@ export default function Exam({ student, config, onDone }) {
 
       <div className="grid gap-3 mb-8">
         {q.opciones.map((opcion, k) => {
-          const textoOpcion =
-            typeof opcion === "string" ? opcion : opcion.texto;
-          const imagenOpcion =
-            typeof opcion === "object" ? opcion.imagen : null;
+          const textoOpcion = opcion?.texto || "";
+          const imagenOpcion = opcion?.imagen || null;
           const selected = ans[q.id] === textoOpcion;
 
           return (
@@ -350,7 +448,7 @@ export default function Exam({ student, config, onDone }) {
                   />
                 )}
 
-                <span className="flex-1">{textoOpcion}</span>
+                <span className="flex-1">{textoOpcion || `Opción ${k + 1}`}</span>
               </div>
             </button>
           );

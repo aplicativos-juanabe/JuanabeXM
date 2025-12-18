@@ -3,6 +3,9 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
+// Import the image normalization utility
+const { normalizeImagePath } = await import('../src/utils/imageUtils.js');
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const dbPath = join(__dirname, 'exam.db');
@@ -74,6 +77,49 @@ async function initDatabase() {
     es_correcta INTEGER NOT NULL,
     FOREIGN KEY (examen_id) REFERENCES examenes(id)
   );
+
+  CREATE TABLE IF NOT EXISTS preguntas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    grado TEXT NOT NULL,
+    area TEXT NOT NULL,
+    pregunta TEXT NOT NULL,
+    imagen_pregunta TEXT,
+    opcion1_texto TEXT,
+    opcion1_imagen TEXT,
+    opcion2_texto TEXT,
+    opcion2_imagen TEXT,
+    opcion3_texto TEXT,
+    opcion3_imagen TEXT,
+    opcion4_texto TEXT,
+    opcion4_imagen TEXT,
+    respuesta_correcta TEXT NOT NULL,
+    fecha_creacion TEXT DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TEXT DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS progreso_examen (
+    documento TEXT PRIMARY KEY NOT NULL, -- PK para que solo haya un progreso por estudiante
+    exam_id INTEGER,
+    current_question_index INTEGER NOT NULL DEFAULT 0,
+    answers_json TEXT NOT NULL DEFAULT '{}',
+    questions_json TEXT NOT NULL DEFAULT '[]', -- JSON con las preguntas asignadas
+    config_json TEXT NOT NULL DEFAULT '{}', -- JSON con la configuración del examen
+    start_time TEXT DEFAULT CURRENT_TIMESTAMP,
+    last_saved_time TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (documento) REFERENCES estudiantes(documento)
+  );
+
+  CREATE TABLE IF NOT EXISTS exam_configurations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    tiempo_limite_minutos INTEGER NOT NULL,
+    preguntas_lenguaje INTEGER NOT NULL DEFAULT 0,
+    preguntas_ingles INTEGER NOT NULL DEFAULT 0,
+    preguntas_matematicas INTEGER NOT NULL DEFAULT 0,
+    orden_aleatorio INTEGER NOT NULL DEFAULT 1, -- 1 para true, 0 para false
+    fecha_creacion TEXT DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TEXT DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
     saveDatabase();
@@ -84,6 +130,74 @@ async function initDatabase() {
       console.warn('Error ejecutando migraciones de grado:', e);
     }
 
+    // Crear configuraciones por defecto si no existen
+    try {
+      const configCount = db.prepare('SELECT COUNT(*) as count FROM exam_configurations').getAsObject().count;
+      if (configCount === 0) {
+        console.log('🔧 Creando configuraciones de examen por defecto...');
+
+        // Configuración estándar
+        db.run(
+          `INSERT INTO exam_configurations (nombre, tiempo_limite_minutos, preguntas_lenguaje, preguntas_ingles, preguntas_matematicas, orden_aleatorio)
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          ['Examen Estándar', 60, 5, 5, 5, 1]
+        );
+
+        // Configuración rápida
+        db.run(
+          `INSERT INTO exam_configurations (nombre, tiempo_limite_minutos, preguntas_lenguaje, preguntas_ingles, preguntas_matematicas, orden_aleatorio)
+           VALUES (?, ?, ?, ?, ?, ?)`,
+          ['Examen Rápido', 30, 3, 3, 3, 1]
+        );
+
+        console.log('✅ Configuraciones por defecto creadas');
+      }
+    } catch (configError) {
+      console.warn('⚠️ Error creando configuraciones por defecto:', configError);
+    }
+
+    // Crear preguntas por defecto si no existen
+    try {
+      const questionCount = db.prepare('SELECT COUNT(*) as count FROM preguntas').getAsObject().count;
+      if (questionCount === 0) {
+        console.log('🔧 Creando preguntas de ejemplo...');
+
+        // Preguntas para 3° grado
+        const preguntas3 = [
+          { grado: '3°', area: 'lenguaje', pregunta: '¿Cuál es el plural de "niño"?', opciones: ['niños', 'niñas', 'niñes'], respuesta: 'niños' },
+          { grado: '3°', area: 'lenguaje', pregunta: '¿Qué es un sustantivo?', opciones: ['Una acción', 'Un objeto', 'Una descripción'], respuesta: 'Un objeto' },
+          { grado: '3°', area: 'ingles', pregunta: 'How do you say "hola" in English?', opciones: ['Hello', 'Goodbye', 'Thank you'], respuesta: 'Hello' },
+          { grado: '3°', area: 'ingles', pregunta: 'What is the color of the sky?', opciones: ['Blue', 'Green', 'Red'], respuesta: 'Blue' },
+          { grado: '3°', area: 'matematicas', pregunta: '¿Cuánto es 2 + 3?', opciones: ['4', '5', '6'], respuesta: '5' },
+          { grado: '3°', area: 'matematicas', pregunta: '¿Cuánto es 10 - 4?', opciones: ['5', '6', '7'], respuesta: '6' },
+        ];
+
+        // Preguntas para 4° grado
+        const preguntas4 = [
+          { grado: '4°', area: 'lenguaje', pregunta: '¿Qué es un verbo?', opciones: ['Una cosa', 'Una acción', 'Un lugar'], respuesta: 'Una acción' },
+          { grado: '4°', area: 'lenguaje', pregunta: '¿Cuál es el femenino de "rey"?', opciones: ['reina', 'reyna', 'reyes'], respuesta: 'reina' },
+          { grado: '4°', area: 'ingles', pregunta: 'How do you say "adiós" in English?', opciones: ['Hello', 'Goodbye', 'Please'], respuesta: 'Goodbye' },
+          { grado: '4°', area: 'ingles', pregunta: 'What number comes after 9?', opciones: ['8', '10', '11'], respuesta: '10' },
+          { grado: '4°', area: 'matematicas', pregunta: '¿Cuánto es 3 × 4?', opciones: ['7', '12', '15'], respuesta: '12' },
+          { grado: '4°', area: 'matematicas', pregunta: '¿Cuánto es 20 ÷ 4?', opciones: ['4', '5', '6'], respuesta: '5' },
+        ];
+
+        // Insertar preguntas
+        [...preguntas3, ...preguntas4].forEach((q, index) => {
+          db.run(
+            `INSERT INTO preguntas (grado, area, pregunta, opcion1_texto, opcion2_texto, opcion3_texto, opcion4_texto, respuesta_correcta)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [q.grado, q.area, q.pregunta, q.opciones[0], q.opciones[1], q.opciones[2], q.opciones[3] || '', q.respuesta]
+          );
+        });
+
+        console.log('✅ Preguntas de ejemplo creadas');
+      }
+    } catch (questionError) {
+      console.warn('⚠️ Error creando preguntas por defecto:', questionError);
+    }
+
+    saveDatabase();
     isInitialized = true;
     console.log('✅ Base de datos inicializada correctamente');
     return db;
@@ -372,12 +486,27 @@ export const dbFunctions = {
 
     if (!examen) return null;
 
-    // Obtener todas las respuestas/preguntas del examen
-    const stmtResp = db.prepare('SELECT * FROM respuestas WHERE examen_id = ? ORDER BY id');
+    // Obtener todas las respuestas/preguntas del examen con información de imagen
+    // Usar una consulta más robusta que maneje casos donde pregunta_id puede no estar disponible
+    const stmtResp = db.prepare(`
+      SELECT
+        r.*,
+        COALESCE(p.imagen_pregunta, p2.imagen_pregunta) as imagenPregunta
+      FROM respuestas r
+      LEFT JOIN preguntas p ON r.pregunta_id = CAST(p.id AS TEXT)
+      LEFT JOIN preguntas p2 ON r.pregunta = p2.pregunta AND r.area = p2.area
+      WHERE r.examen_id = ?
+      ORDER BY r.id
+    `);
     stmtResp.bind([examenId]);
     const respuestas = [];
     while (stmtResp.step()) {
-      respuestas.push(stmtResp.getAsObject());
+      const respuesta = stmtResp.getAsObject();
+      // Normalizar la ruta de la imagen si existe
+      if (respuesta.imagenPregunta) {
+        respuesta.imagenPregunta = normalizeImagePath ? normalizeImagePath(respuesta.imagenPregunta) : respuesta.imagenPregunta;
+      }
+      respuestas.push(respuesta);
     }
     stmtResp.free();
 
@@ -420,14 +549,23 @@ export const dbFunctions = {
       const respuestas = stmt3.getAsObject().total || 0;
       stmt3.free();
 
-      return { estudiantes, examenes, respuestas };
+      const stmt4 = db.prepare('SELECT COUNT(*) as total FROM preguntas');
+      stmt4.step();
+      const preguntas = stmt4.getAsObject().total || 0;
+      stmt4.free();
+
+      const stmt5 = db.prepare('SELECT COUNT(*) as total FROM exam_configurations');
+      stmt5.step();
+      const configuraciones = stmt5.getAsObject().total || 0;
+      stmt5.free();
+
+      return { estudiantes, examenes, respuestas, preguntas, configuraciones };
     } catch (error) {
       console.error('Error obteniendo conteos:', error);
       throw error;
     }
   },
 
-  // Estadísticas generales
   async obtenerEstadisticas() {
     await ensureDB();
     const stmt = db.prepare(`
@@ -492,6 +630,364 @@ export const dbFunctions = {
       return { success: true };
     } catch (error) {
       console.error('Error eliminando estudiante:', error);
+      throw error;
+    }
+  },
+
+  // Funciones para la tabla de preguntas
+  async obtenerTodasLasPreguntas() {
+    await ensureDB();
+    const stmt = db.prepare(`SELECT * FROM preguntas ORDER BY grado, area, id`);
+    const preguntas = [];
+    while (stmt.step()) {
+      const pregunta = stmt.getAsObject();
+      // Transformar el formato de base de datos al formato esperado por el frontend
+      pregunta.opciones = [
+        { texto: pregunta.opcion1_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion1_imagen) : pregunta.opcion1_imagen || '' },
+        { texto: pregunta.opcion2_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion2_imagen) : pregunta.opcion2_imagen || '' },
+        { texto: pregunta.opcion3_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion3_imagen) : pregunta.opcion3_imagen || '' },
+        { texto: pregunta.opcion4_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion4_imagen) : pregunta.opcion4_imagen || '' },
+      ];
+      // Normalize the question image path
+      pregunta.imagenPregunta = normalizeImagePath ? normalizeImagePath(pregunta.imagen_pregunta) : pregunta.imagen_pregunta;
+      // Set the respuesta property for the frontend
+      pregunta.respuesta = pregunta.respuesta_correcta;
+      // Limpiar las propiedades individuales
+      delete pregunta.opcion1_texto;
+      delete pregunta.opcion1_imagen;
+      delete pregunta.opcion2_texto;
+      delete pregunta.opcion2_imagen;
+      delete pregunta.opcion3_texto;
+      delete pregunta.opcion3_imagen;
+      delete pregunta.opcion4_texto;
+      delete pregunta.opcion4_imagen;
+      delete pregunta.imagen_pregunta;
+      delete pregunta.respuesta_correcta;
+      preguntas.push(pregunta);
+    }
+    stmt.free();
+    return preguntas;
+  },
+
+  async obtenerPreguntasPorGrado(grado) {
+    await ensureDB();
+    const stmt = db.prepare(`SELECT * FROM preguntas WHERE grado = ? ORDER BY area, id`);
+    stmt.bind([grado]);
+    const preguntas = [];
+    while (stmt.step()) {
+      preguntas.push(stmt.getAsObject());
+    }
+    stmt.free();
+    return preguntas;
+  },
+
+  async obtenerPreguntaPorId(id) {
+    await ensureDB();
+    const stmt = db.prepare(`SELECT * FROM preguntas WHERE id = ?`);
+    stmt.bind([id]);
+    const pregunta = stmt.step() ? stmt.getAsObject() : null;
+    stmt.free();
+
+    if (pregunta) {
+      // Transformar el formato de base de datos al formato esperado por el frontend
+      pregunta.opciones = [
+        { texto: pregunta.opcion1_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion1_imagen) : pregunta.opcion1_imagen || '' },
+        { texto: pregunta.opcion2_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion2_imagen) : pregunta.opcion2_imagen || '' },
+        { texto: pregunta.opcion3_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion3_imagen) : pregunta.opcion3_imagen || '' },
+        { texto: pregunta.opcion4_texto || '', imagen: normalizeImagePath ? normalizeImagePath(pregunta.opcion4_imagen) : pregunta.opcion4_imagen || '' },
+      ];
+      // Normalize the question image path
+      pregunta.imagenPregunta = normalizeImagePath ? normalizeImagePath(pregunta.imagen_pregunta) : pregunta.imagen_pregunta;
+      // Set the respuesta property for the frontend
+      pregunta.respuesta = pregunta.respuesta_correcta;
+      // Limpiar las propiedades individuales
+      delete pregunta.opcion1_texto;
+      delete pregunta.opcion1_imagen;
+      delete pregunta.opcion2_texto;
+      delete pregunta.opcion2_imagen;
+      delete pregunta.opcion3_texto;
+      delete pregunta.opcion3_imagen;
+      delete pregunta.opcion4_texto;
+      delete pregunta.opcion4_imagen;
+      delete pregunta.imagen_pregunta;
+      delete pregunta.respuesta_correcta;
+    }
+
+    return pregunta;
+  },
+
+  async insertarPregunta(data) {
+    await ensureDB();
+    try {
+      // Asegurar que siempre haya 4 opciones (rellenar con vacíos si faltan)
+      const opciones = data.opciones || [];
+      while (opciones.length < 4) {
+        opciones.push({ texto: '', imagen: null });
+      }
+      
+      db.run(
+        `INSERT INTO preguntas (grado, area, pregunta, imagen_pregunta, opcion1_texto, opcion1_imagen, opcion2_texto, opcion2_imagen, opcion3_texto, opcion3_imagen, opcion4_texto, opcion4_imagen, respuesta_correcta)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          data.grado, data.area, data.pregunta, data.imagenPregunta || null,
+          opciones[0]?.texto || '', opciones[0]?.imagen || null,
+          opciones[1]?.texto || '', opciones[1]?.imagen || null,
+          opciones[2]?.texto || '', opciones[2]?.imagen || null,
+          opciones[3]?.texto || '', opciones[3]?.imagen || null,
+          data.respuestaCorrecta
+        ]
+      );
+      saveDatabase();
+      
+      // Obtener el ID del registro insertado usando prepare (más confiable)
+      const stmt = db.prepare('SELECT last_insert_rowid() as id');
+      stmt.step();
+      const id = stmt.getAsObject().id;
+      stmt.free();
+      
+      return { success: true, id };
+    } catch (error) {
+      console.error('Error insertando pregunta:', error);
+      throw error;
+    }
+  },
+
+  async actualizarPregunta(id, data) {
+    await ensureDB();
+    try {
+      // Asegurar que siempre haya 4 opciones (rellenar con vacíos si faltan)
+      const opciones = data.opciones || [];
+      while (opciones.length < 4) {
+        opciones.push({ texto: '', imagen: '' });
+      }
+
+      db.run(
+        `UPDATE preguntas SET grado = ?, area = ?, pregunta = ?, imagen_pregunta = ?,
+         opcion1_texto = ?, opcion1_imagen = ?, opcion2_texto = ?, opcion2_imagen = ?,
+         opcion3_texto = ?, opcion3_imagen = ?, opcion4_texto = ?, opcion4_imagen = ?,
+         respuesta_correcta = ?, fecha_actualizacion = CURRENT_TIMESTAMP
+         WHERE id = ?`,
+        [
+          data.grado, data.area, data.pregunta, data.imagenPregunta || '',
+          opciones[0]?.texto || '', opciones[0]?.imagen || '',
+          opciones[1]?.texto || '', opciones[1]?.imagen || '',
+          opciones[2]?.texto || '', opciones[2]?.imagen || '',
+          opciones[3]?.texto || '', opciones[3]?.imagen || '',
+          data.respuestaCorrecta,
+          id
+        ]
+      );
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error actualizando pregunta:', error);
+      throw error;
+    }
+  },
+
+  async eliminarPregunta(id) {
+    await ensureDB();
+    try {
+      db.run('DELETE FROM preguntas WHERE id = ?', [id]);
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error eliminando pregunta:', error);
+      throw error;
+    }
+  },
+
+  async eliminarTodasLasPreguntas() {
+    await ensureDB();
+    try {
+      db.run('DELETE FROM preguntas');
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error eliminando todas las preguntas:', error);
+      throw error;
+    }
+  },
+
+  // Funciones para guardar y recuperar el progreso del examen
+  async guardarProgresoExamen(documento, currentQuestionIndex, answersJson, questionsJson = null, configJson = null, examId = null, remainingTimeSeconds = null) {
+    await ensureDB();
+    try {
+      // Ensure we have valid JSON strings or use defaults
+      const questionsJsonStr = questionsJson ? JSON.stringify(questionsJson) : '[]';
+      const configJsonStr = configJson ? JSON.stringify(configJson) : '{}';
+      const answersJsonStr = answersJson ? JSON.stringify(answersJson) : '{}';
+
+      // UPSERT: Si existe, actualiza; si no, inserta
+      db.run(
+        `INSERT INTO progreso_examen (documento, exam_id, current_question_index, answers_json, questions_json, config_json, remaining_time_seconds, last_saved_time)
+         VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+         ON CONFLICT(documento) DO UPDATE SET
+           exam_id = excluded.exam_id,
+           current_question_index = excluded.current_question_index,
+           answers_json = excluded.answers_json,
+           questions_json = excluded.questions_json,
+           config_json = excluded.config_json,
+           remaining_time_seconds = excluded.remaining_time_seconds,
+           last_saved_time = CURRENT_TIMESTAMP;`,
+        [documento, examId, currentQuestionIndex, answersJsonStr, questionsJsonStr, configJsonStr, remainingTimeSeconds]
+      );
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error guardando progreso del examen:', error);
+      throw error;
+    }
+  },
+
+  async obtenerProgresoExamen(documento) {
+    await ensureDB();
+    const stmt = db.prepare(`SELECT * FROM progreso_examen WHERE documento = ?`);
+    stmt.bind([documento]);
+    const progreso = stmt.step() ? stmt.getAsObject() : null;
+    stmt.free();
+    return progreso;
+  },
+
+  async eliminarProgresoExamen(documento) {
+    await ensureDB();
+    try {
+      db.run('DELETE FROM progreso_examen WHERE documento = ?', [documento]);
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error eliminando progreso del examen:', error);
+      throw error;
+    }
+  },
+
+  async obtenerTodosProgresosPendientes() {
+    await ensureDB();
+    const stmt = db.prepare(`
+      SELECT p.*, e.nombre, e.apellido
+      FROM progreso_examen p
+      LEFT JOIN estudiantes e ON p.documento = e.documento
+      ORDER BY p.last_saved_time DESC
+    `);
+    const progressList = [];
+    while (stmt.step()) {
+      const progress = stmt.getAsObject();
+      // Parse JSON fields
+      try {
+        progress.questions_json = JSON.parse(progress.questions_json || '[]');
+        progress.config_json = JSON.parse(progress.config_json || '{}');
+        progress.answers_json = JSON.parse(progress.answers_json || '{}');
+      } catch (e) {
+        console.warn('Error parsing JSON for progress:', progress.documento, e);
+      }
+      progressList.push(progress);
+    }
+    stmt.free();
+    return progressList;
+  },
+
+  // Funciones para configuraciones de examen
+  async obtenerConfiguracionesExamen() {
+    await ensureDB();
+    const stmt = db.prepare('SELECT * FROM exam_configurations ORDER BY fecha_creacion DESC');
+    const configs = [];
+    while (stmt.step()) {
+      configs.push(stmt.getAsObject());
+    }
+    stmt.free();
+    return configs;
+  },
+
+  async obtenerConfiguracionExamenPorId(id) {
+    await ensureDB();
+    const stmt = db.prepare('SELECT * FROM exam_configurations WHERE id = ?');
+    stmt.bind([id]);
+    const config = stmt.step() ? stmt.getAsObject() : null;
+    stmt.free();
+    return config;
+  },
+
+  async crearConfiguracionExamen(data) {
+    await ensureDB();
+    try {
+      // Validar y convertir tipos de datos
+      const nombre = String(data.nombre || '').trim();
+      if (!nombre) {
+        throw new Error('El nombre de la configuración es obligatorio');
+      }
+      
+      const tiempo_limite_minutos = parseInt(data.tiempo_limite_minutos, 10);
+      const preguntas_lenguaje = parseInt(data.preguntas_lenguaje, 10) || 0;
+      const preguntas_ingles = parseInt(data.preguntas_ingles, 10) || 0;
+      const preguntas_matematicas = parseInt(data.preguntas_matematicas, 10) || 0;
+      const orden_aleatorio = data.orden_aleatorio === 1 || data.orden_aleatorio === true ? 1 : 0;
+
+      if (isNaN(tiempo_limite_minutos) || tiempo_limite_minutos <= 0) {
+        throw new Error('El tiempo límite debe ser un número positivo');
+      }
+
+      db.run(
+        `INSERT INTO exam_configurations (nombre, tiempo_limite_minutos, preguntas_lenguaje, preguntas_ingles, preguntas_matematicas, orden_aleatorio)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [nombre, tiempo_limite_minutos, preguntas_lenguaje, preguntas_ingles, preguntas_matematicas, orden_aleatorio]
+      );
+      saveDatabase();
+
+      // Obtener el ID del registro insertado usando prepare (más confiable)
+      const stmt = db.prepare('SELECT last_insert_rowid() as id');
+      stmt.step();
+      const id = stmt.getAsObject().id;
+      stmt.free();
+
+      return { success: true, id };
+    } catch (error) {
+      console.error('Error creando configuración de examen:', error);
+      throw error;
+    }
+  },
+
+  async actualizarConfiguracionExamen(id, data) {
+    await ensureDB();
+    try {
+      // Validar y convertir tipos de datos
+      const nombre = String(data.nombre || '').trim();
+      if (!nombre) {
+        throw new Error('El nombre de la configuración es obligatorio');
+      }
+      
+      const tiempo_limite_minutos = parseInt(data.tiempo_limite_minutos, 10);
+      const preguntas_lenguaje = parseInt(data.preguntas_lenguaje, 10) || 0;
+      const preguntas_ingles = parseInt(data.preguntas_ingles, 10) || 0;
+      const preguntas_matematicas = parseInt(data.preguntas_matematicas, 10) || 0;
+      const orden_aleatorio = data.orden_aleatorio === 1 || data.orden_aleatorio === true ? 1 : 0;
+
+      if (isNaN(tiempo_limite_minutos) || tiempo_limite_minutos <= 0) {
+        throw new Error('El tiempo límite debe ser un número positivo');
+      }
+
+      db.run(
+        `UPDATE exam_configurations SET
+         nombre = ?, tiempo_limite_minutos = ?, preguntas_lenguaje = ?, preguntas_ingles = ?,
+         preguntas_matematicas = ?, orden_aleatorio = ?, fecha_actualizacion = CURRENT_TIMESTAMP
+         WHERE id = ?`,
+        [nombre, tiempo_limite_minutos, preguntas_lenguaje, preguntas_ingles, preguntas_matematicas, orden_aleatorio, id]
+      );
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error actualizando configuración de examen:', error);
+      throw error;
+    }
+  },
+
+  async eliminarConfiguracionExamen(id) {
+    await ensureDB();
+    try {
+      db.run('DELETE FROM exam_configurations WHERE id = ?', [id]);
+      saveDatabase();
+      return { success: true };
+    } catch (error) {
+      console.error('Error eliminando configuración de examen:', error);
       throw error;
     }
   }

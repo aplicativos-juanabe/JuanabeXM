@@ -17,7 +17,7 @@ function ImageModal({ src, alt, onClose }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 backdrop-blur-md bg-white bg-opacity-80 rounded-3xl z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
       <button

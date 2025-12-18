@@ -1,64 +1,50 @@
 import { Upload } from "lucide-react";
 import { useNotification } from "../hooks/useNotification.js";
-import { parseCSV } from "../utils/csvParser.js";
-import { normalizeImagePath } from '../utils/imageUtils.js';
+import { examApi } from "../api/examApi"; // Importar examApi
 
 export default function UploadCSV({ onLoad }) {
   const notify = useNotification();
 
-  const handle = async (e) => {
-    const f = e.target.files?.[0];
-    if (!f) return;
+  const handleUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
 
     try {
-      const rows = parseCSV(await f.text());
-      const questions = {};
-
-      rows.slice(1).forEach((r) => {
-        if (r.length < 13) {
-          console.warn('Fila con formato incorrecto:', r);
-          return;
-        }
-        
-        const [g, a, p, imgP, o1, imgO1, o2, imgO2, o3, imgO3, o4, imgO4, res] = r;
-        
-        const area = a
-          .trim()
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/[^a-z]/g, "");
-
-        if (!questions[g]) questions[g] = {};
-        if (!questions[g][area]) questions[g][area] = [];
-
-        questions[g][area].push({
-          id: `${g}_${area}_${questions[g][area].length + 1}`,
-          pregunta: p,
-          imagenPregunta: normalizeImagePath(imgP),
-          opciones: [
-            { texto: o1, imagen: normalizeImagePath(imgO1) },
-            { texto: o2, imagen: normalizeImagePath(imgO2) },
-            { texto: o3, imagen: normalizeImagePath(imgO3) },
-            { texto: o4, imagen: normalizeImagePath(imgO4) }
-          ],
-          respuesta: res,
-        });
+      notify.push("info", "Subiendo archivo CSV... Esto puede tardar unos segundos.");
+      const response = await fetch('/api/upload-questions', {
+        method: 'POST',
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+        body: formData,
       });
 
-      onLoad(questions);
-      notify.push("success", "Banco de preguntas cargado correctamente");
+      const data = await response.json();
+
+      if (!response.ok) {
+        const errorMsg = data.details ? data.details.join("; ") : data.error || "Error desconocido";
+        throw new Error(errorMsg);
+      }
+
+      notify.push("success", `Se cargaron ${data.insertedCount} preguntas correctamente.`);
+      onLoad(); // Cargar datos actualizados en AdminPanel
     } catch (error) {
-      notify.push("error", "Error al cargar el archivo CSV");
+      notify.push("error", `Error al subir el archivo CSV: ${error.message}`);
       console.error(error);
     }
-  };
 
+    // Limpiar el input file
+    e.target.value = null;
+  };
+// disabled and style none para que no se pueda subir el archivo CSV
   return (
-    <label className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded cursor-pointer hover:bg-red-700 transition">
+    <label disabled={true} style={{ display: 'none' }} className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded cursor-pointer hover:bg-red-700 transition">
       <Upload size={18} />
       <span>Cargar Preguntas</span>
-      <input type="file" className="hidden" accept=".csv" onChange={handle} />
+      <input type="file" className="hidden" accept=".csv" onChange={handleUpload} />
     </label>
   );
 }

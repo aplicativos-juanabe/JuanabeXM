@@ -156,7 +156,7 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 5°,Inglés,"¿Cuál es el pasado de “eat”?",img/eat.webp,Ate,,Eated,,Eaten,,Eat,,Ate
 5°,Inglés,"¿Cuál es el pasado de “play”?",img/play.webp,Played,,Plaid,,Playes,,Playen,,Played
 5°,Inglés,"¿Cuál es el plural correcto de “child”?",img/children.webp,Children,,Childs,,Childes,,Childrens,,Children
-5°,Inglés,"¿Cuál es el sinónimo de “big”?",Large,,Tiny,,Short,,Thin,,Large
+5°,Inglés,"¿Cuál es el sinónimo de “big”?",,Large,,Tiny,,Short,,Thin,,Large
 5°,Inglés,"¿Cuál es la forma correcta?",img/house_big.webp,My house is bigger than yours.,,My house is more big than yours.,,My house bigger than yours.,,My house is big than yours,,My house is bigger than yours.
 5°,Inglés,"¿Cuál es la forma negativa de “They are happy”?",img/happy2.webp,They are not happy,,They not happy,,They aren’t happy.,,They don’t are happy,,They aren’t happy.
 5°,Inglés,"¿Cuál es la palabra en Inglés para “descansar”?",img/rest.webp,Rest,,Sleep,,Stop,,Stay,,Rest
@@ -176,10 +176,10 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 5°,Inglés,"¿Cómo se dice “tormenta” en Inglés?",img/storm.webp,Storm,,Cloud,,Rain,,Thunder,,Storm
 5°,Inglés,"¿Qué significa “She is reading a book”?",img/reading.webp,Ella lee un libro ahora mismo,,Ella leerá un libro,,Ella leyó un libro,,Ella tiene un libro,,Ella lee un libro ahora mismo
 5°,Inglés,"¿Qué significa “There are two cats”?",img/cats2.webp,Hay dos gatos,,Son dos gatos,,Veo dos gatos,,Tengo dos gatos,,Hay dos gatos
-5°,Inglés,"¿Qué significa “always”?",Siempre,,A veces,,Nunca,,Rápidamente,,Siempre
+5°,Inglés,"¿Qué significa “always”?",,Siempre,,A veces,,Nunca,,Rápidamente,,Siempre
 5°,Inglés,"¿Qué significa “dangerous”?",img/danger.webp,Peligroso,,Aburrido,,Feliz,,Divertido,,Peligroso
 5°,Inglés,"¿Qué significa “finish your homework”?",img/homework.webp,Termina tu tarea,,Trae tu tarea,,Comienza tu tarea,,Guarda tu tarea,,Termina tu tarea
-5°,Inglés,"¿Qué significa “sometimes”?",A veces,,Siempre,,Nunca,,Pronto,,A veces
+5°,Inglés,"¿Qué significa “sometimes”?",,A veces,,Siempre,,Nunca,,Pronto,,A veces
 5°,Inglés,"¿Qué significa “usually”?",img/calendar.webp,Usualmente,,Nunca,,Rápidamente,,Ayer,,Usualmente
 5°,Inglés,"¿Qué significa “windy”?",img/windy.webp,Ventoso,,Lluvioso,,Nevado,,Caluroso,,Ventoso
 5°,Lenguaje,Elige el efecto de la siguiente causa: "“Su padre le pegaba frecuentemente.”",img/texto7.webp,La niña se hizo desobediente.,,La niña no podía vender sus fósforos..,,No causo ningún efecto.,,La niña temía regresar a su casa.,,La niña temía regresar a su casa.
@@ -188,23 +188,23 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 5°,Lenguaje,Selecciona la oración en pretérito.,,Mañana iremos al parque.,,Ella canta muy bien.,,Ayer visitamos el museo.,,Hoy estoy cansado.,,Ayer visitamos el museo.
 5°,Lenguaje,Son diferentes tipos de adverbios.,,"Cortos, largos, medianos.",,"Personales, impersonales, propios.".,,"De tiempo, de modo, de lugar.",,"Dónde, cuándo, cómo",,"De tiempo, de modo, de lugar."
 5°,Lenguaje,Son ejemplos de adjetivos.,img/texto5.webp,"Fuerte, grande, rígido.",,"Amasar, formar, secar.".,,"Recipiente, agua, barro.",,"Madera, palito, bolitas.",,"Fuerte, grande, rígido."
-5°,Lenguaje,Son ejemplos de siglas.,,"Blvd. Av. Cjn. Col.",,"SSA, UNAM, IMSS.",,"Norte, Sur, Este, Oeste",,"Izquierda, derecha.",,"SSA, UNAM, IMSS"
+5°,Lenguaje,Son ejemplos de siglas.,,"Blvd. Av. Cjn. Col.",,"SSA, UNAM, IMSS.",,"Norte, Sur, Este, Oeste",,"Izquierda, derecha.",,"SSA, UNAM, IMSS."
 5°,Lenguaje,Son verbos utilizados en el instructivo.,img/texto5.webp,"Poco, mientras, manos.",,"Barro, agua, madera.".,,"Incorporar, dividir, formar.",,"Bolitas del mismo tamaño.",,"Incorporar, dividir, formar."
-5°,Lenguaje,Un conflicto en un texto narrativo es:,img/texto7.webp,El momento más difícil.,,La situación que se busca resolver..,,Los problemas de los lectores.,,Los errores de escritura.,,La situación que se busca resolver.
+5°,Lenguaje,Un conflicto en un texto narrativo es:,img/texto7.webp,El momento más difícil.,,La situación que se busca resolver.,,Los problemas de los lectores.,,Los errores de escritura.,,La situación que se busca resolver.
 5°,Lenguaje,¿Cuál es el significado implícito del siguiente refrán?,img/texto4.webp,No se puede enderezar el tronco de los árboles.,,No debemos dejar que un árbol crezca..,,"Alguien que se desvíe de lo correcto en sus primeras etapas de vida, no podrá corregirse posteriormente.",,Nunca enderezar un árbol torcido.,,"Alguien que se desvíe de lo correcto en sus primeras etapas de vida, no podrá corregirse posteriormente."
 5°,Lenguaje,¿Cuál es la frase en sentido figurado de la siguiente adivinanza?,img/texto2.webp,Es la reina de los mares.,,Su dentadura es muy buena..,,Por no ir nunca vacía.,,Dicen que va llena.,,Es la reina de los mares.
 5°,Lenguaje,¿Cuál es la idea principal del siguiente texto?,img/texto8.webp,"Los perros necesitan cuidados diarios para mantenerse sanos.",,"Los perros comen mucho.",,"Los perros son animales peligrosos.",,"Los perros pueden vivir en casas.",,"Los perros necesitan cuidados diarios para mantenerse sanos."
 5°,Lenguaje,¿Cuál es un recurso literario usado en poesías?,img/texto11.webp,Las instrucciones.,,La metáfora.,,El reglamento.,,La ficha técnica.,,La metáfora.
 5°,Lenguaje,¿Cuál oración está escrita en discurso indirecto?,img/texto14.webp,"María dijo: “Hoy no quiero salir”.",,"María dijo que hoy no quería salir.",,"María: Hoy no quiero salir.",,"—Hoy no quiero salir —dijo María.",,"María dijo que hoy no quería salir."
 5°,Lenguaje,¿Cómo quedaría la instrucción 3 en modo imperativo?,img/texto5.webp,Forma una pieza y sigue amansando.,,Formada una pieza se sigue amasando..,,"Formando una pieza, seguir amansando.",,Formará una pieza y seguirá amasando.,,Forma una pieza y sigue amansando.
-5°,Lenguaje,¿Que siglas se puede encontrar en el formulario siguiente?,img/formulario.webp,Tel.,,SESA.,,Foto,,COLOR,,SESA
+5°,Lenguaje,¿Que siglas se puede encontrar en el formulario siguiente?,img/formulario.webp,Tel.,,SESA,,Foto,,COLOR,,SESA
 5°,Lenguaje,¿Quién es el personaje principal del cuento?,img/texto7.webp,La niña que vendía fósforos.,,La abuelita..,,Dos casas.,,Los fósforos.,,La niña que vendía fósforos.
 5°,Lenguaje,¿Qué elemento corresponde a un texto narrativo?,img/texto13.webp,Los versículos.,,Los diálogos.,,Las fórmulas.,,Las instrucciones.,,Los diálogos.
 5°,Lenguaje,¿Qué función cumple el título en un texto?,img/texto9.webp,Acompañar una imagen.,,Repetir la información del autor.,,Presentar el tema del texto.,,Servir como cierre del escrito.,,Presentar el tema del texto.
 5°,Lenguaje,¿Qué pregunta responde el adverbio de lugar?,img/texto12.webp,¿Cuándo?,,¿Cómo?,,¿Dónde?,,¿Por qué?,,¿Dónde?
 5°,Lenguaje,¿Qué relación existe entre estas dos oraciones?: “El cielo estaba oscuro. Pronto comenzó a llover.”,,Causa y efecto.,,Comparación.,,Contraste.,,Definición.,,Causa y efecto.
 5°,Lenguaje,¿Qué sentimiento transmite la lectura del texto?,img/texto6.webp,Amor,,Miedo..,,Buen humor.,,Molestia.,,Amor
-5°,Lenguaje,¿Qué tema trata el texto siguiente?,img/texto6.webp,Amor.,,Alegría..,,Tristeza.,,Enojo.,,Alegría.
+5°,Lenguaje,¿Qué tema trata el texto siguiente?,img/texto6.webp,Amor.,,Alegría.,,Tristeza.,,Enojo.,,Alegría.
 5°,Lenguaje,¿Qué tipo de documento es el siguiente?,img/formulario.webp,Un formulario.,,Un examen..,,Un acta de nacimiento.,,Una boleta de calificación.,,Un formulario.
 5°,Lenguaje,¿Qué tipo de juego de palabras es el siguiente texto?,img/texto1.webp,Un chiste.,,Una adivinanza.,,Un trabalenguas.,,Una leyenda.,,Un trabalenguas.
 5°,Lenguaje,¿Qué tipo de texto es el siguiente?,img/texto3.webp,Una adivinanza.,,Un refrán.,,Un chiste.,,Un trabalenguas.,,Un refrán.
@@ -225,8 +225,8 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 5°,Matemáticas,¿Cuál de las siguientes figuras representa la fracción 1/3?,,Figura a,img/fraccion5.webp,Figura b,img/fraccion6.webp,Figura c,img/fraccion7.webp,Figura d,img/fraccion8.webp,Figura a
 5°,Matemáticas,¿Cuál de las siguientes figuras tiene mayor perímetro?,,Figura a,img/perimetro_a.webp,Figura b,img/perimetro_b.webp,Figura c,img/perimetro_c.webp,Figura d,img/perimetro_d.webp,Figura c
 5°,Matemáticas,¿Cuál de las siguientes figuras tiene un área mayor?,,Figura a,img/area1.webp,Figura b,img/area2.webp,Figura c,img/area3.webp,Figura d,img/area4.webp,Figura a
-5°,Matemáticas,¿Cuál es el resultado de sumar las siguientes fracciones?,img/suma_fraccion.webp,10/10,,3/15,,7/10,,/8/12,,10/10
-5°,Matemáticas,¿Cuál es el área de la siguiente cartulina rectangular?,img/area_rectangulo.webp,230 cm2.,,250 cm2.,,280 cm2.,,210 cm2.,,280 cm2
+5°,Matemáticas,¿Cuál es el resultado de sumar las siguientes fracciones?,img/suma_fraccion.webp,10/10,,3/15,,7/10,,8/12,,10/10
+5°,Matemáticas,¿Cuál es el área de la siguiente cartulina rectangular?,img/area_rectangulo.webp,230 cm2.,,250 cm2.,,280 cm2.,,210 cm2.,,280 cm2.
 5°,Matemáticas,¿Cuántas botellas pequeñas podemos llenar con la botella grande?,img/jugo_botella.webp,4 botellas.,,8 botellas.,,6 botellas.,,10 botellas.,,8 botellas.
 5°,Matemáticas,¿Cuántas cajas se necesitan para completar un cubo?,img/cajas.webp,12 cajas.,,6 cajas.,,24 cajas.,,18 cajas.,,24 cajas.
 5°,Matemáticas,¿Cuántos grados mide un círculo?,,360°,,180°,,90°,,45°,,360°
@@ -335,7 +335,7 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 7°,Lenguaje,El texto que Antonio hace para referirse a la finca de su abuelito es:,img/texto16.webp,Descriptivo,,Narrativo,,Argumentativo,,Informativo,,Descriptivo
 7°,Lenguaje,En la oración: “Las flores del jardín se marchitaron.” La palabra “jardín” es una palabra:,,Esdrújula,,Sobresdrújula,,Aguda,,Grave,,Aguda
 7°,Lenguaje,En la oración: “Sofía tiene muchos amigos.” La palabra “tiene” es:,,Conjunción,,Adjetivo,,Sustantivo,,Verbo,,Verbo
-7°,Lenguaje,En la oración: “Todos son inocentes.” La palabra “inocentes” es:,,Adjetivo.,,Verbo.,,Sustantivo.,,Artículo.,,Adjetivo
+7°,Lenguaje,En la oración: “Todos son inocentes.” La palabra “inocentes” es:,,Adjetivo.,,Verbo.,,Sustantivo.,,Artículo.,,Adjetivo.
 7°,Lenguaje,En la palabra subrayada en el anuncio se pronuncian dos vocales seguidas en una emisión de voz esto se denomina:,img/texto15.webp,Hiato,,Diptongo,,Triptongo,,Unión de vocales,,Diptongo
 7°,Lenguaje,Es uno de los usos principales de la coma,,"Enumerar varios elementos, cualidades o características",,Cambiar de párrafo,,Escribir mayúscula después de ella,,Enumeración de párrafos,,"Enumerar varios elementos, cualidades o características"
 7°,Lenguaje,La escritura correcta de las palabras con errores es:,,Buena y buscando,,Colombia y tuyo,,Vuena y estás,,Travaja y tuyo,,Colombia y tuyo
@@ -499,7 +499,7 @@ Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,O
 9°,Matemáticas,Factorización de trinomios cuadrados perfectos. Factoriza x² - 6x + 9:,,(x - 3)²,,(x + 3)²,,(y - 3)²,,(x + 6)²,,(x - 3)²
 9°,Matemáticas,Factorización por agrupación de términos. Factoriza 2xy + 4x + 3y + 6:,,(2x + 6)(y + 2),,(2x + 4)(3y + 2),,(2x + 3)(y + 2),,(6x + 2)(y + 6),,(2x + 3)(y + 2)
 9°,Matemáticas,Factorización por diferencia de cuadrados. Factoriza x² - 16:,,(x - 4)(x + 4),,(x - 25)(x + 25),,(x - 8)(x + 8),,(x + 4)(x + 12),,(x - 4)(x + 4)
-9°,Matemáticas,Operaciones con números naturales ¿Cuál es el resultado de 75 ÷ (5 + 10)?,,5,,3,,15,,10,,
+9°,Matemáticas,Operaciones con números naturales ¿Cuál es el resultado de 75 ÷ (5 + 10)?,,5,,3,,15,,10,,5
 9°,Matemáticas,Operaciones con polinomios. Multiplica (x + 2)(x - 3):,,x² - x – 6,,x² + 7x – 12,,x² + 5x + 12,,x² + 2x – 12,,x² - x – 6
 9°,Matemáticas,Operaciones entre polinomios. Simplifica (3x² - 5x + 2) + (2x² + 4x - 1).,,5x² - x + 1,,5x² - 9x + 3,,5x⁴ - 9x + 5,,5x² - x - 1,,5x² - x + 1
 9°,Matemáticas,Producto de binomios. Multiplica (x + 3)(x - 4):,,x² - x - 12,,x² + 7x – 12,,x² + x – 12,,x² + 7x + 12,,x² - x - 12

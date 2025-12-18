@@ -1,0 +1,359 @@
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { dbFunctions } from './database.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Esperar a que la base de datos se inicialice
+async function waitForDB() {
+  // La base de datos se inicializa automáticamente al importar el módulo
+  // pero podemos asegurarnos llamando a una función que requiere DB
+  try {
+    const conteos = await dbFunctions.obtenerConteos();
+    console.log('✅ Base de datos inicializada');
+    return true;
+  } catch (error) {
+    console.error('❌ Error inicializando base de datos:', error);
+    console.error('Stack:', error.stack);
+    throw error;
+  }
+}
+
+// Función para parsear CSV manualmente
+function parseCSV(text) {
+  const rows = [];
+  let cur = "", row = [], inq = false;
+  
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], n = text[i + 1];
+    
+    if (c === '"') {
+      if (inq && n === '"') {
+        cur += '"';
+        i++;
+        continue;
+      }
+      inq = !inq;
+    } else if (c === "," && !inq) {
+      row.push(cur);
+      cur = "";
+    } else if ((c === "\n" || (c === "\r" && n === "\n")) && !inq) {
+      if (c === "\r") i++;
+      row.push(cur);
+      rows.push(row);
+      row = [];
+      cur = "";
+    } else {
+      cur += c;
+    }
+  }
+  
+  if (cur !== "" || row.length) {
+    row.push(cur);
+    rows.push(row);
+  }
+
+  return rows.map((r) => r.map((c) => c.trim().replace(/^"|"$/g, "")));
+}
+
+// Normalizar nombre de área
+function normalizeArea(area) {
+  if (!area) return '';
+  return area
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/['\u0300-\u036f]/g, "")
+    .replace(/[^a-z]/g, "");
+}
+
+// Normalizar grado
+function normalizeGrade(raw) {
+  if (!raw) return '';
+  let s = String(raw).trim();
+  if (!s) return '';
+  
+  // Buscar número en la cadena
+  const m = s.match(/(\d{1,2})/);
+  if (m) return `${m[1]}°`;
+  
+  return s;
+}
+
+async function seedQuestions() {
+  try {
+    // Esperar a que la base de datos se inicialice
+    console.log('🔄 Inicializando base de datos...');
+    await waitForDB();
+    
+    console.log('🔄 Iniciando importación de preguntas desde CSV...');
+    
+    // Leer el archivo CSV
+    const csvPath = join(__dirname, '..', 'public', 'preguntas.csv');
+    console.log(`📂 Leyendo archivo: ${csvPath}`);
+    
+    // Verificar que el archivo existe y leerlo
+    let csvContent;
+    try {
+      csvContent = readFileSync(csvPath, 'utf-8');
+      if (!csvContent || csvContent.trim().length === 0) {
+        throw new Error('El archivo CSV está vacío');
+      }
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        throw new Error(`No se encontró el archivo CSV en: ${csvPath}`);
+      }
+      throw error;
+    }
+    
+    const rows = parseCSV(csvContent);
+    
+    if (rows.length < 2) {
+      throw new Error('El archivo CSV está vacío o no tiene datos');
+    }
+    
+    // Obtener encabezados
+    const headers = rows[0].map(h => h.trim());
+    console.log('📋 Encabezados encontrados:', headers);
+    
+    // Mapear índices de columnas (buscando variaciones de nombres)
+    const headerMap = {
+      grado: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'grado' || lower === 'grade';
+      }),
+      area: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'area' || lower === 'área';
+      }),
+      pregunta: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'pregunta' || lower === 'question';
+      }),
+      imagenPregunta: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('imagenpregunta') || lower.includes('imagepregunta') || lower === 'imagenpregunta';
+      }),
+      opcion1: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'opcion1' || lower === 'option1' || lower === 'opción1';
+      }),
+      imagenOpcion1: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('imagenopcion1') || lower.includes('imageopcion1') || lower.includes('imagenopción1');
+      }),
+      opcion2: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'opcion2' || lower === 'option2' || lower === 'opción2';
+      }),
+      imagenOpcion2: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('imagenopcion2') || lower.includes('imageopcion2') || lower.includes('imagenopción2');
+      }),
+      opcion3: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'opcion3' || lower === 'option3' || lower === 'opción3';
+      }),
+      imagenOpcion3: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('imagenopcion3') || lower.includes('imageopcion3') || lower.includes('imagenopción3');
+      }),
+      opcion4: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'opcion4' || lower === 'option4' || lower === 'opción4';
+      }),
+      imagenOpcion4: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower.includes('imagenopcion4') || lower.includes('imageopcion4') || lower.includes('imagenopción4');
+      }),
+      respuesta: headers.findIndex(h => {
+        const lower = h.toLowerCase();
+        return lower === 'respuesta' || lower === 'answer' || lower === 'respuestacorrecta';
+      }),
+    };
+    
+    // Validar que se encontraron todos los encabezados necesarios
+    const requiredHeaders = ['grado', 'area', 'pregunta', 'respuesta'];
+    for (const header of requiredHeaders) {
+      if (headerMap[header] === -1) {
+        throw new Error(`No se encontró la columna requerida: ${header}`);
+      }
+    }
+    
+    console.log('✅ Encabezados mapeados correctamente');
+    
+    // Procesar filas de datos
+    const questionsToInsert = [];
+    const errors = [];
+    
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      
+      // Saltar filas vacías
+      if (row.every(cell => !cell || cell.trim() === '')) {
+        continue;
+      }
+      
+      const grado = normalizeGrade(row[headerMap.grado] || '');
+      const area = normalizeArea(row[headerMap.area] || '');
+      const pregunta = (row[headerMap.pregunta] || '').trim();
+      const imagenPregunta = (row[headerMap.imagenPregunta] || '').trim();
+      const respuesta = (row[headerMap.respuesta] || '').trim();
+      
+      // Validar campos obligatorios
+      if (!grado || !area || !pregunta || !respuesta) {
+        errors.push(`Fila ${i + 1}: Faltan campos obligatorios (grado: "${grado}", area: "${area}", pregunta: "${pregunta ? 'OK' : 'FALTA'}", respuesta: "${respuesta ? 'OK' : 'FALTA'}")`);
+        continue;
+      }
+      
+      // Construir opciones (asegurar que siempre haya 4)
+      const opciones = [];
+      for (let j = 1; j <= 4; j++) {
+        const texto = (row[headerMap[`opcion${j}`]] || '').trim();
+        const imagen = (row[headerMap[`imagenOpcion${j}`]] || '').trim();
+        // Incluir todas las opciones, incluso si están vacías (se rellenarán en insertarPregunta)
+        opciones.push({ 
+          texto: texto || '', 
+          imagen: imagen || null 
+        });
+      }
+      
+      // Validar que haya al menos una opción con texto
+      const opcionesConTexto = opciones.filter(opt => opt.texto && opt.texto.trim() !== '');
+      if (opcionesConTexto.length === 0) {
+        errors.push(`Fila ${i + 1}: No se encontraron opciones con texto para la pregunta`);
+        continue;
+      }
+      
+      // Validar que la respuesta correcta esté en las opciones (solo las que tienen texto)
+      const opcionesTexto = opcionesConTexto.map(opt => opt.texto);
+      if (!opcionesTexto.includes(respuesta)) {
+        errors.push(`Fila ${i + 1}: La respuesta correcta "${respuesta}" no coincide con ninguna opción. Opciones: ${opcionesTexto.join(', ')}`);
+        continue;
+      }
+      
+      // Preparar pregunta para insertar
+      questionsToInsert.push({
+        grado,
+        area,
+        pregunta,
+        imagenPregunta: imagenPregunta || null,
+        opciones,
+        respuestaCorrecta: respuesta
+      });
+    }
+    
+    console.log(`📊 Preguntas válidas encontradas: ${questionsToInsert.length}`);
+    if (errors.length > 0) {
+      console.warn(`⚠️ Errores encontrados: ${errors.length}`);
+      errors.slice(0, 10).forEach(err => console.warn(`  - ${err}`));
+      if (errors.length > 10) {
+        console.warn(`  ... y ${errors.length - 10} errores más`);
+      }
+    }
+    
+    if (questionsToInsert.length === 0) {
+      throw new Error('No se encontraron preguntas válidas para insertar');
+    }
+    
+    // Eliminar todas las preguntas existentes
+    console.log('🗑️ Eliminando preguntas existentes...');
+    await dbFunctions.eliminarTodasLasPreguntas();
+    
+    // Insertar preguntas
+    console.log('💾 Insertando preguntas en la base de datos...');
+    let inserted = 0;
+    let failed = 0;
+    
+    for (const q of questionsToInsert) {
+      try {
+        await dbFunctions.insertarPregunta(q);
+        inserted++;
+        if (inserted % 50 === 0) {
+          console.log(`  ✅ Insertadas ${inserted} preguntas...`);
+        }
+      } catch (error) {
+        console.error(`  ❌ Error insertando pregunta (${q.grado}, ${q.area}):`, error.message);
+        failed++;
+      }
+    }
+    
+    console.log(`✅ Preguntas insertadas: ${inserted}`);
+    if (failed > 0) {
+      console.warn(`⚠️ Preguntas fallidas: ${failed}`);
+    }
+    
+    // Crear configuraciones de examen
+    console.log('⚙️ Creando configuraciones de examen...');
+
+    const configs = await dbFunctions.obtenerConfiguracionesExamen();
+
+    // Configuración de 40 minutos
+    const config40 = configs.find(c => c.nombre.toLowerCase() === 'examen 40 minutos');
+    if (config40) {
+      await dbFunctions.actualizarConfiguracionExamen(config40.id, {
+        nombre: 'Examen 40 minutos',
+        tiempo_limite_minutos: 40,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 40 minutos" actualizada');
+    } else {
+      await dbFunctions.crearConfiguracionExamen({
+        nombre: 'Examen 40 minutos',
+        tiempo_limite_minutos: 40,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 40 minutos" creada');
+    }
+
+    // Configuración de 60 minutos
+    const config60 = configs.find(c => c.nombre.toLowerCase() === 'examen 60 minutos');
+    if (config60) {
+      await dbFunctions.actualizarConfiguracionExamen(config60.id, {
+        nombre: 'Examen 60 minutos',
+        tiempo_limite_minutos: 60,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 60 minutos" actualizada');
+    } else {
+      await dbFunctions.crearConfiguracionExamen({
+        nombre: 'Examen 60 minutos',
+        tiempo_limite_minutos: 60,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 60 minutos" creada');
+    }
+    
+    console.log('🎉 ¡Proceso completado exitosamente!');
+    
+  } catch (error) {
+    console.error('❌ Error durante el proceso de seeding:', error);
+    console.error('Stack:', error.stack);
+    process.exit(1);
+  }
+}
+
+// Ejecutar el script
+seedQuestions()
+  .then(() => {
+    console.log('✅ Script finalizado');
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error('❌ Error fatal:', error);
+    process.exit(1);
+  });

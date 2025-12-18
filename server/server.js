@@ -4,6 +4,12 @@ import { dbFunctions } from "./database.js";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import multer from "multer";
+import * as XLSX from "xlsx";
+import fs from "fs";
+
+// Importar utilidades de fecha del cliente (necesitamos acceso a ellas)
+const { formatDateForDisplay, getCurrentYear } = await import('../src/utils/dateUtils.js');
 
 // Cargar variables de entorno
 const __filename = fileURLToPath(import.meta.url);
@@ -18,6 +24,12 @@ const ADMIN_API_KEY =
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Configuración de Multer para la subida de archivos CSV
+const upload = multer({
+  dest: "./uploads/", // Directorio temporal para los archivos subidos
+  limits: { fileSize: 5 * 1024 * 1024 }, // Límite de 5MB
+});
 
 // Middleware para validar API key en endpoints administrativos
 function requireAdminKey(req, res, next) {
@@ -250,6 +262,328 @@ app.delete("/api/examen/:id", async (req, res) => {
   }
 });
 
+// Endpoints para gestión de preguntas (ADMINISTRACIÓN)
+app.get("/api/preguntas", async (req, res) => {
+  try {
+    const preguntas = await dbFunctions.obtenerTodasLasPreguntas();
+    res.json(preguntas);
+  } catch (error) {
+    console.error("Error obteniendo todas las preguntas:", error);
+    res
+      .status(500)
+      .json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.get("/api/preguntas/:id", requireAdminKey, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const pregunta = await dbFunctions.obtenerPreguntaPorId(parseInt(id));
+    if (!pregunta) {
+      return res.status(404).json({ error: "Pregunta no encontrada" });
+    }
+    res.json(pregunta);
+  } catch (error) {
+    console.error("Error obteniendo pregunta por ID:", error);
+    res
+      .status(500)
+      .json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.post("/api/preguntas", requireAdminKey, async (req, res) => {
+  try {
+    const result = await dbFunctions.insertarPregunta(req.body);
+    res.status(201).json(result);
+  } catch (error) {
+    console.error("Error insertando pregunta:", error);
+    res
+      .status(500)
+      .json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.put("/api/preguntas/:id", requireAdminKey, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await dbFunctions.actualizarPregunta(parseInt(id), req.body);
+    res.json(result);
+  } catch (error) {
+    console.error("Error actualizando pregunta:", error);
+    res
+      .status(500)
+      .json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.delete("/api/preguntas/:id", requireAdminKey, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await dbFunctions.eliminarPregunta(parseInt(id));
+    res.json(result);
+  } catch (error) {
+    console.error("Error eliminando pregunta:", error);
+    res
+      .status(500)
+      .json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+// Endpoint para subir preguntas desde CSV (ADMINISTRACIÓN)
+app.post("/api/upload-questions", requireAdminKey, upload.single('file'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No se proporcionó ningún archivo CSV." });
+    }
+
+    const filePath = req.file.path;
+    const workbook = XLSX.readFile(filePath);
+    const sheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[sheetName];
+    const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+    // Validar el formato del CSV (mínimo de columnas)
+    if (!rows || rows.length < 2) { // Incluye encabezados y al menos una fila de datos
+      return res.status(400).json({ error: "El archivo CSV está vacío o tiene un formato incorrecto." });
+    }
+
+    const headers = rows[0];
+    const expectedHeaders = ["grado", "area", "pregunta", "imagenPregunta", "opcion1_texto", "opcion1_imagen", "opcion2_texto", "opcion2_imagen", "opcion3_texto", "opcion3_imagen", "opcion4_texto", "opcion4_imagen", "respuestaCorrecta"];
+
+    // Convertir a minúsculas y comparar para ser más flexible
+    const lowerCaseHeaders = headers.map(h => String(h).toLowerCase());
+
+    // Mapear nombres de columnas del CSV a nombres esperados
+    const columnMapping = {
+      'grado': 'grado',
+      'area': 'area',
+      'pregunta': 'pregunta',
+      'imagenpregunta': 'imagenPregunta',
+      'opcion1': 'opcion1_texto',
+      'imagenopcion1': 'opcion1_imagen',
+      'opcion2': 'opcion2_texto',
+      'imagenopcion2': 'opcion2_imagen',
+      'opcion3': 'opcion3_texto',
+      'imagenopcion3': 'opcion3_imagen',
+      'opcion4': 'opcion4_texto',
+      'imagenopcion4': 'opcion4_imagen',
+      'respuesta': 'respuestaCorrecta'
+    };
+
+    const missingHeaders = expectedHeaders.filter(eh => {
+      const csvColumn = Object.keys(columnMapping).find(key => columnMapping[key] === eh);
+      return !lowerCaseHeaders.includes(csvColumn);
+    });
+
+    if (missingHeaders.length > 0) {
+      return res.status(400).json({
+        error: "Faltan columnas obligatorias en el CSV",
+        missing: missingHeaders,
+        expected: expectedHeaders,
+        found: headers
+      });
+    }
+
+    const questionsToInsert = [];
+    const errors = [];
+
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      const question = {};
+      let isValidRow = true;
+
+      expectedHeaders.forEach((expectedHeader) => {
+        // Encontrar el índice de la columna CSV que corresponde al header esperado
+        const csvColumn = Object.keys(columnMapping).find(key => columnMapping[key] === expectedHeader);
+        const headerIndex = lowerCaseHeaders.indexOf(csvColumn);
+        if (headerIndex !== -1) {
+          question[expectedHeader] = row[headerIndex] !== undefined ? String(row[headerIndex]).trim() : "";
+        } else {
+          question[expectedHeader] = "";
+        }
+      });
+
+      // Validación de datos individuales de la pregunta
+      if (!question.grado || !question.area || !question.pregunta || !question.respuestaCorrecta) {
+        errors.push(`Fila ${i + 1}: Campos obligatorios (grado, area, pregunta, respuestaCorrecta) vacíos.`);
+        isValidRow = false;
+      }
+
+      // Construir opciones
+      question.opciones = [];
+      for (let j = 1; j <= 4; j++) {
+        const opcionTexto = question[`opcion${j}_texto`];
+        const opcionImagen = question[`opcion${j}_imagen`];
+        if (opcionTexto || opcionImagen) {
+          question.opciones.push({ texto: opcionTexto, imagen: opcionImagen });
+        }
+      }
+
+      if (question.opciones.length === 0) {
+        errors.push(`Fila ${i + 1}: No se encontraron opciones para la pregunta.`);
+        isValidRow = false;
+      } else {
+          // Validar que la respuesta correcta sea una de las opciones de texto
+          const opcionesTexto = question.opciones.map(opt => opt.texto);
+          if (!opcionesTexto.includes(question.respuestaCorrecta)) {
+              errors.push(`Fila ${i + 1}: La respuesta correcta '${question.respuestaCorrecta}' no coincide con ninguna opción de texto.`);
+              isValidRow = false;
+          }
+      }
+
+      // Eliminar las propiedades individuales de opción/imagen ya que se agrupan en 'opciones'
+      expectedHeaders.forEach(header => {
+        if (header.startsWith("opcion") || header.startsWith("respuestaCorrecta")) {
+            delete question[header];
+        }
+      });
+      // Asegurarse de que el campo de respuesta correcta vuelva a ser incluido después de la limpieza
+      const respuestaIndex = lowerCaseHeaders.indexOf("respuesta");
+      question.respuestaCorrecta = respuestaIndex !== -1 && row[respuestaIndex] !== undefined ? String(row[respuestaIndex]).trim() : "";
+
+      if (isValidRow) {
+        questionsToInsert.push(question);
+      }
+    }
+
+    if (errors.length > 0) {
+      return res.status(400).json({ error: "Errores de validación en el CSV", details: errors });
+    }
+
+    if (questionsToInsert.length === 0) {
+      return res.status(400).json({ error: "No se encontraron preguntas válidas para insertar." });
+    }
+
+    // Eliminar todas las preguntas existentes antes de insertar las nuevas
+    await dbFunctions.eliminarTodasLasPreguntas(); // Necesitarás crear esta función en database.js
+
+    for (const q of questionsToInsert) {
+      await dbFunctions.insertarPregunta(q);
+    }
+
+    res.json({ success: true, insertedCount: questionsToInsert.length });
+
+  } catch (error) {
+    console.error("Error subiendo CSV de preguntas:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  } finally {
+    // Asegurarse de eliminar el archivo temporal
+    if (req.file && fs.existsSync(req.file.path)) {
+      fs.unlinkSync(req.file.path);
+    }
+  }
+});
+
+// Endpoints para gestión de configuraciones de examen (ADMINISTRACIÓN)
+app.get("/api/examen/configuraciones", async (req, res) => {
+  try {
+    const configs = await dbFunctions.obtenerConfiguracionesExamen();
+    res.json(configs);
+  } catch (error) {
+    console.error("Error obteniendo configuraciones de examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.get("/api/examen/configuraciones/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const config = await dbFunctions.obtenerConfiguracionExamenPorId(parseInt(id));
+    if (!config) {
+      return res.status(404).json({ error: "Configuración no encontrada" });
+    }
+    res.json(config);
+  } catch (error) {
+    console.error("Error obteniendo configuración de examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.post("/api/examen/configuraciones", requireAdminKey, async (req, res) => {
+  try {
+    console.log("📝 Datos recibidos para crear configuración:", req.body);
+    const result = await dbFunctions.crearConfiguracionExamen(req.body);
+    console.log("✅ Configuración creada exitosamente:", result);
+    res.status(201).json(result);
+  } catch (error) {
+    console.error("❌ Error creando configuración de examen:", error);
+    console.error("Stack:", error.stack);
+    const errorMessage = error.message || "Error interno del servidor";
+    res.status(500).json({ error: "Error creando configuración de examen", details: errorMessage });
+  }
+});
+
+app.put("/api/examen/configuraciones/:id", requireAdminKey, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await dbFunctions.actualizarConfiguracionExamen(parseInt(id), req.body);
+    res.json(result);
+  } catch (error) {
+    console.error("Error actualizando configuración de examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.delete("/api/examen/configuraciones/:id", requireAdminKey, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await dbFunctions.eliminarConfiguracionExamen(parseInt(id));
+    res.json(result);
+  } catch (error) {
+    console.error("Error eliminando configuración de examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+// Endpoints para guardar/recuperar/eliminar progreso del examen
+app.post("/api/examen/progreso", async (req, res) => {
+  try {
+    const { documento, currentQuestionIndex, answersJson, questionsJson, configJson, examId, remainingTimeSeconds } = req.body;
+    // No protegemos este endpoint con requireAdminKey para que el estudiante pueda guardar su progreso
+    await dbFunctions.guardarProgresoExamen(documento, currentQuestionIndex, answersJson, questionsJson, configJson, examId, remainingTimeSeconds);
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Error guardando progreso del examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.get("/api/examen/progreso/:documento", async (req, res) => {
+  try {
+    const { documento } = req.params;
+    const progreso = await dbFunctions.obtenerProgresoExamen(documento);
+    if (!progreso) {
+      return res.status(404).json({ error: "Progreso no encontrado" });
+    }
+    res.json(progreso);
+  } catch (error) {
+    console.error("Error obteniendo progreso del examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+app.delete("/api/examen/progreso/:documento", requireAdminKey, async (req, res) => {
+  try {
+    const { documento } = req.params;
+    await dbFunctions.eliminarProgresoExamen(documento);
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Error eliminando progreso del examen:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
+// Endpoint para obtener todos los progresos pendientes (ADMINISTRACIÓN)
+app.get("/api/examen/progreso-pendiente", requireAdminKey, async (req, res) => {
+  try {
+    const progressList = await dbFunctions.obtenerTodosProgresosPendientes();
+    res.json(progressList);
+  } catch (error) {
+    console.error("Error obteniendo progresos pendientes:", error);
+    res.status(500).json({ error: "Error interno del servidor", details: error.message });
+  }
+});
+
 // Eliminar estudiante y todos sus exámenes
 app.delete("/api/estudiante/:documento", async (req, res) => {
   try {
@@ -312,7 +646,13 @@ app.get("/api/examen/:id/pdf", async (req, res) => {
           return `<tr>
         <td>${idx + 1}</td>
         <td>${r.area.charAt(0).toUpperCase() + r.area.slice(1)}</td>
-        <td>${r.pregunta.replace(/"/g, "&quot;").replace(/'/g, "&#39;")}</td>
+        <td>
+          ${r.pregunta.replace(/"/g, "&quot;").replace(/'/g, "&#39;")}
+          ${r.imagenPregunta
+            ? `<br><small style="color: #666;">📷 Con imagen</small>`
+            : ""
+            }
+        </td>
         <td>${r.respuesta_usuario
               .replace(/"/g, "&quot;")
               .replace(/'/g, "&#39;")}</td>
@@ -379,36 +719,11 @@ app.get("/api/examen/:id/pdf", async (req, res) => {
 </div>
 
   <div class="student-info">
-      <p><strong>Aspirante:</strong> <p style="text-transform: uppercase;">${resultado.nombre} ${resultado.apellido
-      }</p></p>
-      <p><strong>Documento:</strong> <p style="text-transform: uppercase;">${resultado.documento}</p></p>
-      <p><strong>Grado:</strong> <p style="text-transform: uppercase;">${displayGrade}</p></p>
-      <p><strong>Fecha del Examen:</strong> ${(() => {
-        // Parsear correctamente el timestamp de SQLite (formato 'YYYY-MM-DD HH:MM:SS')
-        try {
-          const ts = resultado.fecha_examen;
-          let fechaObj;
-          if (
-            typeof ts === "string" &&
-            /\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/.test(ts)
-          ) {
-            // Interpretar como UTC (SQLite CURRENT_TIMESTAMP es UTC) y convertir a objeto Date
-            fechaObj = new Date(ts.replace(" ", "T") + "Z");
-          } else {
-            fechaObj = new Date(ts);
-          }
-          return fechaObj.toLocaleString("es-CO", {
-            timeZone: "America/Bogota",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          });
-        } catch (e) {
-          return String(resultado.fecha_examen || "N/A");
-        }
-      })()}</p>
+      <p><strong>Aspirante:</strong> <span style="text-transform: uppercase;">${resultado.nombre} ${resultado.apellido
+      }</span></p>
+      <p><strong>Documento:</strong> ${resultado.documento}</p>
+      <p><strong>Grado:</strong> ${displayGrade}</p>
+      <p><strong>Fecha del Examen:</strong> ${formatDateForDisplay(resultado.fecha_examen)}</p>
     </div>
     <div class="result ${resultado.aprobado ? "passed" : "failed"}">
       ${resultado.aprobado ? "✓ EXAMEN APROBADO" : "✗ EXAMEN REPROBADO"}
@@ -457,11 +772,9 @@ app.get("/api/examen/:id/pdf", async (req, res) => {
       }
   
   <div class="footer">
-    <p>© ${new Date().getFullYear()} JUANABE - Sistema de Admisión</p>
+    <p>© ${getCurrentYear()} JUANABE - Sistema de Admisión</p>
     <p>Documento generado automáticamente</p>
-    <p>Regenerado el: ${new Date().toLocaleString("es-CO", {
-        timeZone: "America/Bogota",
-      })}</p>
+    <p>Regenerado el: ${formatDateForDisplay(new Date())}</p>
   </div>
   <div class="no-print" style="text-align: center; margin-top: 30px;">
     <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
@@ -477,6 +790,19 @@ app.get("/api/examen/:id/pdf", async (req, res) => {
       .status(500)
       .json({ error: "Error interno del servidor", details: error.message });
   }
+});
+
+// <<< SERVIR FRONTEND COMPILADO >>>
+
+// Ruta real a la carpeta dist (está afuera de /server)
+const DIST_PATH = path.join(__dirname, "..", "dist");
+
+// Servir estáticos
+app.use(express.static(DIST_PATH));
+
+// Manejar cualquier ruta que no sea API
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(DIST_PATH, "index.html"));
 });
 
 const server = app.listen(PORT, "0.0.0.0", () => {

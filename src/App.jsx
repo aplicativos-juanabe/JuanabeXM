@@ -4,7 +4,7 @@ import UploadCSV from "./components/UploadCSV";
 import StudentRegistration from "./components/StudentRegistration";
 import Exam from "./components/Exam";
 import AdminPanel from "./components/AdminPanel";
-import { parseCSV } from "./utils/csvParser";
+import { examApi } from "./api/examApi";
 
 export default function App() {
   const [questionBank, setQuestionBank] = useState({});
@@ -20,79 +20,87 @@ export default function App() {
   const [examConfig, setExamConfig] = useState(null);
   const [showAdmin, setShowAdmin] = useState(false);
 
-  // useEffect para cargar preguntas (sin cambios)
-  useEffect(() => {
-    const loadDefaultQuestions = async () => {
+  // Función para cargar preguntas
+  const loadQuestions = async () => {
       try {
-        const response = await fetch("/preguntas.csv");
-        const text = await response.text();
+      console.log("🔄 Cargando preguntas desde API...");
+      const apiQuestions = await examApi.obtenerTodasLasPreguntas();
+      console.log("📦 Preguntas recibidas:", apiQuestions.length);
 
-        const rows = parseCSV(text);
         const questions = {};
 
         // helper to normalize grade keys and image paths
         const { normalizeGrade } = await import('./utils/gradeUtils.js');
         const { normalizeImagePath } = await import('./utils/imageUtils.js');
 
-        rows.slice(1).forEach((r) => {
-          if (r.length < 13) return;
-
-          const [g, a, p, imgP, o1, imgO1, o2, imgO2, o3, imgO3, o4, imgO4, res] = r;
-
-          const area = a
+      apiQuestions.forEach((q) => {
+        const gradeKey = normalizeGrade(q.grado);
+        const area = q.area
             .trim()
             .toLowerCase()
             .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
+          .replace(/['\u0300-\u036f]/g, "")
             .replace(/[^a-z]/g, "");
-
-          // Normalizar la clave del grado (ej: '3ro' -> '3°')
-          const gradeKey = normalizeGrade(g);
 
           if (!questions[gradeKey]) questions[gradeKey] = {};
           if (!questions[gradeKey][area]) questions[gradeKey][area] = [];
 
+          // The API already returns questions with properly formatted opciones
+          // Just normalize the image paths
+          const questionWithNormalizedImages = {
+            ...q,
+            imagenPregunta: normalizeImagePath(q.imagenPregunta),
+            opciones: q.opciones.map(op => ({
+              ...op,
+              imagen: normalizeImagePath(op.imagen)
+            }))
+          };
 
-          questions[gradeKey][area].push({
-            id: `${gradeKey}_${area}_${questions[gradeKey][area].length + 1}`,
-            pregunta: p,
-            imagenPregunta: normalizeImagePath(imgP),
-            opciones: [
-              { texto: o1, imagen: normalizeImagePath(imgO1) },
-              { texto: o2, imagen: normalizeImagePath(imgO2) },
-              { texto: o3, imagen: normalizeImagePath(imgO3) },
-              { texto: o4, imagen: normalizeImagePath(imgO4) },
-            ],
-            respuesta: res,
-          });
+          questions[gradeKey][area].push(questionWithNormalizedImages);
         });
 
         setQuestionBank(questions);
         console.log(
-          "✅ Preguntas cargadas automáticamente:",
+          "✅ Preguntas procesadas. Grados disponibles:",
           Object.keys(questions)
         );
+        console.log("📊 Detalles por grado:", Object.entries(questions).map(([grado, areas]) => ({
+          grado,
+          areas: Object.keys(areas),
+          total: Object.values(areas).reduce((sum, arr) => sum + arr.length, 0)
+        })));
       } catch (error) {
-        console.warn("⚠️ No se encontró preguntas.csv en /public/", error);
+      console.error("❌ Error cargando preguntas desde la API:", error);
+      console.error("Detalles del error:", error.message);
       } finally {
         setLoading(false);
       }
     };
 
-    loadDefaultQuestions();
+  // useEffect para cargar preguntas al inicio
+  useEffect(() => {
+    loadQuestions();
   }, []);
 
   // Detectar atajo de teclado para admin (Ctrl + Alt + A)
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.ctrlKey && e.altKey && e.key === "a") {
-        setShowAdmin(!showAdmin);
+        console.log("🎯 Combinación Ctrl+Alt+A detectada");
+        e.preventDefault();
+        setShowAdmin(prev => {
+          const newValue = !prev;
+          console.log("🔄 showAdmin cambiado a:", newValue);
+          return newValue;
+        });
       }
     };
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [showAdmin]);
+  }, []); // Sin dependencias para evitar re-registro
+
+  console.log("🔍 Estado actual - showAdmin:", showAdmin, "loading:", loading);
 
   if (loading) {
     return (
@@ -112,7 +120,7 @@ export default function App() {
     return (
       <NotificationProvider>
         <div className="min-h-screen bg-gray-100">
-          <header className="bg-red-700 text-white px-6 py-4 flex justify-between items-center">
+          <header className="bg-juanabe-rojo text-white px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold">
               Panel de Administración - JUANABE
             </h1>
@@ -128,11 +136,11 @@ export default function App() {
       </NotificationProvider>
     );
   }
-
+  // establecer imagen de fondo bg-[url('/background.jpg')]
   return (
     <NotificationProvider>
-      <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-red-100">
-        <header className="bg-white shadow-md px-6 py-5 flex justify-between items-center">
+      <div className="min-h-screen  bg-cover bg-center bg-no-repeat bg-gradient-to-br from-green-100 via-white to-red-100">
+        <header className="bg-white header-shadow px-6 py-5 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             {/* Espacio para el logo */}
             <div className="flex-shrink-0">
@@ -161,7 +169,16 @@ export default function App() {
                 ✅ {Object.keys(questionBank).length} grado(s) cargado(s)
               </div>
             )}
-            <UploadCSV onLoad={setQuestionBank} />
+            <button
+              onClick={() => setShowAdmin(true)}
+              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 text-sm"
+              // Ocultar el boton de admin
+              disabled={true}
+              style={{ display: 'none' }}
+            >
+              Admin
+            </button>
+            <UploadCSV onLoad={loadQuestions} />
           </div>
         </header>
 
@@ -192,7 +209,7 @@ export default function App() {
           )}
         </main>
 
-        <footer className="text-center py-6 text-gray-600 text-sm">
+        <footer className="absolute bottom-0 w-full text-center py-6 text-gray-600 text-sm">
           © {new Date().getFullYear()} JUANABE – Sistema de Admisión
         </footer>
       </div>

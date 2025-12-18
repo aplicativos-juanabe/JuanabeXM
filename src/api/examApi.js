@@ -170,5 +170,256 @@ export const examApi = {
       console.error('❌ Error en regenerarPDF:', error);
       throw error;
     }
+  },
+
+  // Funciones para la gestión de preguntas (ADMINISTRACIÓN)
+  async obtenerTodasLasPreguntas() {
+    console.log('📚 Obteniendo todas las preguntas...');
+    try {
+      const response = await fetch(`${API_URL}/preguntas`);
+      if (!response.ok) throw new Error('Error obteniendo preguntas');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en obtenerTodasLasPreguntas:', error);
+      throw error;
+    }
+  },
+
+  async obtenerPreguntaPorId(id) {
+    console.log('🔎 Obteniendo pregunta por ID:', id);
+    try {
+      const response = await fetch(`${API_URL}/preguntas/${id}`, {
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+      });
+      if (!response.ok) throw new Error('Error obteniendo pregunta');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en obtenerPreguntaPorId:', error);
+      throw error;
+    }
+  },
+
+  async crearPregunta(preguntaData) {
+    console.log('➕ Creando pregunta:', preguntaData);
+    try {
+      const response = await fetch(`${API_URL}/preguntas`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+        body: JSON.stringify(preguntaData),
+      });
+      if (!response.ok) throw new Error('Error creando pregunta');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en crearPregunta:', error);
+      throw error;
+    }
+  },
+
+  async actualizarPregunta(id, preguntaData) {
+    console.log('✏️ Actualizando pregunta:', id, preguntaData);
+    try {
+      const response = await fetch(`${API_URL}/preguntas/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+        body: JSON.stringify(preguntaData),
+      });
+      if (!response.ok) throw new Error('Error actualizando pregunta');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en actualizarPregunta:', error);
+      throw error;
+    }
+  },
+
+  async eliminarPregunta(id) {
+    console.log('🗑️ Eliminando pregunta:', id);
+    try {
+      const response = await fetch(`${API_URL}/preguntas/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+      });
+      if (!response.ok) throw new Error('Error eliminando pregunta');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en eliminarPregunta:', error);
+      throw error;
+    }
+  },
+
+  // Funciones para el progreso del examen
+  async guardarProgresoExamen(documento, currentQuestionIndex, answers, questions = null, config = null, examId = null, remainingTimeSeconds = null) {
+    console.log('💾 Guardando progreso del examen para:', documento);
+    try {
+      const response = await fetch(`${API_URL}/examen/progreso`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          documento,
+          currentQuestionIndex,
+          answersJson: answers, // Pass object directly, let database handle JSON.stringify
+          questionsJson: questions, // Pass object directly
+          configJson: config, // Pass object directly
+          examId,
+          remainingTimeSeconds
+        }),
+      });
+      if (!response.ok) throw new Error('Error guardando progreso del examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en guardarProgresoExamen:', error);
+      throw error;
+    }
+  },
+
+  async obtenerProgresoExamen(documento) {
+    console.log('📈 Obteniendo progreso del examen para:', documento);
+    try {
+      const response = await fetch(`${API_URL}/examen/progreso/${documento}`);
+      if (!response.ok) {
+        if (response.status === 404) return null; // No hay progreso guardado
+        throw new Error('Error obteniendo progreso del examen');
+      }
+      const data = await response.json();
+      return { ...data, answersJson: JSON.parse(data.answers_json) }; // Parsear JSON de respuestas
+    } catch (error) {
+      console.error('❌ Error en obtenerProgresoExamen:', error);
+      throw error;
+    }
+  },
+
+  async eliminarProgresoExamen(documento) {
+    console.log('🗑️ Eliminando progreso del examen para:', documento);
+    try {
+      const response = await fetch(`${API_URL}/examen/progreso/${documento}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+      });
+      if (!response.ok) throw new Error('Error eliminando progreso del examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en eliminarProgresoExamen:', error);
+      throw error;
+    }
+  },
+
+  async obtenerTodosProgresosPendientes() {
+    console.log('📊 Obteniendo todos los progresos pendientes...');
+    try {
+      const response = await fetch(`${API_URL}/examen/progreso-pendiente`, {
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+      });
+      if (!response.ok) throw new Error('Error obteniendo progresos pendientes');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en obtenerTodosProgresosPendientes:', error);
+      throw error;
+    }
+  },
+
+  // Funciones para la gestión de configuraciones de examen (ADMINISTRACIÓN)
+  async obtenerConfiguracionesExamen() {
+    console.log('⚙️ Obteniendo configuraciones de examen...');
+    try {
+      const response = await fetch(`${API_URL}/examen/configuraciones`);
+      if (!response.ok) throw new Error('Error obteniendo configuraciones de examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en obtenerConfiguracionesExamen:', error);
+      throw error;
+    }
+  },
+
+  async obtenerConfiguracionExamenPorId(id) {
+    console.log('⚙️ Obteniendo configuración de examen por ID:', id);
+    try {
+      const response = await fetch(`${API_URL}/examen/configuraciones/${id}`);
+      if (!response.ok) throw new Error('Error obteniendo configuración de examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en obtenerConfiguracionExamenPorId:', error);
+      throw error;
+    }
+  },
+
+  async crearConfiguracionExamen(configData) {
+    console.log('➕ Creando configuración de examen:', configData);
+    try {
+      const response = await fetch(`${API_URL}/examen/configuraciones`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+        body: JSON.stringify(configData),
+      });
+      if (!response.ok) throw new Error('Error creando configuración de examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en crearConfiguracionExamen:', error);
+      throw error;
+    }
+  },
+
+  async actualizarConfiguracionExamen(id, configData) {
+    console.log('✏️ Actualizando configuración de examen:', id, configData);
+    try {
+      const response = await fetch(`${API_URL}/examen/configuraciones/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+        body: JSON.stringify(configData),
+      });
+      if (!response.ok) throw new Error('Error actualizando configuración de examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en actualizarConfiguracionExamen:', error);
+      throw error;
+    }
+  },
+
+  async eliminarConfiguracionExamen(id) {
+    console.log('🗑️ Eliminando configuración de examen:', id);
+    try {
+      const response = await fetch(`${API_URL}/examen/configuraciones/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-key': localStorage.getItem('admin-key') || '',
+        },
+      });
+      if (!response.ok) throw new Error('Error eliminando configuración de examen');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('❌ Error en eliminarConfiguracionExamen:', error);
+      throw error;
+    }
   }
 };
