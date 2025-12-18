@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "vite",
     "client": "vite",
     "server": "node server/server.js",
-    "build": "vite build",
+    "build": "npx vite build",
     "preview": "vite preview",
     "seed": "node server/seed-questions.js"
   },
