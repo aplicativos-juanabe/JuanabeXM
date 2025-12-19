@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 // Import the image normalization utility
-const { normalizeImagePath } = await import('../src/utils/imageUtils.js');
+const { normalizeImagePath } = await import('./utils/imageUtils.js');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

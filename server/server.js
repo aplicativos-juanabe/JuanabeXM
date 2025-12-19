@@ -9,7 +9,7 @@ import * as XLSX from "xlsx";
 import fs from "fs";
 
 // Importar utilidades de fecha del cliente (necesitamos acceso a ellas)
-const { formatDateForDisplay, getCurrentYear } = await import('../src/utils/dateUtils.js');
+const { formatDateForDisplay, getCurrentYear } = await import('./utils/dateUtils.js');
 
 // Cargar variables de entorno
 const __filename = fileURLToPath(import.meta.url);
