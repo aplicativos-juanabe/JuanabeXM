@@ -1,33 +1,30 @@
 import express from "express";
 import cors from "cors";
 import { dbFunctions } from "./database.js";
-import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
-import multer from "multer";
-import * as XLSX from "xlsx";
-import fs from "fs";
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Importar utilidades de fecha del cliente (necesitamos acceso a ellas)
-const { formatDateForDisplay, getCurrentYear } = await import('./utils/dateUtils.js');
+dotenv.config();
 
-// Cargar variables de entorno
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
-const app = express();
 const PORT = process.env.PORT || 3001;
-const ADMIN_API_KEY =
-  process.env.ADMIN_API_KEY || "admin_key_change_me_in_production";
+const NODE_ENV = process.env.NODE_ENV || 'development';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY || 'changeme';
 
 // Middleware
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://tu-frontend.vercel.app"
-    ],
+    origin: (origin, callback) => {
+      const allowedOrigins = FRONTEND_URL.split(',').map(url => url.trim());
+      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+        return callback(null, true);
+      }
+      return callback(new Error('CORS not allowed'));
+    },
     credentials: true
   })
 );
@@ -39,13 +36,11 @@ const upload = multer({
   limits: { fileSize: 2 * 1024 * 1024 }, // Límite de 5MB
 });
 
-// Middleware para validar API key en endpoints administrativos
+// Admin key middleware
 function requireAdminKey(req, res, next) {
-  const apiKey = req.headers["x-admin-key"];
-  if (!apiKey || apiKey !== ADMIN_API_KEY) {
-    return res
-      .status(403)
-      .json({ error: "Acceso denegado. API key inválida o ausente." });
+  const key = req.headers['x-admin-key'] || req.query.admin_key;
+  if (!key || key !== ADMIN_API_KEY) {
+    return res.status(403).json({ error: 'Acceso denegado. API key inválida o ausente.' });
   }
   next();
 }
