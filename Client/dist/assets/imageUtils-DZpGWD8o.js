@@ -1,0 +1,1 @@
+function r(e){if(e===null||typeof e>"u")return null;let t=String(e).trim();if(!t)return null;if(t=t.replace(/^"|"$/g,""),t=t.replace(/\\/g,"/").replace(/\uFEFF/g,"").trim(),/^\.?\/?img\//i.test(t)){const i=t.match(/^\.?\/?img\/(.*)$/i);i&&(t=`/img/${i[1]}`)}return!/^(https?:\/\/|\/|img\/)/i.test(t)&&/\.[a-zA-Z]{2,5}$/.test(t)&&(t="/img/"+t),t}export{r as normalizeImagePath};

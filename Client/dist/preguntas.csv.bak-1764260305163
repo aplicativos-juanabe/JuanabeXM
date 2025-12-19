@@ -1,0 +1,669 @@
+Grado,Area,Pregunta,ImagenPregunta,Opcion1,ImagenOpcion1,Opcion2,ImagenOpcion2,Opcion3,ImagenOpcion3,Opcion4,ImagenOpcion4,Respuesta
+3°,Inglés,"Cuál es el color de una manzana roja?",img/apple.png,Red,,Blue,,Green,,Black,,Red
+3°,Inglés,"Cuál es la Oración correcta.",img/amiga.png,She is my friend.,,He are my friend.,,They is my friend.,,I am my friend.,,She is my friend.
+3°,Inglés,"Cuál es la Pregunta correcta.",img/name.png,What is your name?,,Where are you?,,How you are?,,When is your name?,,What is your name?
+3°,Inglés,"Cuál es la palabra en Inglés para “casa”?",img/casa.png,House,,Car,,Tree,,Boat,,House
+3°,Inglés,"Cuál es la palabra en Inglés para “comer”?",img/eat.png,Eat,,Run,,Jump,,Sleep,,Eat
+3°,Inglés,"Cuál es la palabra en Inglés para “cuaderno”?",img/notebook.png,Notebook,,Desk,,Ruler,,Bag,,Notebook
+3°,Inglés,"Cuál es la palabra en Inglés para “familia”?",img/family2.png,Family,,School,,Street,,Garden,,Family
+3°,Inglés,"Cuál es la palabra en Inglés para “gato”?",img/gato.png,Dog,,Cat,,Bird,,Fish,,Cat
+3°,Inglés,"Cuál es la palabra en Inglés para “libro”?",img/book.png,Chair,,Table,,Book,,Pencil,,Book
+3°,Inglés,"Cuál es la palabra en Inglés para “maestro(a)”?",img/teacher.png,Teacher,,Student,,Doctor,,Driver,,Teacher
+3°,Inglés,"Cuál es la palabra en Inglés para “mesa”?",img/table.png,Table,,Chair,,Window,,Door,,Table
+3°,Inglés,"Cuál es la palabra en Inglés para “niño”?",img/boy.png,Boy,,Girl,,Baby,,Man,,Boy
+3°,Inglés,"Cuál es la palabra en Inglés para “perro”?",img/dog.png,Dog,,Cat,,Fish,,Bird,,Dog
+3°,Inglés,"Cuál es la palabra en Inglés para “zapato”?",img/shoes.png,Shoe,,Hat,,Shirt,,Ball,,Shoe
+3°,Inglés,"Cuál es la respuesta correcta a: “What color is the sun?”",img/sun.png,Yellow,,Pink,,Blue,,Purple,,Yellow
+3°,Inglés,"Cuál es la respuesta correcta para: “How old are you?”",img/ocho.png,I am fine.,,I am 8 years old.,,I like pizza.,,I live in a house.,,I am 8 years old.
+3°,Inglés,"Cuál es la respuesta correcta para: “Where do you live?”",img/house.png,I live in a house.,,I am 10 years old.,,I like ice cream.,,I have a dog.,,I live in a house.
+3°,Inglés,"Cuál es la traducción correcta de “Good morning”?",img/morning.png,Buenos días,,Buenas noches,,Buenas tardes,,Hola,,Buenos días
+3°,Inglés,"Cuál es la traducción correcta de “I am happy”?",img/happy.png,Yo soy feliz,,Yo estoy enojado,,Yo tengo frío,,Yo soy alto,,Yo soy feliz
+3°,Inglés,"Cuál es la traducción correcta de “Thank you”?",img/thankyou.png,Adiós,,Gracias,,Hola,,Por favor,,Gracias
+3°,Inglés,"Cuál es la traducción correcta de “Where are you?”",img/where.png,Dónde estás?,,Cuántos años tienes?,,Dónde vives?,,Qué haces?,,Dónde estás?
+3°,Inglés,"En Inglés ¿cuál es color del cielo?",img/sky.png,Blue,,Green,,Red,,Yellow,,Blue
+3°,Inglés,"Qué fruta es “banana”?",img/banana.png,Banana,,Manzana,,Pera,,Uva,,Banana
+3°,Inglés,"Qué significa “blue”?",img/blue.png,Azul,,Verde,,Rojo,,Negro,,Azul
+3°,Inglés,"Selecciona la oración correcta.",img/family.png,This is my mother.,,This are my mother.,,These is my mother.,,That am my mother.,,This is my mother.
+3°,Lenguaje,"Completa los versos con las palabras que riman: Anita la araña viajaba en _____ usando un vestido de puro _____",img/araña.png,"barco, oro",,"moto, hilo",,"avión, algodón",,"bicicleta, retazo",,"avión, algodón"
+3°,Lenguaje,"Completa los versos con las palabras que riman: Naranja dulce, limón _____ dame un abrazo que yo te _____",img/limon.png,"partido, pido",,"acido, canto",,"carro, barco",,"manzana, aguacate",,"partido, pido"
+3°,Lenguaje,"Elige la frase escrita en discurso directo.",img/plan_ratones.png,"“Cierto día los ratones se reunieron para idear un plan”",,"“– Esto tiene que terminar. ¿Alguien tiene algún plan?”",,"“Celebraron con aplausos el nuevo plan”",,"“Estaban hartos de vivir huyendo”",,"“– Esto tiene que terminar. ¿Alguien tiene algún plan?”"
+3°,Lenguaje,"Selecciona la oración que está escrita correctamente.",img/gato_juega.png,"el gato juega en el patio.",,"El gato juega en el patio.",,"El Gato Juega En El Patio.",,"EL GATO JUEGA EN EL PATIO.",,"El gato juega en el patio."
+3°,Lenguaje,"¿Cuál de estas palabras es una onomatopeya?",,Perro,,Miau,,Gato,,Pez,,Miau
+3°,Lenguaje,"¿Cuál de estas palabras está escrita correctamente?",img/vacaciones.png,Vacasión,,Vacación,,Vacasion,,Vacasióm,,Vacación
+3°,Lenguaje,"¿Cuál de las siguientes palabras es un adjetivo?",,Correr,,Mesa,,Bonito,,Río,,Bonito
+3°,Lenguaje,"¿Cuál era el plan de los ratones para saber siempre dónde está el gato?",img/plan_ratones.png,Hacer guardia para vigilar por turnos,,Poner una cámara de vigilancia,,Amarrarle un cascabel al cuello,,Poner trampas para gatos,,Amarrarle un cascabel al cuello
+3°,Lenguaje,"¿Cuál es el antónimo de “grande”?",,Pequeño,,Alto,,Ancho,,Largo,,Pequeño
+3°,Lenguaje,"¿Cuál es el antónimo de “triste”?",img/tristeza.png,Alegre,,Hambriento,,Cansado,,Aburrido,,Alegre
+3°,Lenguaje,"¿Cuál es el diminutivo de “flor”?",img/flor.png,florcita,,floresta,,florero,,florón,,florcita
+3°,Lenguaje,"¿Cuál es el plural de “lápiz”?",img/lapices.png,Lápices,,Lápizes,,Lápizs,,Lápizces,,Lápices
+3°,Lenguaje,"¿Cuál es el sinónimo de “ayudar”?",img/ayudar.png,Abandonar,,Apoyar,,Olvidar,,Quitar,,Apoyar
+3°,Lenguaje,"¿Cuál es el sinónimo de “caminar”?",img/caminar.png,Dormir,,Andar,,Saltar,,Correr,,Andar
+3°,Lenguaje,"¿Cuál es el sinónimo de “feliz”?",,Contento,,Triste,,Enojado,,Cansado,,Contento
+3°,Lenguaje,"¿En qué material puedes encontrar información sobre cómo nacen las mariposas?",img/mariposa.png,En un libro de cuentos,,En un libro de poesía.,,En un libro informativo.,,En el periódico.,,En un libro informativo.
+3°,Lenguaje,"¿Qué palabra completa la comparación? “El carro era tan rápido como un ___”",img/carro_rayo.png,rayo,,libro,,árbol,,lago,,rayo
+3°,Lenguaje,"¿Qué podrías encontrar en un libro llamado El príncipe valiente?",img/principe.png,Una receta de cocina.,,Un cuento.,,Una noticia.,,Un instructivo.,,Un cuento.
+3°,Lenguaje,"¿Qué señal de puntuación se usa para indicar una pausa breve?",,El punto,,La coma,,Los dos puntos,,El guion,,La coma
+3°,Lenguaje,"¿Qué signo falta al final de esta oración? ""¿Vendrás mañana""",,? ,,! ,,.,,; ,,"?"
+3°,Lenguaje,"¿Qué tipo de palabra es “rápidamente”?",img/rapido.png,Un sustantivo,,Un adjetivo,,Un adverbio,,Un verbo,,Un adverbio
+3°,Lenguaje,"¿Qué tipo de texto es la lectura El plan de los ratones?",img/plan_ratones.png,Un poema,,Una fábula,,Una leyenda,,Una noticia,,Una fábula
+3°,Lenguaje,"¿Qué tipo de texto es un instructivo?",img/instruccion.png,Narrativo,,Explicativo,,Poético,,Descriptivo,,Explicativo
+3°,Lenguaje,"¿Qué tipo de texto te explica paso a paso cómo hacer algo?",img/instructivo.png,Un cuento,,Un instructivo,,Una fábula,,Una noticia,,Un instructivo
+3°,Lenguaje,¿Cuál es la moraleja de la lectura anterior?,img/plan_ratones.png,No celebrar antes de tiempo y planear bien nuestras metas.,,Debemos festejar nuestros planes antes de llevarlos a cabo.,,Hay que poner trampas para ratones.,,No hay que tener gatos en casa.,,No celebrar antes de tiempo y planear bien nuestras metas.
+3°,Matemáticas,"Si hay 5 charolas iguales, Cuántas galletas hay en total?",img/galletas.png,10,,5,,50,,15,,50
+3°,Matemáticas,"Si hay 7 canastas iguales, Cuántos melones hay en total?",img/melones_canasta.png,7,,14,,4,,28,,28
+3°,Matemáticas,"Si hay 10 racimos iguales, Cuántos plátanos hay en total?",img/platanos.png,50,,10,,5,,20,,50
+3°,Matemáticas,"¿Cuál es el siguiente número en la secuencia? 2, 4, 6, 8, __?",,10,,12,,14,,16,,10
+3°,Matemáticas,Don Matías tiene 3 nietos y compró dos naranjas para cada uno.¿Cuánto pagó?,img/mercado.png,6,,12,,18,,36,,36
+3°,Matemáticas,Miguel tiene 40 pesos y quiere comprar 4 piñas.¿Cuánto le falta?,img/mercado.png,8,,12,,40,,4,,8
+3°,Matemáticas,Qué hora es en este reloj?,img/reloj1.png,05:15,,05:30,,03:50,,05:03,,05:15
+3°,Matemáticas,Qué hora es en este reloj?,img/reloj2.png,09:01,,01:09,,12:45,,12:09,,12:45
+3°,Matemáticas,Qué hora es en este reloj?,img/reloj3.png,09:12,,12:09,,12:45,,09:00,,09:00
+3°,Matemáticas,Si José compró 2 naranjas 1 sandías y 2 piñas. ¿Cuánto pagó en total? ,img/mercado.png,43,,24,,41,,19,,43
+3°,Matemáticas,Si compro 3 sandías y cada una cuesta 7 pesos.¿Cuánto pagué en total?,img/mercado.png,21,,30,,60,,15,,21
+3°,Matemáticas,Si en una caja hay 6 manzanas y tengo 4 cajas.¿Cuántas manzanas tengo en total?,img/manzanas.png,24,,12,,20,,30,,24
+3°,Matemáticas,Sofía compró 10 sandías y pagó con un billete de $100 pesos.¿Cuánto le sobró?,img/mercado.png,30,,50,,20,,10,,30
+3°,Matemáticas,¿Cuál es el número mayor que se puede formar con estos dígitos?,img/numeros.png,960,,906,,690,,609,,960
+3°,Matemáticas,¿Cuál es el número menor que se puede formar con estos dígitos?,img/numeros.png,069,,096,,609,,690,,069
+3°,Matemáticas,¿Cuál es el objeto que puede medirse en metros?,,Camión,img/metros_camion.png,TV,img/metros_tv.png,Serrucho,img/metros_serrucho.png,Patineta,img/metros_patineta.png,Camión
+3°,Matemáticas,¿Cuál pieza falta en el jarrón?,img/jarron.png,Pieza a,img/jarron_a.png,Pieza b,img/jarron_b.png,Pieza c,img/jarron_c.png,Pieza d,img/jarron_d.png,Pieza b
+3°,Matemáticas,¿Cuántas aristas hay en esta imagen?,img/aristas_vertices.png,5,,6,,7,,4,,6
+3°,Matemáticas,¿Cuánto es 25 más 75?,,90,,100,,80,,110,,100
+3°,Matemáticas,¿Cuánto es 100 menos 50?,,150,,40,,60,,50,,50
+3°,Matemáticas,¿Cuánto es el doble de 60?,,120,,100,,110,,130,,120
+3°,Matemáticas,¿Cuánto es la mitad de 90?,,45,,40,,50,,30,,45
+3°,Matemáticas,¿Cuánto gastarías si compras un par de zapatos y pantalones?,img/productos.png,47,,29,,18,,45,,47
+3°,Matemáticas,¿Cuánto gastarías si compras una camisa y una cachucha?,img/productos.png,9,,5,,14,,18,,14
+3°,Matemáticas,¿Cuánto le falta a 25 para 100?,,75,,50,,25,,85,,75
+3°,Matemáticas,¿Cuántos vértices tiene este objeto?,img/aristas_vertices.png,5,,6,,7,,4,,4
+4°,Inglés,"Selecciona la oración correcta en Inglés.",img/school.png,I go to school.,,I goes to school.,,I go school.,,I going to school.,,I go to school.
+4°,Inglés,"Selecciona la respuesta correcta para “Where is the cat?”",img/catonchair.png,The cat is on the chair.,,The cat are on the chair.,,The cat is in blue.,,The cat under chair.,,The cat is on the chair.
+4°,Inglés,"Selecciona la traducción correcta de “I like apples”",img/apples.png,Me gustan las manzanas,,Quiero una manzana,,Tengo una manzana,,No me gustan las manzanas,,Me gustan las manzanas
+4°,Inglés,"¿Cuál es el plural correcto de “cat”?",img/cats.png,Cats,,Cates,,Catts,,Cat´s,,Cats
+4°,Inglés,"¿Cuál es la palabra en Inglés para “agua”?",img/water.png,Water,,Milk,,Juice,,Tea,,Water
+4°,Inglés,"¿Cuál es la palabra en Inglés para “correr”?",img/run.png,Run,,Jump,,Walk,,Sit,,Run
+4°,Inglés,"¿Cuál es la palabra en Inglés para “desayuno”?",img/breakfast.png,Breakfast,,Lunch,,Dinner,,Snack,,Breakfast
+4°,Inglés,"¿Cuál es la palabra en Inglés para “doctor”?",img/doctor.png,Doctor,,Nurse,,Teacher,,Pilot,,Doctor
+4°,Inglés,"¿Cuál es la palabra en Inglés para “mano”?",img/hand.png,Hand,,Head,,Leg,,Foot,,Hand
+4°,Inglés,"¿Cuál es la palabra en Inglés para “ventana”?",img/window.png,Window,,Door,,Roof,,Wall,,Window
+4°,Inglés,"¿Cuál es la palabra en Inglés para “árbol”?",img/tree.png,Tree,,Flower,,House,,Leaf,,Tree
+4°,Inglés,"¿Cuál es la respuesta correcta a: “What is your favorite color?”",img/colors.png,My favorite color is blue.,,I am blue.,,It is morning.,,I like school.,,My favorite color is blue.
+4°,Inglés,"¿Cuál es la traducción correcta de “I can swim”?",img/swim.png,Puedo nadar,,Quiero nadar,,Voy a nadar,,Necesito nadar,,Puedo nadar
+4°,Inglés,"¿Cuál es la traducción correcta de “They are happy”?",img/happy2.png,Ellos están felices,,Ellos son altos,,Ellos están enfermos,,Ellos son lentos,,Ellos están felices
+4°,Inglés,"¿Cuál es la traducción de “I have a dog”?",img/dog2.png,Tengo un perro,,Veo un perro,,Quiero un perro,,Soy un perro,,Tengo un perro
+4°,Inglés,"¿Cuál es la traducción de “Open your book”?",img/openbook.png,Abre tu libro,,Cierra tu libro,,Lee tu cuaderno,,Escribe tu nombre,,Abre tu libro
+4°,Inglés,"¿Cuál es la traducción de “She is my sister”?",img/sister.png,Ella es mi hermana,,Ella es mi mamá,,Ella es mi amiga,,Ella es mi profesora,,Ella es mi hermana
+4°,Inglés,"¿Cómo se dice “amiga” en Inglés?",img/friend.png,Friend,,Teacher,,Sister,,Mom,,Friend
+4°,Inglés,"¿Cómo se dice “cantar” en Inglés?",img/sing.png,Sing,,Jump,,Walk,,Write,,Sing
+4°,Inglés,"¿Cómo se dice “carro” en Inglés?",img/car.png,Car,,Bike,,Bus,,Truck,,Car
+4°,Inglés,"¿Cómo se dice “escuchar” en Inglés?",img/listen.png,Listen,,Speak,,Read,,Write,,Listen
+4°,Inglés,"¿Cómo se dice “libreta” o “cuaderno” en Inglés?",img/notebook2.png,Notebook,,Book,,Paper,,Folder,,Notebook
+4°,Inglés,"¿Cómo se dice “pájaro” en Inglés?",img/bird.png,Bird,,Dog,,Cat,,Fish,,Bird
+4°,Inglés,"¿Qué significa “green”?",img/green.png,Verde,,Rojo,,Azul,,Café,,Verde
+4°,Inglés,"¿Qué significa “red”?",img/red.png,Rojo,,Azul,,Negro,,Amarillo,,Rojo
+4°,Lenguaje,"Cuál es el adverbio presente en la siguiente frase: La niña bebía rápidamente, porque tenía mucha sed",,tenía,,bebía,,rápidamente,,La niña,,rápidamente
+4°,Lenguaje,"En el cuento de Caperucita Roja, ¿qué adjetivos describen correctamente al Lobo?",img/lobo_feroz.png,"Feroz, malo, astuto.",,"Hermoso, bueno, amable.",,"Delgado, bonito, dulce.",,"Flojo, lento, tonto.",,"Feroz, malo, astuto."
+4°,Lenguaje,"En la frase: 'María habló suavemente', ¿cuál es el adverbio?",,"María.",,"Habló.",,"Suavemente.",,"Ninguno.",,"Suavemente."
+4°,Lenguaje,"Identifica el verbo en la oración: 'La maestra explicó la lección'.",img/teacher.png,"Maestra.",,"Explicó.",,"Lección.",,"La.",,"Explicó."
+4°,Lenguaje,"Observa la imagen y elige la frase adjetiva.","img/paseo_perro.png","Un hombre pasea un perro.",,"Un perro es paseado por un hombre.",,"Un hombre muy alto y delgado pasea con un peludo y bonito perro.",,"Un hombre anda paseando con un perro.",,"Un hombre muy alto y delgado pasea con un peludo y bonito perro."
+4°,Lenguaje,"Selecciona el sinónimo de la palabra 'contento'.",,"Aburrido.",,"Feliz.",,"Cansado.",,"Serio.",,"Feliz."
+4°,Lenguaje,"Señala cuál es el juego de palabras en la siguiente adivinanza: 'Es la reina de los mares; su dentadura es muy buena, por no ir nunca vacía, siempre dicen que va llena.'",img/ballena.png,"Es la reina de los mares.",,"Su dentadura es muy buena.",,"Ir nunca vacía.",,"Dicen que va llena.",,"Dicen que va llena."
+4°,Lenguaje,"Señala cuál es la metáfora en la siguiente adivinanza: 'Soy pequeño y blandito. Despacito siempre ando y mi casa traigo cargando.'",img/caracol.png,"Pequeño y blandito.",,"Despacito siempre ando.",,"Mi casa traigo cargando.",,"Ninguna de las anteriores.",,"Mi casa traigo cargando."
+4°,Lenguaje,"Son ejemplos de verbos en infinitivo.",,"Cocer, hervir, moler.",,"Cuece, hierve, muele.",,"Cocerá, hervirá, molerá.",,"Coció, hirvió, molió.",,"Cocer, hervir, moler."
+4°,Lenguaje,"¿Cuál es el antónimo de 'oscuro'?",,"Brillante.",,"Claros.",,"Luz.",,"Claro.",,"Claro."
+4°,Lenguaje,"¿Cuál es el propósito de un anuncio publicitario?",img/publicidad.png,"Informar.",,"Convencer.",,"Describir.",,"Narrar.",,"Convencer."
+4°,Lenguaje,"¿Cuál es el sujeto de la oración: 'El perro de mi vecino ladra todas las noches'?",img/perro_ladra.png,"El perro de mi vecino.",,"Ladra.",,"Todas las noches.",,"Vecino.",,"El perro de mi vecino."
+4°,Lenguaje,"¿Cuál es la oración en tiempo futuro?",,"Ayer fui al parque.",,"Voy al parque.",,"Mañana iré al parque.",,"Voy a ir al parque hoy.",,"Mañana iré al parque."
+4°,Lenguaje,"¿Cuál opción es una oración exclamativa?",img/emocion.png,"¿Dónde estás?",,"¡Qué día tan hermoso!",,"Hoy es miércoles.",,"El perro duerme.",,"¡Qué día tan hermoso!"
+4°,Lenguaje,"¿En cuál oración hay una comparación (símil)?",,"Es fuerte como un león.",,"El león es fuerte.",,"El niño corre rápido.",,"La casa es pequeña.",,"Es fuerte como un león."
+4°,Lenguaje,"¿Qué parte de la oración indica quién realiza la acción?",,"Predicado.",,"Sujeto.",,"Verbo.",,"Adjetivo.",,"Sujeto."
+4°,Lenguaje,"¿Qué se describe en el siguiente texto? Campo con árboles, tenebroso y oscuro, camino con piedras, lugar peligroso, a lo lejos se observa una pequena casa junto a un gran árbol donde cuelga un columpio roto.",,Una pelicula de terror.,,El escenario de un cuento.,,El camino a la escuela.,,La casa de la maestra de cuarto grado.,,Una pelicula de terror.
+4°,Lenguaje,"¿Qué signo de puntuación se usa para expresar sorpresa?",,"El punto final.",,"La coma.",,"El signo de exclamación.",,"El signo de interrogación.",,"El signo de exclamación."
+4°,Lenguaje,"¿Qué texto utiliza viñetas o cuadros para narrar una historia?",img/comic.png,"Cuento.",,"Cómic.",,"Biografía.",,"Poema.",,"Cómic."
+4°,Lenguaje,"¿Qué tipo de discurso se emplea en el siguiente texto?",img/caperucita.png,Discurso indirecto.,,Discurso directo.,,Ninguno de los dos.,,Ambos discursos.,,Discurso directo.
+4°,Lenguaje,"¿Qué tipo de discurso se emplea en el siguiente texto?",img/resistol.png,Discurso indirecto.,,Discurso directo.,,Ninguno de los dos.,,Ambos discursos.,,Discurso indirecto.
+4°,Lenguaje,"¿Qué tipo de palabra es 'rápidamente'?",,"Adjetivo.",,"Sustantivo.",,"Verbo.",,"Adverbio.",,"Adverbio."
+4°,Lenguaje,"¿Qué tipo de preguntas se pueden realizar en una encuesta?",,"Preguntas personales.",,"Preguntas abiertas y cerradas.",,"Preguntas incómodas.",,"Preguntas públicas.",,"Preguntas abiertas y cerradas."
+4°,Lenguaje,"¿Qué tipo de texto contiene personajes, trama y un conflicto?",img/cuento.png,"Una receta.",,"Un cuento.",,"Un instructivo.",,"Un afiche.",,"Un cuento."
+4°,Lenguaje,"¿Qué tipo de texto describe un paso a paso para realizar algo?",img/instructivo.png,"Cuento.",,"Receta o instructivo.",,"Leyenda.",,"Biografía.",,"Receta o instructivo."
+4°,Lenguaje,"¿Qué tipo de texto es el siguiente?",img/biografia.png,"Un cuento.",,"Un relato autobiográfico.",,"Un reportaje.",,"Un artículo de divulgación científica.",,"Un relato autobiográfico."
+4°,Lenguaje,Son diferentes tipos de adverbios,,"Cortos, largos, medianos.",,"Personales, impersonales, propios.",,"De tiempo, de modo, de lugar.",,"Dónde, cuándo, cómo.",,"De tiempo, de modo, de lugar."
+4°,Lenguaje,¿En qué tiempo verbal están las palabras resaltadas del texto?,img/daniel.png,Pasado.,,Presente.,,Futuro.,,Ninguno,,Pasado.
+4°,Lenguaje,¿En qué tiempo verbal están las palabras subrayadas del texto?,img/daniel.png,Pasado.,,Presente.,,Futuro.,,Ninguno,,Presente.
+4°,Matemáticas,"En la tienda de Don Pepe venden el jugo de naranja en estos envases: Elige la opción que representa 2 litros y 1/2 de jugo.",img/botellas_jugo.png,4 envases de 1/2 y 2 envases de 1/4,img/botellas_jugo_a.png,2 envases de 1/2 y 4 envases de 1/4,img/botellas_jugo_b.png,3 envases de 1/2 y 3 envases de 1/4,img/botellas_jugo_c.png,4 envases de 1/2 y 1 envase de 1/4,img/botellas_jugo_d.png,4 envases de 1/2 y 2 envases de 1/4
+4°,Matemáticas,"En una plantación de 80 árboles de manzana, cada árbol tiene 4 manzanas. ¿Cuántas manzanas hay en total?",,320 manzanas,,220 manzanas,,230 manzanas,,310 manzanas,,320 manzanas
+4°,Matemáticas,"Lorena compró la cachucha y los zapatos, Cuánto pagó?",img/productos2.png,$96,,$100,,$78,,$87,,$96
+4°,Matemáticas,"Lorena tenía $150, ¿Cuánto le sobra si pagó $96?",img/productos2.png,$65,,$54,,$36,,$45,,$54
+4°,Matemáticas,"Miguel compró una camisa y los pantalones, Cuánto pagó?",img/productos2.png,$120,,$93,,$121,,$210,,$93
+4°,Matemáticas,"Miguel pagó con un billete de $100, ¿Cuánto le sobra si gastó $93?",img/productos2.png,$7,,$93,,$17,,$70,,$7
+4°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo1.png,recto,,llano,,agudo,,obtuso,,recto
+4°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo2.png,recto,,llano,,agudo,,obtuso,,llano
+4°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo3.png,recto,,llano,,agudo,,obtuso,,agudo
+4°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo4.png,recto,,llano,,agudo,,obtuso,,obtuso
+4°,Matemáticas,Don Manuel tiene 120 pesos y los quiere repartir entre sus 6 sobrinos. ¿Cuanto le toca a cada uno?,,15 pesos.,,40 pesos.,,20 pesos.,,30 pesos.,,20 pesos.
+4°,Matemáticas,En un campo hay 10 filas de arboles de manzana. Cada fila tiene 8 arboles. ¿Cuantos arboles hay en total?,,18 árboles.,,80 arboles.,,180 arboles.,,10 arboles.,,80 arboles.
+4°,Matemáticas,Mariana tiene ahorrado 500 dólares y los quiere repartir entre sus 4 hijos. ¿Cuánto le toca a cada uno?,img/alcancia.png,180,,125,,150,,200,,125
+4°,Matemáticas,¿Cuál es la regularidad de la siguiente sucesión numérica?,img/secuencia_numerica.png,Incrementa de 50 en 50,,Disminuye de 100 en 100,,Disminuye de 50 en 50,,Incrementa de 100 en 100,,Incrementa de 100 en 100
+4°,Matemáticas,¿Qué dominó completa la siguiente sucesión de dominós?,img/domino.png,Dominó A,img/domino_a.png,Dominó B,img/domino_b.png,Dominó C,img/domino_c.png,Dominó D,img/domino_d.png,Dominó A
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/cuadricula.png,3/5 (tres quintos),,3/8 (tres octavos),,8/4 (ocho cuartos),,9/5 (nueve quintos),,3/5 (tres quintos)
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/fraccion1.png,1/4,,1/2,,2/3,,4/5,,1/2
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/fraccion2.png,1/3,,2/3,,3/6,,1/8,,1/3
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/fraccion3.png,1/2,,5/6,,3/8,,3/4,,3/4
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/fraccion4.png,5/6,,1/4,,4/5,,3/2,,4/5
+4°,Matemáticas,¿Qué fracción representa la parte sombreada de la siguiente figura?,img/fraccion5.png,1/6,,5/6,,2/3,,4/6,,5/6
+4°,Matemáticas,¿Qué número falta en la siguiente sucesión?,img/secuencia_numerica2.png,1283,,1383,,1574,,1673,,1673
+4°,Matemáticas,¿Qué polígono completa la siguiente sucesión?,img/poligonos.png,Polígono A,img/poligono_a.png,Polígono B,img/poligono_b.png,Polígono C,img/poligono_c.png,Polígono D,img/poligono_d.png,Polígono B
+5°,Inglés,"¿Cuál es el comparativo de ""tall""?",img/tall.png,Taller,,More tall,,Tallest,,Taller than,,Taller
+5°,Inglés,"¿Cuál es el pasado de ""eat""?",img/eat.png,Ate,,Eated,,Eaten,,Eat,,Ate
+5°,Inglés,"¿Cuál es el pasado de ""play""?",img/play.png,Played,,Plaid,,Playes,,Playen,,Played
+5°,Inglés,"¿Cuál es el plural correcto de ""child""?",img/children.png,Children,,Childs,,Childes,,Childrens,,Children
+5°,Inglés,"¿Cuál es el sinónimo de ""big""?",,Large,,Tiny,,Short,,Thin,,Large
+5°,Inglés,"¿Cuál es la forma correcta?",img/house_big.png,My house is bigger than yours.,,My house is more big than yours.,,My house bigger than yours.,,My house is big than yours,,My house is bigger than yours.
+5°,Inglés,"¿Cuál es la forma negativa de ""They are happy""?",img/happy2.png,They are not happy,,They not happy,,They aren’t happy.,,They don’t are happy,,They aren’t happy.
+5°,Inglés,"¿Cuál es la palabra en Inglés para ""descansar""?",img/rest.png,Rest,,Sleep,,Stop,,Stay,,Rest
+5°,Inglés,"¿Cuál es la palabra en Inglés para ""montaña""?",img/mountain.png,Mountain,,River,,Forest,,Beach,,Mountain
+5°,Inglés,"¿Cuál es la palabra en Inglés para ""pintar""?",img/paint.png,Paint,,Draw,,Write,,Make,,Paint
+5°,Inglés,"¿Cuál es la pregunta correcta para pedir la hora?",img/clock.png,What time is it?,,What is the time?,,Where is the time?,,What time you have?,,What time is it?
+5°,Inglés,"¿Cuál es la traducción correcta de ""My brother is older than me""?",img/brother.png,Mi hermano es mayor que yo,,Mi hermano es menor que yo,,Mi hermano es más grande que yo,,Mi hermano es más viejo,,Mi hermano es mayor que yo
+5°,Inglés,"¿Cuál es la traducción correcta de ""She doesn’t like chocolate""?",img/chocolate.png,Ella no likes chocolate,,Ella no le gusta el chocolate,,Ella no gusta chocolate,,Ella no es chocolate,,Ella no le gusta el chocolate
+5°,Inglés,"¿Cuál es la traducción de ""I visited my grandparents""?",img/grandparents.png,Visité a mis abuelos,,Visito a mis abuelos,,Visitaré a mis abuelos,,Veo a mis abuelos,,Visité a mis abuelos
+5°,Inglés,"¿Cuál es la traducción de ""I will study tomorrow""?",img/study.png,Estudié mañana,,Voy a estudiar mañana,,Estudio mañana,,Estudiaré ayer,,Voy a estudiar mañana
+5°,Inglés,"¿Cuál es la traducción de ""She can swim""?",img/swim.png,Ella puede nadar,,Ella quiere nadar,,Ella debe nadar,,Ella no puede nadar,,Ella puede nadar
+5°,Inglés,"¿Cuál es la traducción de ""They were tired""?",img/tired.png,Eran cansados,,Estaban cansados,,Fueron cansados,,Están cansados,,Estaban cansados
+5°,Inglés,"¿Cuál opción es correcta?",img/park.png,We played in the park.,,We play in the park yesterday.,,We plays in the park.,,We playing in the park.,,We played in the park.
+5°,Inglés,"¿Cuál oración está correctamente escrita?",img/school.png,They go to school every day.,,They goes to school every day.,,They go to school every days.,,They going to school.,,They go to school every day.
+5°,Inglés,"¿Cómo se dice ""medio día"" en Inglés?",,Noon,,Night,,Morning,,Dawn,,Noon
+5°,Inglés,"¿Cómo se dice ""semana"" en Inglés?",img/week.png,Week,,Weekend,,Weak,,Weeks,,Week
+5°,Inglés,"¿Cómo se dice ""tormenta"" en Inglés?",img/storm.png,Storm,,Cloud,,Rain,,Thunder,,Storm
+5°,Inglés,"¿Qué significa ""She is reading a book""?",img/reading.png,Ella lee un libro ahora mismo,,Ella leerá un libro,,Ella leyó un libro,,Ella tiene un libro,,Ella lee un libro ahora mismo
+5°,Inglés,"¿Qué significa ""There are two cats""?",img/cats2.png,Hay dos gatos,,Son dos gatos,,Veo dos gatos,,Tengo dos gatos,,Hay dos gatos
+5°,Inglés,"¿Qué significa ""always""?",,Siempre,,A veces,,Nunca,,Rápidamente,,Siempre
+5°,Inglés,"¿Qué significa ""dangerous""?",img/danger.png,Peligroso,,Aburrido,,Feliz,,Divertido,,Peligroso
+5°,Inglés,"¿Qué significa ""finish your homework""?",img/homework.png,Termina tu tarea,,Trae tu tarea,,Comienza tu tarea,,Guarda tu tarea,,Termina tu tarea
+5°,Inglés,"¿Qué significa ""sometimes""?",,A veces,,Siempre,,Nunca,,Pronto,,A veces
+5°,Inglés,"¿Qué significa ""usually""?",img/calendar.png,Usualmente,,Nunca,,Rápidamente,,Ayer,,Usualmente
+5°,Inglés,"¿Qué significa ""windy""?",img/windy.png,Ventoso,,Lluvioso,,Nevado,,Caluroso,,Ventoso
+5°,Lenguaje,Elige el efecto de la siguiente causa: "“Su padre le pegaba frecuentemente.”",img/texto7.png,La niña se hizo desobediente.,,La niña no podía vender sus fósforos..,,No causo ningún efecto.,,La niña temía regresar a su casa.,,La niña temía regresar a su casa.
+5°,Lenguaje,Elige la frase escrita en discurso directo.,img/plan_ratones.png,"“Cierto día los ratones se reunieron para idear un plan”",,"“– Esto tiene que terminar. ¿Alguien tiene algún plan?”",,"“Celebraron con aplausos el nuevo plan”",,"“Estaban hartos de vivir huyendo”",,"“– Esto tiene que terminar. ¿Alguien tiene algún plan?”"
+5°,Lenguaje,Elige la opción que muestra un sinónimo de “rápido”.,,Lento,,Veloz,,Tardío,,Pesado,,Veloz
+5°,Lenguaje,Selecciona la oración en pretérito.,,Mañana iremos al parque.,,Ella canta muy bien.,,Ayer visitamos el museo.,,Hoy estoy cansado.,,Ayer visitamos el museo.
+5°,Lenguaje,Son diferentes tipos de adverbios.,,"Cortos, largos, medianos.",,"Personales, impersonales, propios.".,,"De tiempo, de modo, de lugar.",,"Dónde, cuándo, cómo",,"De tiempo, de modo, de lugar."
+5°,Lenguaje,Son ejemplos de adjetivos.,img/texto5.png,"Fuerte, grande, rígido.",,"Amasar, formar, secar.".,,"Recipiente, agua, barro.",,"Madera, palito, bolitas.",,"Fuerte, grande, rígido."
+5°,Lenguaje,Son ejemplos de siglas.,,"Blvd. Av. Cjn. Col.",,"SSA, UNAM, IMSS.",,"Norte, Sur, Este, Oeste",,"Izquierda, derecha.",,"SSA, UNAM, IMSS"
+5°,Lenguaje,Son verbos utilizados en el instructivo.,img/texto5.png,"Poco, mientras, manos.",,"Barro, agua, madera.".,,"Incorporar, dividir, formar.",,"Bolitas del mismo tamaño.",,"Incorporar, dividir, formar."
+5°,Lenguaje,Un conflicto en un texto narrativo es:,img/texto7.png,El momento más difícil.,,La situación que se busca resolver..,,Los problemas de los lectores.,,Los errores de escritura.,,La situación que se busca resolver.
+5°,Lenguaje,¿Cuál es el significado implícito del siguiente refrán?,img/texto4.png,No se puede enderezar el tronco de los árboles.,,No debemos dejar que un árbol crezca..,,"Alguien que se desvíe de lo correcto en sus primeras etapas de vida, no podrá corregirse posteriormente.",,Nunca enderezar un árbol torcido.,,"Alguien que se desvíe de lo correcto en sus primeras etapas de vida, no podrá corregirse posteriormente."
+5°,Lenguaje,¿Cuál es la frase en sentido figurado de la siguiente adivinanza?,img/texto2.png,Es la reina de los mares.,,Su dentadura es muy buena..,,Por no ir nunca vacía.,,Dicen que va llena.,,Es la reina de los mares.
+5°,Lenguaje,¿Cuál es la idea principal del siguiente texto?,img/texto8.png,"Los perros necesitan cuidados diarios para mantenerse sanos.",,"Los perros comen mucho.",,"Los perros son animales peligrosos.",,"Los perros pueden vivir en casas.",,"Los perros necesitan cuidados diarios para mantenerse sanos."
+5°,Lenguaje,¿Cuál es un recurso literario usado en poesías?,img/texto11.png,Las instrucciones.,,La metáfora.,,El reglamento.,,La ficha técnica.,,La metáfora.
+5°,Lenguaje,¿Cuál oración está escrita en discurso indirecto?,img/texto14.png,"María dijo: “Hoy no quiero salir”.",,"María dijo que hoy no quería salir.",,"María: Hoy no quiero salir.",,"—Hoy no quiero salir —dijo María.",,"María dijo que hoy no quería salir."
+5°,Lenguaje,¿Cómo quedaría la instrucción 3 en modo imperativo?,img/texto5.png,Forma una pieza y sigue amansando.,,Formada una pieza se sigue amasando..,,"Formando una pieza, seguir amansando.",,Formará una pieza y seguirá amasando.,,Forma una pieza y sigue amansando.
+5°,Lenguaje,¿Que siglas se puede encontrar en el formulario siguiente?,img/formulario.png,Tel.,,SESA.,,Foto,,COLOR,,SESA
+5°,Lenguaje,¿Quién es el personaje principal del cuento?,img/texto7.png,La niña que vendía fósforos.,,La abuelita..,,Dos casas.,,Los fósforos.,,La niña que vendía fósforos.
+5°,Lenguaje,¿Qué elemento corresponde a un texto narrativo?,img/texto13.png,Los versículos.,,Los diálogos.,,Las fórmulas.,,Las instrucciones.,,Los diálogos.
+5°,Lenguaje,¿Qué función cumple el título en un texto?,img/texto9.png,Acompañar una imagen.,,Repetir la información del autor.,,Presentar el tema del texto.,,Servir como cierre del escrito.,,Presentar el tema del texto.
+5°,Lenguaje,¿Qué pregunta responde el adverbio de lugar?,img/texto12.png,¿Cuándo?,,¿Cómo?,,¿Dónde?,,¿Por qué?,,¿Dónde?
+5°,Lenguaje,¿Qué relación existe entre estas dos oraciones?: “El cielo estaba oscuro. Pronto comenzó a llover.”,,Causa y efecto.,,Comparación.,,Contraste.,,Definición.,,Causa y efecto.
+5°,Lenguaje,¿Qué sentimiento transmite la lectura del texto?,img/texto6.png,Amor,,Miedo..,,Buen humor.,,Molestia.,,Amor
+5°,Lenguaje,¿Qué tema trata el texto siguiente?,img/texto6.png,Amor.,,Alegría..,,Tristeza.,,Enojo.,,Alegría.
+5°,Lenguaje,¿Qué tipo de documento es el siguiente?,img/formulario.png,Un formulario.,,Un examen..,,Un acta de nacimiento.,,Una boleta de calificación.,,Un formulario.
+5°,Lenguaje,¿Qué tipo de juego de palabras es el siguiente texto?,img/texto1.png,Un chiste.,,Una adivinanza.,,Un trabalenguas.,,Una leyenda.,,Un trabalenguas.
+5°,Lenguaje,¿Qué tipo de texto es el siguiente?,img/texto3.png,Una adivinanza.,,Un refrán.,,Un chiste.,,Un trabalenguas.,,Un refrán.
+5°,Lenguaje,¿Qué tipo de texto es el siguiente?,img/texto6.png,Un refrán.,,Un cuento..,,Un poema.,,Una adivinanza.,,Un poema.
+5°,Lenguaje,¿Qué tipo de texto es el siguiente?,img/texto10.png,Un instructivo.,,Un cuento.,,Una noticia.,,Una carta.,,Una noticia.
+5°,Matemáticas,"Ordénalos de mayor a menor: Milésimo, decimo, centésimo.",,"Centésimo, milésimo, decimo.",,"Decimo, centésimo, milésimo.",,"Milésimo, decimo, centésimo.",,"Centésimo, decimo, milésimo.",,"Decimo, centésimo, milésimo."
+5°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo1.png,recto,,llano,,agudo,,obtuso,,recto
+5°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo2.png,recto,,llano,,agudo,,obtuso,,llano
+5°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo3.png,recto,,llano,,agudo,,obtuso,,agudo
+5°,Matemáticas,"¿Qué tipo de ángulo es este?",img/angulo4.png,recto,,llano,,agudo,,obtuso,,obtuso
+5°,Matemáticas,Daniel caminó 1550 metros. ¿Cómo se escribe esa cifra con letra?,,Mil quinientos cincuenta m.,,Mil cinco cincuenta m.,,Mil quinientos sin cuenta m.,,Mil cinco sin cuenta m.,,Mil quinientos cincuenta m.
+5°,Matemáticas,Elige la opción del número que corresponde al recuadro de la siguiente recta,img/recta1521.png,0,,6,,9,,1,,9
+5°,Matemáticas,María tiene ahorrado $1200. ¿Cuánto le falta para comprar la siguiente bicicleta?,img/bicicleta.png,$661,,$849,,$551,,$449,,$849
+5°,Matemáticas,Selecciona el triángulo rectángulo.,,Triángulo 1,img/triangulo1.png,Triángulo 2,img/triangulo2.png,Triángulo 3,img/triangulo3.png,Triángulo 4,img/triangulo4.png,Triángulo 1
+5°,Matemáticas,Si el siguiente triángulo  representa 2/6 de una figura ¿Cuál de las siguientes figuras es el entero?,img/triangulo_26.png,Figura _a,img/fraccion_triangulo1.png,Figura _b,img/fraccion_triangulo2.png,Figura _c,img/fraccion_triangulo3.png,Figura _d,img/fraccion_triangulo4.png,Figura _d
+5°,Matemáticas,Si se divide un círculo en 4 partes iguales ¿Cuántos grados mide ¼ del círculo?,img/fraccion3.png,45°,,60°,,90°,,30°,,90°
+5°,Matemáticas,Un terreno de forma rectangular mide 240 m2 de superficie y de ancho mide 8 m. ¿Cuánto mide de largo?,,28 m,,24 m,,30 m,,32 m,,30 m
+5°,Matemáticas,¿Cuál de las siguientes figuras representa la fracción 1/3?,,Figura a,img/fraccion5.png,Figura b,img/fraccion6.png,Figura c,img/fraccion7.png,Figura d,img/fraccion8.png,Figura a
+5°,Matemáticas,¿Cuál de las siguientes figuras tiene mayor perímetro?,,Figura a,img/perimetro_a.png,Figura b,img/perimetro_b.png,Figura c,img/perimetro_c.png,Figura d,img/perimetro_d.png,Figura c
+5°,Matemáticas,¿Cuál de las siguientes figuras tiene un área mayor?,,Figura a,img/area1.png,Figura b,img/area2.png,Figura c,img/area3.png,Figura d,img/area4.png,Figura a
+5°,Matemáticas,¿Cuál es el resultado de sumar las siguientes fracciones?,img/suma_fraccion.png,10/10,,3/15,,7/10,,/8/12,,10/10
+5°,Matemáticas,¿Cuál es el área de la siguiente cartulina rectangular?,img/area_rectangulo.png,230 cm2.,,250 cm2.,,280 cm2.,,210 cm2.,,280 cm2
+5°,Matemáticas,¿Cuántas botellas pequeñas podemos llenar con la botella grande?,img/jugo_botella.png,4 botellas.,,8 botellas.,,6 botellas.,,10 botellas.,,8 botellas.
+5°,Matemáticas,¿Cuántas cajas se necesitan para completar un cubo?,img/cajas.png,12 cajas.,,6 cajas.,,24 cajas.,,18 cajas.,,24 cajas.
+5°,Matemáticas,¿Cuántos grados mide un círculo?,,360°,,180°,,90°,,45°,,360°
+5°,Matemáticas,¿Qué figura es un cuadrilátero?,,Figura a,poligono_1.png,Figura b,poligono_2.png,Figura c,poligono_3.png,Figura d,poligono_4.png,Figura c
+5°,Matemáticas,¿Qué fracción del total falta?,img/fraccion_faltante.png,2/6,,1/4,,1/10,,1/6,,1/6
+5°,Matemáticas,¿Qué número falta en el rectángulo?,img/numero_faltante.png,60,,10,,20,,30,,20
+5°,Matemáticas,¿Qué reloj marca 15 para las 7:00?,,Reloj a,img/reloj4.png,Reloj b,img/reloj5.png,Reloj c,img/reloj6.png,Reloj d,img/reloj7.png,Reloj c
+6°,Inglés,"Cuál es la pregunta correcta para esta respuesta? “Yes, I do.”",,Do you like apples?,,Are you happy?,,Is she here?,,Can you swim?,,Do you like apples?
+6°,Inglés,"¿Como se dice en Inglés: águila, cerdo perro, Conejo, manzana.",,"Cow, dog, hen, cat",,"Eagle, pig, dog, rabbit, apple",,"Rabbit, turtle, apple, bird, dog",,"Eagle, dog, apple, rabbit, eagle",,"Eagle, pig, dog, rabbit, apple"
+6°,Inglés,Completa la oración: They _____ a new car last week.,,buys,,bought,,buy,,buying,,bought
+6°,Inglés,Complete la Oracion: "They _____ very happy yesterday.",,were,,are,,is,,Am,,were
+6°,Inglés,Cuál es el tiempo pasado del verbo “eat”?,,Eats,,Eaten,,Ate,,Eat,,Ate
+6°,Inglés,Escribe en  Inglés: "¿Dónde vives?",,Where you live?,,Where do you live?,,Where are you live?,,Where did you live?,,Where do you live?
+6°,Inglés,Escribe en Español: "What time is it?",,¿Qué hora es?,,¿Cómo estás?,,¿Dónde estás?,,¿Cuál es tu nombre?,,¿Qué hora es?
+6°,Inglés,Escribe en Inglés: "El perro está en el jardín.",,The dog are in the garden.,,The dog is in the garden.,,The dogs is in the garden.,,The dog was in the garden.,,The dog is in the garden.
+6°,Inglés,Identifica el plural de: "Child",,Childs,,Children,,Childen,,Chiles,,Children
+6°,Inglés,Las formas del verbo TO BE en presente son:,,"It, he, am",,"We, you, they",,"Am,is,are",,"They, are, am",,"Am,is,are"
+6°,Inglés,Selecciona la forma correcta del verbo: He _____ football every weekend.,,play,,plays,,playing,,played,,plays
+6°,Inglés,Selecciona la preposición correcta: The cat is _____ the chair.,,under,,on,,between,,over,,on
+6°,Inglés,Selecciona la respuesta correcta: How are you?,,"I am fine, thank you.",,My name is John.,,I live in a house.,,I am twelve.,,"I am fine, thank you."
+6°,Inglés,Seleccione  la opción correcta y complete la oración: "I _____ a book every weekend.",,reads,,read,,reading,,am read,,read
+6°,Inglés,Seleccione el plural: The _____ are on the table.,,book,,books,,bookes,,book's,,books
+6°,Inglés,Seleccione la forma correcta del verbo: "She _____ to school every day.",,go,,goes,,going,,gone,,goes
+6°,Inglés,Seleccione la respuesta correcta: "What time is it?",,It is blue.,,It is sunny.,,It is 3 o'clock.,,It is my favorite.,,It is 3 o'clock.
+6°,Inglés,Si lunes en ingles se escribe MONDAY. ¿Como se escribe martes y Viernes?,,Tuesday and wednesday,,Tuesday and friday,,Sunday and friday,,Tuesday and sunday,,Tuesday and friday
+6°,Inglés,Traduce: "My house is very big.",,Mi casa es muy bonita.,,Mi casa es muy grande.,,Mi casa es muy pequeña.,,Mi casa es muy antigua.,,Mi casa es muy grande.
+6°,Inglés,¿Cómo se escribe en ingles mesa ?,,Chair,,Blue,,Cat,,Table,,Table
+6°,Lenguaje,"Lee el poema: “El viento juega en el campo, su canto llena el espacio.” ¿Qué recurso literario se utiliza?",,Hipérbole,,Metáfora,,Personificación,,Comparación,,Personificación
+6°,Lenguaje,"¿Qué figura literaria se usa en este fragmento? “El Sol se escondía detrás de las montañas, pintando el cielo de tonos anaranjados.”",,Metáfora,,Personificación,,Hipérbole,,Aliteración,,Personificación
+6°,Lenguaje,Completa la frase con el verbo en pasado perfecto: "Ayer nosotros _____ al parque.",,vamos,,fuimos,,iríamos,,vamos a ir,,fuimos
+6°,Lenguaje,El fonema o conjunto de fonemas que pronunciamos en una sola emisión de voz es:,,Trisílaba.,,Triptongo.,,Onomatopeya.,,Silaba.,,Silaba.
+6°,Lenguaje,Es uno de los usos principales de la coma:,,Cambiar de párrafo,,Escribir mayúscula después de ella,,"Enumerar elementos, cualidades o características",,Continuar después de un punto,,"Enumerar elementos, cualidades o características"
+6°,Lenguaje,Identifica el antónimo de "grande":,,Pequeño,,Alto,,Largo,,Ancho,,Pequeño
+6°,Lenguaje,Selecciona la opción que contiene un sinónimo de "rápido":,,Lento,,Ligero,,Pesado,,Tardío,,Ligero
+6°,Lenguaje,Selecciona la opción que presenta una oración compuesta:,,Me gustan las frutas.,,Juan estudia y María dibuja.,,Salimos al parque.,,Llueve mucho en invierno.,,Juan estudia y María dibuja.
+6°,Lenguaje,Selecciona la palabra aguda que lleva tilde:,,Juguete,,Cancion,,Carro,,Fruta,,Cancion
+6°,Lenguaje,¿Cuál es el propósito principal de un texto informativo?,,Contar una historia.,,Expresar sentimientos.,,Dar información o explicar algo.,,Convencer al lector.,,Dar información o explicar algo.
+6°,Lenguaje,¿Cuál es el sujeto en la oración: "El perro de mi vecino ladra todas las noches"?,,El perro,,Mi vecino,,Todas las noches,,Ladra,,El perro
+6°,Lenguaje,¿Cuál es la función de los signos de exclamación en un texto?,,Indicar una pausa.,,Expresar emoción o sorpresa.,,Dar órdenes.,,Separar ideas.,,Expresar emoción o sorpresa.
+6°,Lenguaje,¿Cuáles son los subgéneros de un texto narrativo?,,"Tragedia, comedia y drama",,"Lírico, dramático y épico",,"Cuento, fábula, mito, leyenda, novela etc.",,"Poema, verso y prosa",,"Cuento, fábula, mito, leyenda, novela etc."
+6°,Lenguaje,¿Qué elemento no puede faltar en una noticia?,,La fecha.,,La firma del periodista.,,El título.,,El cuerpo de la noticia.,,El cuerpo de la noticia.
+6°,Lenguaje,¿Qué es un cuento?,,Un texto poético.,,Una narración breve con pocos personajes.,,Una obra de teatro.,,Un texto informativo largo.,,Una narración breve con pocos personajes.
+6°,Lenguaje,¿Qué es una biografía?,,Un texto que explica un tema científico.,,Una historia sobre la vida de una persona.,,Un texto que describe lugares.,,Un texto inventado con personajes.,,Una historia sobre la vida de una persona.
+6°,Lenguaje,¿Qué es una fábula?,,Una historia que mezcla realidad y fantasía.,,Un cuento con animales que deja una enseñanza.,,Un texto informativo sobre animales.,,Un poema con moraleja.,,Un cuento con animales que deja una enseñanza.
+6°,Lenguaje,¿Qué es una oración simple?,,Una oración que tiene sujeto y predicado,,Una oración con más de un verbo.,,Una oración sin sujeto.,,Una oración sin predicado.,,Una oración que tiene sujeto y predicado
+6°,Lenguaje,¿Qué tipo de palabra es "rápidamente"?,,Sustantivo,,Adverbio,,Adjetivo,,Verbo,,Adverbio
+6°,Lenguaje,“Carlos caminaba por la playa cuando vio algo brillar en la arena.” ¿En qué tiempo están los verbos?,,Presente,,Pasado,,Futuro,,Copretérito,,Pasado
+6°,Matemáticas,"Si un rectángulo tiene un largo de 8 cm y un ancho de 3 cm, ¿cuál es su perímetro?",,22 cm,,24 cm,,20 cm,,18 cm,,22 cm
+6°,Matemáticas,"Si una tienda vende 3 lápices por $1800, ¿cuánto cuesta cada lápiz?",,$800,,$600,,$500,,$1000,,$600
+6°,Matemáticas,"¿Cuál es el siguiente número en la secuencia: 2, 4, 6, 8, ...?",,9,,10,,12,,11,,10
+6°,Matemáticas,En el siguiente grafico de barra  observa y responde. La fruta preferida  es:,img/tabla1.png,Melón ,,Manzana,,Plátano,,Pera,,Manzana
+6°,Matemáticas,En la tabla se muestra los puntos obtenidos por un grupo de niños y niñas en un juego. ¿Cuánto puntos le falta a Sandra para completar 7000?,img/tabla2.png,473,,457,,543,,654,,457
+6°,Matemáticas,La fruta menos preferida es:,img/tabla1.png,Pera,,Manzana,,Melocotón,,Naranja,,Melocotón
+6°,Matemáticas,Resuelve: 6×(4+2)=?,,24,,36,,30,,32,,36
+6°,Matemáticas,Resuelve: 100−34,,66,,64,,70,,68,,66
+6°,Matemáticas,Si Juan tiene 8 manzanas y come 3 ¿cuántas le quedan?,,5,,6,,4,,3,,5
+6°,Matemáticas,Un reloj marca las 3:15. ¿Cuántos minutos han pasado desde las 3:00?,,15 minutos,,45 minutos,,30 minutos,,3 minutos,,15 minutos
+6°,Matemáticas,Un triángulo tiene:,,4 lados.,,3 lados.,,5 lados.,,6 lados.,,3 lados.
+6°,Matemáticas,¿Cuál es el decimal equivalente a 1/4?,,0.25,,0.5,,0.75,,0.1,,0.25
+6°,Matemáticas,¿Cuál es el resultado de 3²?,,5,,6,,9,,12,,9
+6°,Matemáticas,¿Cuál es el resultado de 12×3?,,36,,33,,30,,39,,36
+6°,Matemáticas,¿Cuál es el área de un cuadrado con lados de 5 cm?,,20 cm²,,10 cm²,,25 cm²,,15 cm²,,25 cm²
+6°,Matemáticas,¿Cuál es la fracción equivalente a 2/4?,,1/2,,2/2,,3/4,,5/8,,1/2
+6°,Matemáticas,¿Cuánto es 48÷6?,,8,,6,,7,,9,,8
+6°,Matemáticas,¿Qué es un número primo?,,Un número divisible entre sí mismo y 1 únicamente.,,Un número mayor que 10.,,Un número divisible por 2 y 3.,,Un número par.,,Un número divisible entre sí mismo y 1 únicamente.
+6°,Matemáticas,¿Qué es una fracción impropia?,,Una fracción donde el numerador es mayor que el denominador.,,Una fracción menor que 1.,,Una fracción igual a 1.,,Una fracción que no tiene denominador.,,Una fracción donde el numerador es mayor que el denominador.
+6°,Matemáticas,¿Qué número es el mayor valor?,,0.8,,0.82,,0.9,,0.75,,0.9
+7°,Inglés,Choose the correct preposition: The book is _____ the table.,img/table_book.png,on,,in,,under,,at,,on
+7°,Inglés,Choose the word that best completes the sentence: He has a black _____.,img/house_car.png,tree,,car,,house,,shirt,,shirt
+7°,Inglés,Choose the word that best completes the sentence: He has a green _____.,img/house_car.png,tree,,car,,house,,shirt,,tree
+7°,Inglés,Choose the word that best completes the sentence: He has a red _____.,img/house_car.png,tree,,car,,house,,shirt,,house
+7°,Inglés,Choose the word that best completes the sentence: He has a yellow _____.,img/house_car.png,tree,,car,,house,,shirt,,car
+7°,Inglés,Fill in the blank: Today is Monday. Tomorrow is _____.,img/week.png,Sunday,,Tuesday,,Friday,,Saturday,,Tuesday
+7°,Inglés,Identify the correct pronoun: "Maria and I" can also be written as: _____.,img/we.png,They,,We,,You,,She,,We
+7°,Inglés,Selecciona el artículo que corresponde: Diego is _____ astronaut.,img/astronaut.png,a,,an,,one,,no,,an
+7°,Inglés,Selecciona el artículo que corresponde: Génesis is _____ office worker.,img/office_worker.png,a,,an,,one,,no,,an
+7°,Inglés,Selecciona el artículo que corresponde: Maritza is _____ veterinarian.,img/veterinarian.png,a,,an,,one,,no,,a
+7°,Inglés,Selecciona el artículo que corresponde: Melany is _____ engineer.,img/engineer.png,a,,an,,one,,no,,an
+7°,Inglés,Selecciona el artículo que corresponde: My father is _____ doctor.,img/doctor2.png,a,,an,,one,,no,,a
+7°,Inglés,Selecciona el verbo y completa la oración: She _____ to school every day.,img/student_female.png,go,,goes,,going,,went,,goes
+7°,Inglés,Selecciona la forma del verbo TO BE que corresponde: Britney Spears _____ a singer.,img/Britney_Spears.png,Am,,Is ,,Are,,Be,,Is
+7°,Inglés,Selecciona la forma del verbo TO BE que corresponde: I _____ a student.,img/student.png,Am,,Is ,,Are,,Be,,Am
+7°,Inglés,Selecciona la forma del verbo TO BE que corresponde: My aunt _____ a ballet dancer.,img/ballet_dancer.png,Am,,Is ,,Are,,Be,,Is
+7°,Inglés,Selecciona la forma del verbo TO BE que corresponde: Robert and Mario _____ carpenters.,img/carpenters.png,Am,,Is ,,Are,,Be,,Are
+7°,Inglés,Selecciona la forma del verbo TO BE que corresponde: You _____ a good teacher.,img/teacher.png,Am,,Is ,,Are,,Be,,Are
+7°,Inglés,Selecciona la respuesta correcta: “_____ is your favorite color?,img/colors.png,Where,,What,,Who,,Why,,What
+7°,Inglés,Select the correct meaning of the word: What does "happy" mean?,img/happy3.png,Triste,,Feliz,,Cansado,,Aburrido,,Feliz
+7°,Inglés,Traduce la oración: "I like to play soccer.",img/play.png,Me gusta leer libros.,,Me gusta jugar fútbol.,,Me gusta correr rápido.,,Me gusta cantar canciones.,,Me gusta jugar fútbol.
+7°,Inglés,Une  la imagen con la palabra correcta: ,img/dog3.png,Cat,,Bird,,Dog,,Fish,,Dog
+7°,Inglés,What does Emma like to do with her friends?,img/texto18.png,Play video games,,Share her favorite stories,,Watch movies,,Go shopping,,Share her favorite stories
+7°,Inglés,What is Emma’s dream for the future?,img/texto18.png,To become a teacher,,To travel the world,,To become a writer,,To open a bookstore,,To become a writer
+7°,Inglés,What is Emma’s favorite genre of books?,img/texto18.png,Science fiction,,Mystery,,Fantasy,,History,,Fantasy
+7°,Inglés,What time is it? ,img/reloj8.png,It is eight o'clock.,,It is two o'clock.,,It is four o'clock.,,It is twelve o'clock.,,It is eight o'clock.
+7°,Inglés,Where does Emma go every Saturday?,img/texto18.png,The bookstore,,The park,,The local library,,Her friend’s house,,The local library
+7°,Inglés,Why does Emma enjoy fantasy books?,img/texto18.png,They teach her about history.,,They have stories about magic and adventure.,,They are based on real events.,,They help her learn new skills.,,They have stories about magic and adventure.
+7°,Lenguaje,"El texto en que los animales u objetos se presentan con características humanas, para criticar y dejar una enseñanza. Es propio de:",,Mitos,,Leyenda,,Cuentos,,Fábulas,,Fábulas
+7°,Lenguaje,"En la oración: “El niño se comió la manzana porque tenía hambre.”, ¿qué expresa la palabra “porque”?",,Una causa.,,Una consecuencia.,,Una condición.,,Una comparación.,,Una causa.
+7°,Lenguaje,"Es la acción y efecto de explicar de manera detallada los rasgos propios de una persona, animal u objetos, se puede decir que es:",,Una exposición.,,Un cuento.,,Una descripción.,,Una fábula.,,Una descripción.
+7°,Lenguaje,"Las rondas infantiles, los cuentos populares, los chistes y las coplas hacen parte de:",,La vida de un pueblo,,La moraleja de un cuento,,La tradición oral,,La historia pasada,,La tradición oral
+7°,Lenguaje,"“El punto es un signo ortográfico que se utiliza para hacer pausas largas en un texto _____ Existen diferentes tipos de puntos: punto seguido, punto aparte, punto final, dos puntos, puntos suspensivos.” En el espacio subrayado se debe utilizar:",,Dos puntos,,Puntos suspensivos,,Punto seguido,,Una coma,,Punto seguido
+7°,Lenguaje,"“Sandra estudió mucho pero no ganó el examen.” El conector “pero” utilizado en el enunciado es un conector de:",,Adición,,Orden,,Oposición,,De duda,,Oposición
+7°,Lenguaje,El anterior anuncio tiene errores ortográficos en las palabras:,img/texto15.png,Ven y buscando,,Buena y estás,,Trabaja y tullo,,Colonbia y tullo,,Colonbia y tullo
+7°,Lenguaje,El pronombre es la:,img/pronombres.png,Tilde que va en la palabra,,Categoría gramatical que designa género y número,,Parte de la oración que se antepone al nombre para actualizarlo,,Parte de la oración que puede ocupar el lugar de un nombre o hacer alusión a él.,,Parte de la oración que puede ocupar el lugar de un nombre o hacer alusión a él.
+7°,Lenguaje,El signo de puntuación que se utiliza en diálogos o para mostrar ejemplos es:,,La coma,,El punto y coma,,Los dos puntos,,El punto,,Los dos puntos
+7°,Lenguaje,El texto de Aracne por estar refiriéndose a cómo se dio origen a la araña puede considerarse como:,img/texto17.png,Un mito,,Una leyenda,,Una fábula,,Un cuento,,Un mito
+7°,Lenguaje,El texto que Antonio hace para referirse a la finca de su abuelito es:,img/texto16.png,Descriptivo,,Narrativo,,Argumentativo,,Informativo,,Descriptivo
+7°,Lenguaje,En la oración: “Las flores del jardín se marchitaron.” La palabra “jardín” es una palabra:,,Esdrújula,,Sobresdrújula,,Aguda,,Grave,,Aguda
+7°,Lenguaje,En la oración: “Sofía tiene muchos amigos.” La palabra “tiene” es:,,Conjunción,,Adjetivo,,Sustantivo,,Verbo,,Verbo
+7°,Lenguaje,En la oración: “Todos son inocentes.” La palabra “inocentes” es:,,Adjetivo.,,Verbo.,,Sustantivo.,,Artículo.,,Adjetivo
+7°,Lenguaje,En la palabra subrayada en el anuncio se pronuncian dos vocales seguidas en una emisión de voz esto se denomina:,img/texto15.png,Hiato,,Diptongo,,Triptongo,,Unión de vocales,,Diptongo
+7°,Lenguaje,Es uno de los usos principales de la coma,,"Enumerar varios elementos, cualidades o características",,Cambiar de párrafo,,Escribir mayúscula después de ella,,Enumeración de párrafos,,"Enumerar varios elementos, cualidades o características"
+7°,Lenguaje,La escritura correcta de las palabras con errores es:,,Buena y buscando,,Colombia y tuyo,,Vuena y estás,,Travaja y tuyo,,Colombia y tuyo
+7°,Lenguaje,La expresión "ubicada en Aguas Claras". Se utilizan las mayúsculas por ser:,img/texto16.png,Sustantivo propio,,Sustantivo común,,Sustantivo concreto,,Sustantivo colectivo,,Sustantivo propio
+7°,Lenguaje,La idea que NO pertenece al tema de la descripción es:,img/texto16.png,Tiene cultivos del arveja y animales como gallinas y vacas.,,"La finca de mi abuelito, ubicada en Aguas Claras es grande y hermosa",,Lo que más me gusta es su hermoso lago de aguas muy frías en las que hay muchos peces.,,"Espero que mi papá me deje ir a visitarla para jugar, alimentar los animales y divertirme.",,"Espero que mi papá me deje ir a visitarla para jugar, alimentar los animales y divertirme."
+7°,Lenguaje,La palabra “más” lleva tilde por:,img/texto16.png,Ser monosílaba,,Ser aguda,,Reemplazar la palabra pero,,Referirse a cantidad,,Referirse a cantidad
+7°,Lenguaje,Las partes de un cuento son:,,"Inicio, nudo y conclusión",,"Desenalce, conclusion e inicio",,"Inicio, conclusion y desenlace",,Concusión. Inicio y esenclace,,"Inicio, nudo y conclusión"
+7°,Lenguaje,¿Por qué Aracne desafió a la Diosa?,img/texto17.png,Para demostrar su habilidad en la música.,,Para competir en el arte de tejer.,,Para ganar un premio de la Diosa.,,Para convertirse en una Diosa.,,Para competir en el arte de tejer.
+7°,Lenguaje,¿Qué hizo la Diosa después de que Aracne la superó?,img/texto17.png,Felicitó a Aracne por su talento.,,Destruyó la tela de Aracne.,,Hizo un trato con Aracne.,,La convirtió en estatua.,,Destruyó la tela de Aracne.
+7°,Lenguaje,“El libro es muy divertido _____ nos deja muchos conocimientos.” El conector que debe estar en el espacio para que el texto tenga sentido es:,,Además,,Porque,,Pues,,En pocas palabras,,Además
+7°,Lenguaje,“La finca de Aguas Claras es grande”. Las palabras subrayadas en el enunciado son:,img/texto16.png,Adjetivos,,Sustantivos,,Verbos,,Pronombres,,Adjetivos
+7°,Matemáticas,"De los siguientes números, ¿cuál es equivalente a la fracción 3/4?",,"0,75",,"1,34",,"0,25",,"1,75",,"0,75"
+7°,Matemáticas,"En el diagrama de barras se representa la cantidad de libros leídos por los estudiantes. Los valores son: 5, 7, 8, 6, 9. ¿Cuál es la media (promedio) de los libros leídos por los estudiantes?",img/tabla3.png,6,,7,,"7,5",,8,,7
+7°,Matemáticas,"En un grupo de 20 estudiantes, 5 tienen gatos, 10 tienen perros y 5 no tienen mascotas. ¿Cuál es la frecuencia relativa de los estudiantes que tienen gatos?",,"0,25",,"0,5",,"0,75",,"0,2",,"0,25"
+7°,Matemáticas,"En un grupo de 20 estudiantes, 5 tienen gatos, 10 tienen perros y 5 no tienen mascotas. ¿Cuál es la frecuencia relativa de los estudiantes que tienen perros?",,"0,25",,"0,5",,"0,75",,"0,2",,"0,5"
+7°,Matemáticas,"Si tienes las notas de cinco exámenes: 6, 7, 8, 6 y 7, ¿cuál es el promedio (media aritmética) de estas notas?",,6,,7,,"6,8",,"6,6",,"6,8"
+7°,Matemáticas,"Si tienes un rectángulo cuyo perímetro es 40 cm y sus lados largos miden 12 cm cada uno, ¿cuánto mide cada lado corto?",,6 cm,,8 cm,,10 cm,,4 cm,,8 cm
+7°,Matemáticas,"Si un ángulo tiene un valor de 180 grados, ¿cómo se llama?",,Ángulo recto,,Ángulo llano,,Ángulo agudo,,Ángulo obtuso,,Ángulo llano
+7°,Matemáticas,"Un grupo de estudiantes organiza un evento en el que todos deben hacer filas de 6 personas. Si hay 144 estudiantes en total, ¿cuántas filas completas pueden hacer?",,18,,24,,36,,16,,24
+7°,Matemáticas,"¿Cuál de las siguientes fracciones es equivalente a 0,5?",,1/2,,2/5,,3/4,,1/4,,1/2
+7°,Matemáticas,"¿Cuál es la mediana de los siguientes valores: 12, 15, 11, 13 y 14?",,13,,12,,11,,14,,13
+7°,Matemáticas,"¿Cuántos milímetros hay en 4,5 metros?",,45,,450,,4500,,"4,5",,4500
+7°,Matemáticas,Dos rectas que se cortan en un solo punto y forman cuatro ángulos son llamadas:,,Rectas paralelas,,Rectas perpendiculares,,Rectas oblicuas,,Rectas secantes,,Rectas secantes
+7°,Matemáticas,La “población” en un estudio es:,,El conjunto de todos los elementos o individuos que cumplen con un carácter,,Un grupo reducido de la población,,La cantidad de datos que se utilizan para hacer una investigación,,Una variable que puede cambiar durante el estudio,,El conjunto de todos los elementos o individuos que cumplen con un carácter
+7°,Matemáticas,Un ángulo cuyo valor es menor de 90 grados se llama:,,Ángulo recto,,Ángulo agudo,,Ángulo obtuso,,Ángulo llano,,Ángulo agudo
+7°,Matemáticas,¿Cuál de los siguientes números es divisible por 3?,,82,,105,,211,,152,,105
+7°,Matemáticas,¿Cuál es el número natural más pequeño que tiene exactamente tres divisores?,,4,,6,,9,,8,,4
+7°,Matemáticas,¿Cuál es la medida de cada ángulo interno en un cuadrado?,,45°,,60°,,90°,,120°,,90°
+7°,Matemáticas,¿Cuál es la raíz cuadrada de 49?,,5,,6,,7,,9,,7
+7°,Matemáticas,¿Cómo se llama el conjunto de puntos que tienen la misma distancia de un punto fijo llamado "centro"?,,Circunferencia,,Línea recta,,Segmento,,Ángulo,,Circunferencia
+7°,Matemáticas,¿Qué es una muestra representativa?,,Es una muestra que tiene la misma cantidad de elementos que la población total,,Es la selección de la población que refleja las características generales de esta,,Es un estudio que se realiza solo con una persona de la población,,Es un tipo de variable que se puede contar,,Es la selección de la población que refleja las características generales de esta
+7°,Matemáticas,¿Qué valor tiene la expresión -7x5?,,-35,,35,,12,,-12,,-35
+8°,Inglés,Choose the correct way to begin a formal letter:,img/carta_sobre.png,Hey! What's up?,,Dear Sir/Madam,,Hi there!,,Hello friend!,,Dear Sir/Madam
+8°,Inglés,Completa de oración: They _____ playing soccer now.,img/play.png,is,,are,,be,,were,,are
+8°,Inglés,Complete the sentence: I enjoy _____ books in my free time.,img/reading.png,read,,reading,,to read,,reads,,reading
+8°,Inglés,Cuál es el sinónimo de “happy”:,img/happy4.png,Angry,,Sad,,Joyful,,Tired,,Joyful
+8°,Inglés,Cuál es lo opuesto de “big”?,img/grande_pequeño.png,Small,,Tall,,Huge,,Short,,Small
+8°,Inglés,Escoge la forma correcta del verbo para esta oración: She _____ to school every day.,img/student_female.png,go,,goes,,going,,gone,,goes
+8°,Inglés,Identifica la oración correcta:,img/pizza.png,He don't like pizza.,,He doesn't likes pizza.,,He doesn't like pizza.,,He not like pizza.,,He doesn't like pizza.
+8°,Inglés,Selecciona el plural de “Child”: ,,Childs,,Childes,,Children,,Child,,Children
+8°,Inglés,What does Anna do every morning?,img/texto23.png,Walks her cat,,Feeds her pets and walks her dog,,Volunteers at a shelter,,Studies for school,,Feeds her pets and walks her dog
+8°,Inglés,What does Tom love to do?,img/texto22.png,Watch TV,,Play basketball,,Go swimming,,Read books,,Play basketball
+8°,Inglés,What does the phrase “wake up” mean? ,,To go to bed,,To get out of bed,,To eat breakfast,,To clean the house,,To get out of bed
+8°,Inglés,What does the word “house” mean?,,A vehicle,,A place to live,,A type of food,,A type of animal,,A place to live
+8°,Inglés,What is Tom's dream?,img/texto22.png,To be a teacher,,To be a professional basketball player,,To travel the world,,To become a doctor,,To be a professional basketball player
+8°,Inglés,What pets does Anna have?,img/texto23.png,A dog and a bird,,"A dog, a cat, and a rabbit",,A rabbit and a turtle,,A cat and a hamster,,"A dog, a cat, and a rabbit"
+8°,Inglés,Where does Anna volunteer?,img/texto23.png,At a hospital,,At a school,,At an animal shelter,,At a library,,At an animal shelter
+8°,Inglés,Where does Tom play basketball?,img/texto22.png,At school,,At home,,At the park,,At the gym,,At the park
+8°,Inglés,Which sentence is written correctly?,img/play.png,I like to playing soccer.,,I like play soccer.,,I like to play soccer.,,I like plays soccer.,,I like to play soccer.
+8°,Inglés,Which sentence uses the past tense correctly?,img/niña_corre.png,She run to the park yesterday.,,She ran to the park yesterday.,,She running to the park yesterday.,,She runned to the park yesterday.,,She ran to the park yesterday.
+8°,Inglés,Which word matches this definition: “a place where students learn”?,,Hospital,,Park,,School,,Library,,School
+8°,Inglés,Who is Tom's favorite basketball player?,img/texto22.png,Michael Jordan,,Kobe Bryant,,LeBron James,,Kevin Durant,,LeBron James
+8°,Lenguaje,"En la oración: “El niño se comió la manzana porque tenía hambre.”, ¿qué expresa la palabra “porque”?",img/apple_niño.png,Una causa.,,Una consecuencia.,,Una condición.,,Una comparación.,,Una causa.
+8°,Lenguaje,"Según el texto, ¿cómo se describe el pueblo?",img/texto20.png,Grande y moderno.,,Pequeño y sencillo.,,Abandonado y triste.,,Ruidoso y contaminado.,,Pequeño y sencillo.
+8°,Lenguaje,"¿Cuál es el conector adecuado para completar la oración? “Juan estudió mucho, _____ aprobó el examen.”",img/niño_examen.png,pero,,aunque,,por lo tanto,,sin embargo,,por lo tanto
+8°,Lenguaje,Completa la oración: "No salí de casa _____ estaba lloviendo.",img/niño_lluvia.png,porque,,aunque,,pero,,por lo tanto,,porque
+8°,Lenguaje,Identifica el antónimo de valiente:,img/cobarde.png,Atrevido,,Cobarde,,Fuerte,,Cauteloso,,Cobarde
+8°,Lenguaje,Identifica el sujeto en la oración: “El perro de mi vecino ladra toda la noche.”,img/perro_ladra.png,El perro,,Mi vecino,,Toda la noche,,Ladra,,El perro
+8°,Lenguaje,Selecciona la opción con el uso correcto de los signos de puntuación:,,¿Cómo estas,,¡Qué bonita sorpresa!,,"Hola, como estas.",,Vamos al cine?,,¡Qué bonita sorpresa!
+8°,Lenguaje,Selecciona la opción que contiene una oración exclamativa:,,¡Qué día tan bonito!,,Hoy hace buen clima.,,¿Quieres ir al parque?,,Vamos al cine.,,¡Qué día tan bonito!
+8°,Lenguaje,Selecciona la oración que está correctamente escrita:,,María compró un libro ayer.,,Maria compro un libro ayer,,María compro un libro ayer,,Maria compró un libro ayer,,María compró un libro ayer.
+8°,Lenguaje,¿A qué hora comienzan las actividades en Villa Luz?,img/texto20.png,Al mediodía.,,En la noche.,,Al amanecer.,,Al atardecer.,,Al amanecer.
+8°,Lenguaje,¿Cuál de las siguientes palabras está correctamente escrita?,,Resivir,,Recibir,,Resivir,,Recibirr,,Recibir
+8°,Lenguaje,¿Cuál es el destino de las mariposas monarca?,img/texto21.png,Canadá.,,Europa.,,México.,,Estados Unidos.,,México.
+8°,Lenguaje,¿Cuál es el propósito del texto?,img/texto20.png,Informar sobre un pueblo ficticio.,,Contar las costumbres de un pueblo.,,Narrar un conflicto en una comunidad.,,Dar instrucciones sobre agricultura.,,Contar las costumbres de un pueblo.
+8°,Lenguaje,¿Cuál es el significado de la expresión “estar en las nubes”?,img/nubes.png,Volar en avión.,,No prestar atención.,,Tener miedo.,,Estar contento.,,No prestar atención.
+8°,Lenguaje,¿Cuál es el sinónimo de feliz?,img/feliz.png,Triste,,Alegre,,Molesto,,Nervioso,,Alegre
+8°,Lenguaje,¿Cuál es la idea principal del texto?,img/texto21.png,Las mariposas monarca solo viven en México.,,El increíble viaje migratorio de las mariposas monarca.,,Los peligros que enfrentan los animales en general.,,La alimentación de las mariposas monarca.,,El increíble viaje migratorio de las mariposas monarca.
+8°,Lenguaje,¿Cuál es la mejor forma de comenzar una carta formal?,img/carta_sobre.png,"Hola, amigo.",,¿Qué tal todo?,,Estimado/a [Nombre]:,,¿Cómo estás?,,Estimado/a [Nombre]:
+8°,Lenguaje,¿De dónde parten las mariposas monarca?,img/texto21.png,México.,,Canadá.,,Estados Unidos.,,Sudamérica.,,Canadá.
+8°,Lenguaje,¿Qué hacen los campesinos al comenzar el día?,img/texto20.png,Ir a la escuela.,,Cuidar de sus cultivos.,,Dormir más.,,Salir de viaje.,,Cuidar de sus cultivos.
+8°,Lenguaje,¿Qué palabra describe mejor a los habitantes de Villa Luz?,img/texto20.png,Egoístas.,,Felices.,,Tristes.,,Solitarios.,,Felices.
+8°,Lenguaje,¿Qué significa la palabra amplio?,,Muy grande o extenso,,Muy pequeño,,Oscuro y cerrado,,Complejo,,Muy grande o extenso
+8°,Lenguaje,¿Qué significa la palabra inevitable?,,Algo que puede cambiarse.,,Algo que no se puede evitar.,,Algo seguro y feliz.,,Algo desconocido.,,Algo que no se puede evitar.
+8°,Lenguaje,¿Qué significa la palabra “travesía” en el texto?,img/texto21.png,Comida.,,Viaje.,,Descanso.,,Refugio.,,Viaje.
+8°,Lenguaje,¿Qué tipo de palabra es rápidamente en la oración: “El atleta corrió rápidamente”?,img/atleta.png,Sustantivo,,Adjetivo,,Verbo,,Adverbio,,Adverbio
+8°,Matemáticas,"Juan tiene 12 manzanas. Si regala 3 a cada uno de sus 3 amigos, ¿cuántas manzanas le quedan?",img/manzanas_12.png,3,,6,,9,,0,,3
+8°,Matemáticas,"Si 2x−3=7, ¿cuál es el valor de x?",,2,,3,,5,,7,,5
+8°,Matemáticas,"Si tienes 15×2−10, ¿cuál es el resultado?",,10,,20,,25,,30,,20
+8°,Matemáticas,"Si un círculo tiene un radio de 7 cm, ¿cuál es su diámetro?",img/diametro.png,7 cm,,14 cm,,21 cm,,28 cm,,14 cm
+8°,Matemáticas,"Si una caja contiene 36 caramelos y se reparten en partes iguales entre 9 niños, ¿cuántos caramelos recibe cada niño?",img/candies.png,2,,3,,4,,6,,4
+8°,Matemáticas,"Si x+5=12, ¿cuál es el valor de x?",,6,,7,,8,,5,,7
+8°,Matemáticas,Calcula: 8×7:,,54,,56,,64,,72,,56
+8°,Matemáticas,Convertir 0.25 a fracción:,,1/2,,1/3,,1/4,,1/5,,1/4
+8°,Matemáticas,En un salón hay 15 niños y 10 niñas. ¿Qué porcentaje del salón son niñas?,img/niñas_niños.png,25%,,33.3%,,40%,,50%,,40%
+8°,Matemáticas,María tiene $5000 y compra 3 lapiceros que cuestan $1200 cada uno. ¿Cuánto dinero le sobra?,img/pens.png,$1200,,$1400,,$1600,,$2000,,$1400
+8°,Matemáticas,Resuelve: 3x=15. ¿Cuál es el valor de x?,,3,,4,,5,,6,,5
+8°,Matemáticas,Simplifica 8/12:,,2/3,,4/6,,1/2,,3/4,,2/3
+8°,Matemáticas,Un auto recorre 60 km en una hora. ¿Cuántos kilómetros recorrerá en 4 horas?,img/car.png,120 km,,180 km,,240 km,,300 km,,240 km
+8°,Matemáticas,¿Cuál es el cociente de 144÷12?,,10,,11,,12,,13,,12
+8°,Matemáticas,¿Cuál es el perímetro de un cuadrado con lados de 5 cm?,,20 cm,,15 cm,,25 cm,,10 cm,,20 cm
+8°,Matemáticas,¿Cuál es el resultado de 3/4 +1/4 ?,,4/8,,1,,2/4,,5/4,,1
+8°,Matemáticas,¿Cuál es el resultado de 5/6 - 1/3?,,4/6,,2/3,,1/2,,2/6,,1/2
+8°,Matemáticas,¿Cuál es el resultado de 45+36?,,71,,81,,91,,101,,81
+8°,Matemáticas,¿Cuál es el resultado de 120−75?,,55,,65,,45,,50,,45
+8°,Matemáticas,¿Cuál es el valor de 1.5×4?,,4,,5,,6.5,,6.0,,6.0
+8°,Matemáticas,¿Cuál es el valor de la suma de los ángulos internos de un triángulo?,img/poligono_1.png,90°,,180°,,360°,,270°,,180°
+8°,Matemáticas,¿Cuál es el valor de x? si x÷4=8,,16,,24,,32,,40,,32
+8°,Matemáticas,¿Cuál es el área de un rectángulo con base 8 cm y altura 3 cm?,,11 cm²,,24 cm²,,16 cm²,,32 cm²,,24 cm²
+8°,Matemáticas,¿Qué nombre tiene un triángulo con tres lados iguales?,img/poligono_2.png,Isósceles,,Equilátero,,Escaleno,,Rectángulo,,Equilátero
+8°,Matemáticas,¿Qué número satisface la ecuación x−4=10?,,12,,14,,16,,10,,14
+9°,Inglés,- “How are you?” – “_____.”,,"I’m fine, thanks.",,I’m 14.,,I’m from Bogotá.,,I’m tall.,,"I’m fine, thanks."
+9°,Inglés,- “Thank you very much!” – “_____.”,,You’re welcome.,,Goodbye.,,Good night.,,"No, thanks.",,You’re welcome.
+9°,Inglés,- “What’s your favorite color?” – “_____.”,,It’s sunny.,,I’m fine.,,I’m 13.,,I like blue,,I like blue
+9°,Inglés,- “Where are you from?” – “_____.”,,I’m fine.,,I’m from Colombia.,,I’m student.,,I’m 12.,,I’m from Colombia.
+9°,Inglés," - “Can you help me, please?” – “_____.”",,"No, thanks.",,Sure!,,I’m sorry.,,Maybe.,,Sure!
+9°,Inglés,He _____ like pizza.,img/pizza.png,doesn’t,,don’t,,isn’t,,not,,doesn’t
+9°,Inglés,He _____ to the gym every morning.,img/hombre_gimnasio.png,go,,goes,,going,,gone,,goes
+9°,Inglés,How many cats does she have?,img/texto27.png,One,,Two,,Three,,None,,Two
+9°,Inglés,How old is Tom?,img/texto26.png,12,,13,,14,,15,,13
+9°,Inglés,I _____ TV last night.,img/niño_tv.png,watch,,watched,,watching,,watches,,watched
+9°,Inglés,I _____ my homework before dinner.,img/homework.png,doing,,does,,done,,did,,did
+9°,Inglés,My mother _____ cooking Italian food.,img/mama_cocina.png,is like,,like,,liking,,likes,,likes
+9°,Inglés,She _____ to music right now.,img/listen.png,listens,,listened,,is listening,,listen,,is listening
+9°,Inglés,The children _____ at school yesterday.,img/school.png,are,,was,,were,,is,,were
+9°,Inglés,There _____ some apples on the table,img/apples_table.png,is,,are,,be,,am,,are
+9°,Inglés,They _____ playing soccer now.,img/play.png,is,,was,,are,,be,,are
+9°,Inglés,We _____ to school by bus.,img/schoolbus.png,go,,goes,,are go,,went,,go
+9°,Inglés,What animals does Maria have?,img/texto27.png,Three dogs,,Two dogs and one cat,,One dog and two cats,,Three cats,,One dog and two cats
+9°,Inglés,What does he do in the afternoon?,img/texto26.png,He studies music.,,He watches TV.,,He plays soccer.,,He sleeps.,,He plays soccer.
+9°,Inglés,What does she do with them?,img/texto27.png,Sleeps,,Plays and feeds them,,Goes shopping,,Reads,,Plays and feeds them
+9°,Inglés,What is her dog’s name?,img/texto27.png,Luna,,Max,,Toby,,Coco,,Toby
+9°,Inglés,What subject does he not like?,img/texto26.png,Science,,Art,,English,,Math,,Math
+9°,Inglés,What time does he get up?,img/texto26.png,7:00,,6:00,,6:30,,8:00,,6:30
+9°,Inglés,Where does he live?,img/texto26.png,Medellín,,Bogotá,,Cali,,Cartagena,,Bogotá
+9°,Inglés,Where does she play with them?,img/texto27.png,In the park,,In the street,,In the yard,,In the house,,In the yard
+9°,Lenguaje,"Completa la siguiente oración con la opción que le dé sentido: “Si estudio mucho, _____ un buen examen.”",img/homework.png,sacaré,,sacaría,,sacaríais,,sacará,,sacaré
+9°,Lenguaje,"Inferencia: Según el texto, ¿cuál de las siguientes actividades humanas contribuye significativamente a la contaminación del agua?",img/texto24.png,Reciclar papel y plástico.,,Utilizar fertilizantes en la agricultura.,,Plantar árboles en los bosques.,,Caminar en lugar de usar el automóvil.,,Utilizar fertilizantes en la agricultura.
+9°,Lenguaje,"Las palabras “libro”, “revista” y “periódico” pertenecen al campo semántico de:",img/lectura.png,Muebles,,Alimentos,,Materiales de construcción,,Lectura,,Lectura
+9°,Lenguaje,Completa la oración con el verbo adecuado: “Los estudiantes _____ sus tareas a tiempo.”,img/study.png,hace,,hacen,,haz,,haces,,hacen
+9°,Lenguaje,Consecuencia: ¿Cuál de las siguientes es una posible consecuencia a largo plazo de la contaminación del agua?,img/texto24.png,Aumento de la biodiversidad en los océanos.,,Disminución de las enfermedades transmitidas por el agua.,,Mayor disponibilidad de agua potable.,,Escasez de agua limpia y segura para el consumo humano.,,Escasez de agua limpia y segura para el consumo humano.
+9°,Lenguaje,El sinónimo de “contaminación” es:,img/contaminacion.png,Pureza,,Limpieza,,Suciedad,,Transparencia,,Suciedad
+9°,Lenguaje,Identifica la figura literaria presente en la siguiente frase: “Sus ojos eran dos luceros que iluminaban la noche.”,img/ojos.png,Símil,,Metáfora,,Hipérbole,,Personificación,,Metáfora
+9°,Lenguaje,La palabra “residuales” se refiere a:,img/residuos.png,Lo que sobra o queda después de un proceso,,Lo que es nuevo o moderno,,Lo que es esencial o fundamental,,Lo que es natural u orgánico,,Lo que sobra o queda después de un proceso
+9°,Lenguaje,Selecciona la opción que presenta la correcta concordancia entre sujeto y verbo:,,Los libros está en la biblioteca.,,Tú sabe la respuesta.,,Ustedes vamos al cine.,,El perro ladra fuerte.,,El perro ladra fuerte.
+9°,Lenguaje,Selecciona la palabra que no pertenece al mismo campo semántico:,,Manzana,,Pera,,Mesa,,Naranja,,Mesa
+9°,Lenguaje,dentifica el error en la siguiente oración: “Ayer fui al parque con mi hermano y jugamos a la pelota.”,img/niños_pelota.png,No hay error,,"Ayer" debe llevar tilde,,"Fui" debe ser "fue",,"Jugamos" está mal escrito,,No hay error
+9°,Lenguaje,¿Cuál de las siguientes opciones expresa una opinión?,,El agua hierve a 100 grados centígrados.,,La pizza es la comida más deliciosa del mundo.,,Colombia tiene una gran diversidad de fauna y flora.,,El sol es una estrella.,,La pizza es la comida más deliciosa del mundo.
+9°,Lenguaje,¿Cuál de las siguientes oraciones está escrita correctamente?,,Me gusta mucho la pizza y los helados.,,Ayer fui al cine con mi amigo Juan.,,El perro de mi vecino ladra mucho.,,Todas las anteriores,,Todas las anteriores
+9°,Lenguaje,¿Cuál es el principal problema abordado en el texto?,img/texto24.png,La deforestación,,La contaminación del aire,,La contaminación del agua,,El calentamiento global,,La contaminación del agua
+9°,Lenguaje,¿Cuál es el significado de la palabra “ambiguo”?,,Claro,,Preciso,,Vago,,Corto,,Vago
+9°,Lenguaje,¿Cuál es la función de la palabra “que” en la oración “El libro que leí ayer fue muy interesante”?,img/cuento.png,Sujeto,,Predicado,,Complemento directo,,Conector,,Conector
+9°,Lenguaje,¿Cuál es la función del adjetivo en la oración?,,"Nombrar personas, animales o cosas.",,Expresar acciones o estados.,,Modificar a un sustantivo.,,Unir palabras o frases.,,Modificar a un sustantivo.
+9°,Lenguaje,¿Cuál es la idea principal que se debe transmitir en un texto sobre la importancia de reciclar?,,Que el reciclaje es divertido,,Que el reciclaje genera empleo,,Que el reciclaje ayuda a cuidar el medio ambiente,,Que el reciclaje es una moda,,Que el reciclaje ayuda a cuidar el medio ambiente
+9°,Lenguaje,¿Cuál es una de las funciones principales de los océanos mencionada en el texto?,img/texto25.png,Producir energía eléctrica,,Regular el clima del planeta,,Reducir la cantidad de lluvia,,Generar viento constante,,Regular el clima del planeta
+9°,Lenguaje,¿Cuáles son las principales causas de la contaminación del agua según el texto?,img/texto24.png,La lluvia ácida y los incendios forestales,,"Los desechos industriales, agrícolas y aguas residuales",,La sobrepesca y la construcción de represas,,El cambio climático y el aumento del nivel del mar,,"Los desechos industriales, agrícolas y aguas residuales"
+9°,Lenguaje,¿Qué acción humana se menciona como perjudicial para los océanos?,img/texto25.png,La agricultura intensiva,,El aumento de la temperatura,,La construcción de carreteras,,La sobrepesca,,La sobrepesca
+9°,Lenguaje,¿Qué porcentaje de la superficie de la Tierra está cubierto por los océanos?,img/texto25.png,Menos del 50%,,Más del 70%,,Exactamente el 60%,,Entre el 50% y el 60%,,Más del 70%
+9°,Lenguaje,¿Qué recomendación se da para ayudar a conservar los océanos?,img/texto25.png,Utilizar más combustibles fósiles,,Reducir los plásticos de un solo uso,,Construir más barcos pesqueros,,Contaminar las aguas con fertilizantes,,Reducir los plásticos de un solo uso
+9°,Lenguaje,¿Qué sucede si los océanos absorben dióxido de carbono?,img/texto25.png,Se agrava el cambio climático,,Ayudan a mitigar el cambio climático,,No tiene ningún efecto en el clima,,Causan huracanes más intensos,,Ayudan a mitigar el cambio climático
+9°,Lenguaje,¿Qué tipo de impacto tiene la contaminación del agua?,img/texto24.png,Solo afecta a los animales acuáticos,,Afecta a la salud humana y a los ecosistemas,,No tiene un impacto significativo en el medio ambiente,,Solo afecta a las plantas acuáticas,,Afecta a la salud humana y a los ecosistemas
+9°,Matemáticas,"Cubo de un término algebraico. Si a = 3, calcula (2a)³.",,54,,108,,216,,324,,216
+9°,Matemáticas,"Si 20 patos tienen comida para 10 días. ¿si son 5 patos, cuántos días tendrán comida?",img/pato.png,50 días,,20 días,,40 días,,22 días,,40 días
+9°,Matemáticas,"Una rueda da 200 vueltas en 10 minutos, ¿cuántas vueltas dará en una hora y 15 minutos?",img/rueda.png,2000,,1500,,1000,,150,,1500
+9°,Matemáticas,Calcula el volumen de un cilindro con radio r = 3 y altura h = 5. Formula V= π.r.h ,,45π,,30π,,15π,,90π,,15π
+9°,Matemáticas,Cuadrado de la resta de dos términos algebraicos. Calcula (2x - 3)².,,4x² + 12x + 9,,4x² + 12x + 6,,4x² - 12x + 9,,2x³ + 6x + 5,,4x² - 12x + 9
+9°,Matemáticas,Desarrolla el polinomio P(x) = x² - 2x … cuando x = 3:,,9,,6,,3,,12,,3
+9°,Matemáticas,Ecuaciones de primer grado con paréntesis. Resuelve 2(x - 3) + 4 = 10:,,5,,4,,3,,6,,6
+9°,Matemáticas,Ecuaciones lineales sencillas. Resuelve 3x + 5 = 11:,,x = 2,,x = -2,,x = 11,,x = 8,,x = 2
+9°,Matemáticas,Exponentes. Factoriza la expresión x² - 3x:,,x(x - 3),,x(x + 3),,x(x - 5),,x(x + 6),,x(x - 3)
+9°,Matemáticas,Factorización de trinomios cuadrados perfectos. Factoriza x² - 6x + 9:,,(x - 3)²,,(x + 3)²,,(y - 3)²,,(x + 6)²,,(x - 3)²
+9°,Matemáticas,Factorización por agrupación de términos. Factoriza 2xy + 4x + 3y + 6:,,(2x + 6)(y + 2),,(2x + 4)(3y + 2),,(2x + 3)(y + 2),,(6x + 2)(y + 6),,(2x + 3)(y + 2)
+9°,Matemáticas,Factorización por diferencia de cuadrados. Factoriza x² - 16:,,(x - 4)(x + 4),,(x - 25)(x + 25),,(x - 8)(x + 8),,(x + 4)(x + 12),,(x - 4)(x + 4)
+9°,Matemáticas,Operaciones con números naturales ¿Cuál es el resultado de 75 ÷ (5 + 10)?,,5,,3,,15,,10,,
+9°,Matemáticas,Operaciones con polinomios. Multiplica (x + 2)(x - 3):,,x² - x – 6,,x² + 7x – 12,,x² + 5x + 12,,x² + 2x – 12,,x² - x – 6
+9°,Matemáticas,Operaciones entre polinomios. Simplifica (3x² - 5x + 2) + (2x² + 4x - 1).,,5x² - x + 1,,5x² - 9x + 3,,5x⁴ - 9x + 5,,5x² - x - 1,,5x² - x + 1
+9°,Matemáticas,Producto de binomios. Multiplica (x + 3)(x - 4):,,x² - x - 12,,x² + 7x – 12,,x² + x – 12,,x² + 7x + 12,,x² - x - 12
+9°,Matemáticas,Resolución de ecuaciones con fracciones. Realiza la siguiente operación: 2/3 + 4/5 - 1/2,,37/30,,27/30,,16/30,,29/30,,29/30
+9°,Matemáticas,Resta de polinomios. Realiza la siguiente operación: (3x² - 4x + 7) - (x² + 2x - 3),,2x² - 6x + 10,,2x² - 6x + 4,,4x² - 6x + 10,,2x² + 4x + 10,,2x² - 6x + 10
+9°,Matemáticas,Resuelve 2x + 3 = 15:,,x = 5,,x = 6,,x = 12,,x = 30,,x = 6
+9°,Matemáticas,Si un rectángulo tiene 10m de base y 7m de altura. Otro rectángulo de igual área tiene 4m de base. ¿cuál será su altura en metros?,img/area_rectangulos.png,14.5m,,17.5m,,20m,,22.5m,,17.5m
+9°,Matemáticas,Simplificación de expresiones algebraicas. Simplifica la expresión (3x + 9)/3:,,x + 3,,x + 2,,2x + 3,,X + 9,,x + 3
+9°,Matemáticas,Valor de un polinomio. Calcula el valor de P(x) = 2x² - 5x + 3 para x = 2.,,1,,5,,3,,7,,1
+9°,Matemáticas,si tenemos 12560cm en el perímetro de una vivienda ¿cuánto mide esto en kilómetros?,img/perimetro_casa.png,1.256km,,0.1256km,,12.56km,,125.60km,,0.1256km
+9°,Matemáticas,¿Cuál es el grado absoluto del polinomio 6x⁴ + y⁵ ?,,4,,5,,9,,6,,5
+9°,Matemáticas,¿cuál de los siguientes triángulos tiene todos sus lados de diferente longitud?,img/triangulo4.png,Equilátero,,Isósceles,,Escaleno,,Rectángulo,,Escaleno
+10°,Inglés,"“Could you help me, please?” – “_____.”",,No,,I’m busy,,Never,,Of course,,Of course
+10°,Inglés,Choose the word that is NOT a fruit.,,apple,,banana,,carrot,,mango,,carrot
+10°,Inglés,How does María go to school?,img/texto33.png,On foot,,By car,,By bike,,By bus,,By bus
+10°,Inglés,How many animals does David have?,img/texto34.png,One,,Two,,Three,,Four,,Three
+10°,Inglés,I _____ watching a movie right now.,img/niño_tv.png,is,,are,,be,,am,,am
+10°,Inglés,She _____ to the park every morning.,img/niña_parque.png,go,,goes,,going,,gone,,goes
+10°,Inglés,They _____ soccer yesterday afternoon.,img/niños_pelota.png,play,,played,,playing,,plays,,played
+10°,Inglés,What does María do after school?,img/texto33.png,Plays soccer,,Watches TV,,Helps her mother,,Goes shopping,,Helps her mother
+10°,Inglés,What does María want to be?,img/texto33.png,A teacher,,A nurse,,A singer,,A doctor,,A doctor
+10°,Inglés,What does he do before school?,img/texto34.png,Takes his dog for a walk,,Feeds his pets,,Does his homework,,Plays soccer,,Feeds his pets
+10°,Inglés,What kind of person is David?,img/texto34.png,Lazy,,Irresponsible,,Animal lover,,Serious,,Animal lover
+10°,Inglés,When does he walk his dog?,img/texto34.png,Every day,,In the afternoons,,At night,,On weekends,,On weekends
+10°,Inglés,Where does David take his dog on weekends?,img/texto34.png,To the park,,To the beach,,To school,,To the vet,,To the park
+10°,Inglés,Where does María live?,img/texto33.png,Bogotá,,Medellín,,Cartagena,,Cali,,Cartagena
+10°,Inglés,Why does she take the bus?,img/texto33.png,She likes it,,It’s far,,It’s fun,,It’s cheap,,It’s far
+10°,Inglés,“How do you spell your name?” – “_____.”,,Slowly,,A-N-A,,With letters,,My name,,A-N-A
+10°,Inglés,“How old are you?” – “I’m _____.”,,fine,,happy,,fifteen,,tired,,fifteen
+10°,Inglés,“Library” means a place where you _____.,,buy food,,borrow books,,play games,,sleep,,borrow books
+10°,Inglés,“Thank you very much.” – “_____.”,,Goodbye,,You’re welcome,,Good night,,"Yes, please",,You’re welcome
+10°,Inglés,“Weather” refers to _____ .,,clothes,,rain and sunshine,,travel,,months,,rain and sunshine
+10°,Inglés,“What time is it?” – “_____.”,,It’s raining,,It’s five o’clock,,It’s blue,,It’s Monday,,It’s five o’clock
+10°,Inglés,“What’s the weather like?” – “_____.”,,It’s sunny,,It’s Monday,,It’s big,,I’m fine,,It’s sunny
+10°,Inglés,“What’s your name?” – “_____.”,,I’m fine,,My name is Sara,,"Yes, it is",,I’m 14,,My name is Sara
+10°,Inglés,“Where are you from?” – “_____.”,,I’m from Colombia,,I’m of Colombia,,I’m to Colombia,,I from Colombia,,I’m from Colombia
+10°,Inglés,“Would you like some coffee?” – “_____.”,,"Yes, please",,I like,,I’m fine,,I do,,"Yes, please"
+10°,Lenguaje,"De acuerdo con la historia, la bella mujer se fue cuando:",img/texto32.png,Los tres amigos peleaban por su amor.,,Niko estaba tendido en la arena.,,Félix por fin logró cazar un cangrejo.,,Siso le lanzó las bolas de arena a Niko.,,Los tres amigos peleaban por su amor.
+10°,Lenguaje,"De lo dicho en el último párrafo del texto, se puede inferir que, para el autor, el agua",img/texto31.png,no es un elemento que refleje las ondas de los murciélagos.,,interfiere en las ondas emitidas por los murciélagos.,,deja pasar las ondas y no les permite devolverse.,,cae en una dirección diferente a la de las ondas.,,interfiere en las ondas emitidas por los murciélagos.
+10°,Lenguaje,"De los siguientes planteamientos, el que presenta una crítica válida a la idea del profesor Luca Giuggioli sobre el carácter extraordinario de la ecolocalización es:",img/texto31.png,“La ecolocalización no permite rastrear con precisión insectos en la oscuridad”.,,“La ecolocalización consiste en emitir unos sonidos a altas frecuencias”.,,“La ecolocalización depende del tiempo que tarde en llegar el eco al oído”.,,“La ecolocalización no es efectiva cuando se emplea bajo la lluvia”.,,“La ecolocalización no es efectiva cuando se emplea bajo la lluvia”.
+10°,Lenguaje,"En la anterior historia, el signo de guion largo (−) se utiliza para:",img/texto32.png,Señalar la intervención de un personaje.,,Indicar que hay una aclaración del narrador.,,Señalar un personaje que ingresa en la historia.,,Aclarar el estado de ánimo de los protagonistas.,,Señalar la intervención de un personaje.
+10°,Lenguaje,"En la historia, el tema de discusión de los amigos era sobre:",img/texto32.png,El amor de una mujer que ya conocían.,,La duda de quién vio primero a una mujer en la playa.,,Quién necesitaba tener el amor de la mujer.,,Las mujeres bellas que van a meditar al mar.,,La duda de quién vio primero a una mujer en la playa.
+10°,Lenguaje,"Lee el siguiente fragmento: “La plata fácil de los cultivos de coca los afectó negativamente hasta convertirlos casi en enemigos del Estado. Sin embargo, ese mismo suelo los salvó”. ¿Para qué se utiliza la expresión “Sin embargo” en el fragmento?",img/texto28.png,Para añadir una idea que complementa la anterior.,,Para presentar una idea similar a la anterior.,,Para incluir una idea que explica la anterior.,,Para introducir una idea opuesta a la anterior.,,Para introducir una idea opuesta a la anterior.
+10°,Lenguaje,"Lee el siguiente resumen de la película “Siete cabezas”: La película está basada en una historia de la Biblia acerca de un dragón de siete cabezas. En la película se narra la vida de un guardabosque, Marcos, quien enfrenta al dragón para guiar a dos biólogos que investigan la muerte masiva de aves que han sido mutiladas. Por esto, la película explora el miedo a la mutilación, tema que se ha tratado poco en el cine colombiano. De acuerdo con el texto, ¿cuál es el error del anterior resumen?",img/texto29.png,"Según el resumen, el tema del miedo se ha tratado poco en el cine colombiano, pero eso no es lo que dice el texto.",,"Según el resumen, la película está basada solo en la Biblia, pero en el texto se dice que está basada en una enfermedad.",,"Según el resumen, la película explora el miedo a la mutilación, pero en el texto se dice que la película no es acerca del miedo.",,"Según el resumen, Marcos es un guardabosque que guía a dos biólogos, pero en el texto no se menciona que Marcos sea un guardabosque.",,"Según el resumen, la película está basada solo en la Biblia, pero en el texto se dice que está basada en una enfermedad."
+10°,Lenguaje,"Según el autor del texto, el cine colombiano ha abordado poco el miedo. ¿Qué propósito podría tener explorar este tema en el contexto de una sociedad como la colombiana?",img/texto29.png,Mostrar que el miedo es un sentimiento exclusivamente universal.,,Profundizar en cómo el miedo podría ayudar a comprendernos mejor como sociedad.,,Subrayar que el cine colombiano no es apto para tratar temas complejos.,,Destacar que el miedo no tiene impacto en la cultura nacional.,,Profundizar en cómo el miedo podría ayudar a comprendernos mejor como sociedad.
+10°,Lenguaje,"Según el texto anterior, ¿en qué momento se asociaron cerca de 1.270 agricultores para consolidar la empresa Distrito Chocolate?",img/texto28.png,Cuando se ganaron el premio Cacao de Oro.,,"Hace 15 años, cuando crearon 17 marcas de chocolate.",,Cuando los cultivos de coca los afectaron negativamente.,,"Hace 15 años, cuando abandonaron sus actividades ilegales.",,"Hace 15 años, cuando abandonaron sus actividades ilegales."
+10°,Lenguaje,"Según el texto, los murciélagos utilizan la ecolocalización porque",img/texto31.png,tienen visión limitada y de esta forma se orientan en la oscuridad.,,necesitan comunicarse con otros murciélagos durante el día.,,de esta manera natural se ocultan de sus depredadores.,,de esta forma logran desplazarse mientras llueve.,,tienen visión limitada y de esta forma se orientan en la oscuridad.
+10°,Lenguaje,"Teniendo en cuenta la información que brinda, ¿qué otro título podría tener el texto anterior?",img/texto28.png,La pobreza del campesinado.,,El cacao en Colombia.,,La erradicación de la droga.,,De la plata fácil a una empresa legal.,,De la plata fácil a una empresa legal.
+10°,Lenguaje,"¿Qué revela la reacción inicial de Niko, Félix y Siso sobre la personalidad de los tres?",img/texto32.png,Que son inseguros y temen acercarse a desconocidos.,,Que tienden a competir entre ellos por cualquier motivo.,,Que suelen evitar los conflictos.,,Que prefieren mantenerse alejados de la playa.,,Que tienden a competir entre ellos por cualquier motivo.
+10°,Lenguaje,Considere el último párrafo del texto. ¿Por qué la autora cree que deberíamos indagar más sobre el miedo en el cine?,img/texto29.png,Porque la película de Osorio muestra que es posible hacerlo.,,Porque el miedo es un sentimiento muy presente en nuestra sociedad.,,Porque el cine es un medio que ha explorado poco el tema del miedo.,,Porque el arte es una manera de indagar sobre los miedos de la sociedad.,,Porque el miedo es un sentimiento muy presente en nuestra sociedad.
+10°,Lenguaje,En el texto prevalece una secuencia,img/texto31.png,"narrativa, pues se cuenta una historia sobre un animal exótico.",,"instructiva, pues se dan pasos sobre cómo actuar en una situación.",,"argumentativa, ya que se defiende una opinión sobre un tema de interés.",,"explicativa, ya que se usan definiciones y ejemplos sobre un fenómeno.",,"explicativa, ya que se usan definiciones y ejemplos sobre un fenómeno."
+10°,Lenguaje,Quien genera el conflicto en la historia es,img/texto32.png,Niko.,,un barquero.,,la bella mujer.,,Siso.,,la bella mujer.
+10°,Lenguaje,¿Cuál de las siguientes opciones es un resumen adecuado del primer párrafo del texto?,img/texto30.png,"Debido a los factores geográficos y climáticos de las regiones donde habitaban, los humanos pudieron evolucionar de maneras diferentes. Esto dio como resultado la aparición de especies como el homo sapiens, el homo erectus y el homo neanderthalensis que desarrollaron rasgos diferentes entre sí.",,"Los humanos llegaron a la zona occidental de África hace 2,5 millones de años y, un tiempo después, se desplazaron a Europa y a Asia. Los humanos evolucionaron de maneras diferentes, dando lugar a especies diversas debido a las condiciones climáticas y geográficas donde habitaban.",,"Los humanos evolucionaron en el oriente de África y, años más tarde, se desplazaron al norte de ese continente, a Europa y a Asia. Los humanos evolucionaron de maneras diferentes, dando lugar a especies diversas debido a las condiciones climáticas y geográficas de los lugares donde habitaban.",,"Hace 2,5 millones de años, los seres humanos evolucionaron por primera vez. Pronto se fueron propagando por el mundo, evolucionando en especies muy distintas. Esto dio como resultado especies como el australopithecus, el homo erectus y el homo neanderthalensis que desarrollaron rasgos diferentes.",,"Los humanos evolucionaron en el oriente de África y, años más tarde, se desplazaron al norte de ese continente, a Europa y a Asia. Los humanos evolucionaron de maneras diferentes, dando lugar a especies diversas debido a las condiciones climáticas y geográficas de los lugares donde habitaban."
+10°,Lenguaje,¿Cuál de los personajes demuestra mayor nerviosismo en el relato?,img/texto32.png,"Niko, porque no podía dormir.",,"Félix, porque esperaba encontrar un cangrejo.",,"Siso, porque se paralizó al verla y pensó que era un fantasma.",,"La bella mujer, porque se fue sin despedirse.",,"Siso, porque se paralizó al verla y pensó que era un fantasma."
+10°,Lenguaje,¿Cuál de los siguientes fragmentos presenta la idea central del texto?,img/texto28.png,"“El anfitrión habitual es Juan Urbano, un agradable campesino que suele pasearse por las tiendas con su sombrero y su poncho”.",,“A los campesinos del occidente de Boyacá la tierra los privilegió y los castigó al mismo tiempo”.,,"“Urbano cuenta su historia en foros con altos funcionarios, conversatorios y en cualquier escenario público al que sea invitado”.",,“La plata fácil de los cultivos de coca los afectó negativamente hasta convertirlos casi en enemigos del Estado”.,,“A los campesinos del occidente de Boyacá la tierra los privilegió y los castigó al mismo tiempo”.
+10°,Lenguaje,¿Cuál es el propósito del texto?,img/texto29.png,Promocionar el cine de terror español a través de nuevas propuestas.,,Advertir sobre el impacto que puede tener la película en los espectadores.,,Recomendar una película a través de la exposición de sus características.,,Explicar en qué consiste el Desorden de Identidad de Integridad Corporal.,,Recomendar una película a través de la exposición de sus características.
+10°,Lenguaje,¿Cuál es el propósito principal del autor del texto?,img/texto30.png,Hacer una presentación de un tema científico para un público general.,,Dar una explicación científica para un público especializado en el tema.,,Formular una hipótesis para solucionar el problema dado en el texto.,,Relatar de manera literaria un hecho de ficción para entretener al lector.,,Hacer una presentación de un tema científico para un público general.
+10°,Lenguaje,¿Cuál es el tema principal del texto?,img/texto30.png,La diversidad de formas en que los humanos han evolucionado.,,"La historia de la evolución de nuestra especie, el homo sapiens.",,La historia de la evolución de la especie homo neanderthalensis.,,Las condiciones climáticas que los distintos humanos han vivido.,,La diversidad de formas en que los humanos han evolucionado.
+10°,Lenguaje,¿Cuál es la intención del autor al mostrar tres versiones distintas del encuentro con la mujer?,img/texto32.png,Sugerir que uno de ellos miente.,,Mostrar cómo cada personaje interpreta la realidad desde su subjetividad.,,Hacer que el lector descubra quién vio realmente primero a la mujer.,,Generar confusión para crear un misterio sin resolver.,,Mostrar cómo cada personaje interpreta la realidad desde su subjetividad.
+10°,Lenguaje,¿Cómo afecta la lluvia al proceso de ecolocalización en los murciélagos?,img/texto31.png,"Incrementa la velocidad de las ondas sonoras, facilitando la detección de presas.",,"Interfiere con las ondas emitidas, dificultando la orientación y localización de presas.",,"Amplifica los ecos recibidos, permitiendo un mayor alcance de detección.",,"Reduce la sensibilidad auditiva de los murciélagos, impidiendo la emisión de sonidos.",,"Interfiere con las ondas emitidas, dificultando la orientación y localización de presas."
+10°,Lenguaje,¿Hace cuántos años ocurrió el desplazamiento de los humanos hacia Europa y Asia?,img/texto30.png,Hace 1.000 años.,,Hace 500.000 años.,,Hace 2 millones de años.,,"Hace 2,5 millones de años.",,Hace 2 millones de años.
+10°,Lenguaje,¿Por qué Félix descarta la idea de que la mujer sea un fantasma?,img/texto32.png,Porque la vio claramente bajo la luz de la luna.,,Porque los fantasmas no huelen a perfume europeo.,,Porque la escuchó hablar con Niko.,,Porque Siso le aseguró que era real.,,Porque los fantasmas no huelen a perfume europeo.
+10°,Lenguaje,¿Qué crítica social podría sugerirse a partir de la actitud de los tres amigos?,img/texto32.png,Que los jóvenes suelen temer a lo desconocido.,,Que las personas frecuentemente idealizan a quienes apenas conocen.,,Que los hombres siempre desconfían entre ellos.,,Que la sociedad no aprecia la belleza natural.,,Que las personas frecuentemente idealizan a quienes apenas conocen.
+10°,Lenguaje,¿Qué efecto provoca en los muchachos la presencia de la mujer?,img/texto32.png,Les genera un sentimiento de competencia y rivalidad.,,Les produce miedo y evitan acercarse.,,Los hace reflexionar sobre su amistad.,,Los obliga a regresar al pueblo de inmediato.,,Les genera un sentimiento de competencia y rivalidad.
+10°,Lenguaje,¿Qué estrategia utiliza el autor del texto para ilustrar que ha habido diversas especies humanas?,img/texto30.png,Señalar que los seres humanos evolucionaron en África a partir de un género distinto de simios conocidos como Australopithecus.,,"Nombrar las diferentes clases de humanos que han existido, como el homo sapiens, el homo erectus y el homo neanderthalensis.",,"Argumentar que los homo sapiens no vivirán más de 1.000 años más, mientras que el homo erectus vivió por dos millones de años.",,"Enumerar las condiciones de los diferentes lugares en que habitaban los humanos, que llevaron a la evolución de distintas especies.",,"Nombrar las diferentes clases de humanos que han existido, como el homo sapiens, el homo erectus y el homo neanderthalensis."
+10°,Lenguaje,¿Qué función cumple el escenario nocturno en la playa dentro del relato?,img/texto32.png,Crear un ambiente misterioso que favorece la aparición de la mujer.,,Mostrar que los muchachos prefieren el mar al pueblo.,,Indicar que los personajes viven cerca del muelle.,,Explicar por qué la mujer meditaba en un tronco.,,Crear un ambiente misterioso que favorece la aparición de la mujer.
+10°,Lenguaje,¿Qué indica el hecho de que los tres amigos interpreten la sonrisa como dirigida a cada uno?,img/texto32.png,Que ella realmente se enamoró de uno solo.,,Que los tres estaban engañados por Siso.,,Que tenían deseos y percepciones condicionadas por sus emociones.,,Que la mujer quería manipularlos.,,Que tenían deseos y percepciones condicionadas por sus emociones.
+10°,Lenguaje,¿Qué relación simbólica existe entre la enfermedad mencionada y el conflicto interno del protagonista de “Siete cabezas”? ,,Ambas reflejan un miedo a lo desconocido y la necesidad de transformación.,,La enfermedad es una metáfora directa del apocalipsis en la Biblia.,,Ambas representan el rechazo total a la naturaleza.,,La enfermedad y el conflicto interno solo comparten un enfoque científico.,,Ambas reflejan un miedo a lo desconocido y la necesidad de transformación.
+10°,Lenguaje,¿Qué significado tiene la sonrisa de la bella mujer al final de la historia?,img/texto32.png,Confirma que ella eligió a uno de los tres muchachos.,,Representa un gesto amable que cada uno interpreta según su propio deseo.,,Demuestra que ella sabía de la disputa y quiso burlarse de ellos.,,Indica que no estaba interesada en ninguno de los muchachos.,,Representa un gesto amable que cada uno interpreta según su propio deseo.
+10°,Lenguaje,¿Qué sugiere la actitud de la mujer al decir “Con permiso”?,img/texto32.png,Que buscaba iniciar una conversación con ellos.,,Que estaba molesta por la discusión.,,Que quería retirarse con discreción y respeto.,,Que deseaba aclarar la situación con los amigos.,,Que quería retirarse con discreción y respeto.
+10°,Lenguaje,¿Qué tipo de narrador presenta la historia?,img/texto32.png,Narrador protagonista.,,Narrador testigo.,,Narrador omnisciente en tercera persona.,,Narrador en segunda persona.,,Narrador omnisciente en tercera persona.
+10°,Lenguaje,“Cerca de 1.270 agricultores de esta región abandonaron sus actividades ilegales hace 15 años y se asociaron para consolidar la empresa Distrito Chocolate”. ¿Cuál de las siguientes palabras significa lo contrario de la palabra “ilegales”?,img/texto28.png,Permitidas.,,Habituales.,,Inmorales.,,Dudosas.,,Permitidas.
+10°,Matemáticas,"A un productor de bebidas le gustaría probar la confiabilidad de dos procesos de producción de jugo de naranja y sidra de manzana respectivamente. Una revisión del proceso de manufactura del jugo de naranja encontró que el 10% de las botellas no se han llenado al nivel correcto. Una revisión del proceso de manufactura de la sidra de manzana encontró que el 15% de las botellas no se han llenado al nivel correcto. Si dos botellas son seleccionadas al azar (una de cada proceso), ¿Cuál es la probabilidad de seleccionar una sin llenar de jugo de naranja y una sin llenar de sidra de manzana?",img/botella_bebidas.png,0.015,,0.10,,0.15,,0.25,,0.015
+10°,Matemáticas,"Al final de cada mes, Katie ahorra el 20 por ciento de su salario después de los impuestos. Si a katie se le cobra impuestos con una tasa del 25 por ciento y S representa el salario mensual antes de los impuestos, ¿Cuál de las siguientes expresiones representa el total de los ahorros de Katie al final de seis meses?",img/alcancia.png,0.9S,,1.5S,,2.2S,,2.8S,,0.9S
+10°,Matemáticas,"Alex conduce de la ciudad A la ciudad B a una tasa de 60 kilómetros por hora. Si usa 2 galones de combustible por cada 50 millas, ¿cuántos galones de combustible necesitará para conducir durante 5 horas y así visitar a su familia en la ciudad B? (1 milla = 1.6 kilómetros)",img/gasolina.png,7.5,,9.5,,11.5,,13.5,,7.5
+10°,Matemáticas,"Dado f(x)=x²+4x−3 , encuentre f(−3)",,-3,,-6,,0,,18,,-6
+10°,Matemáticas,"El 15 de abril del 2015 Jorge compra 10 acciones de Bling-Bling Inc. al precio de $450 por acción. El precio de las acciones de Bling-Bling se incrementó a $600 el 15 de julio del 2015. ¿Cuál es el incremento del porcentaje en el valor de las acciones de Jorge redondeado al porcentaje más cercano?",img/crecimiento.png,25%,,33%,,45%,,67%,,33%
+10°,Matemáticas,"El valor de una computadora disminuye 12% cada año. Si su precio inicial fue $1500, ¿cuál será su valor después de 2 años?",img/portatil.png,$1158.00,,$1320.00,,$1161.60,,$150.00,,$1161.60
+10°,Matemáticas,"Emma necesita ordenar fertilizante líquido para su compañía de jardinería. Ella piensa guardar el fertilizante en un tanque cilíndrico, pero no está segura cuanto fertilizante le cabe. El tanque mide 10 pies de altura y la base circular tiene un radio de 5 pies. ¿Cuál es volumen de este tanque de almacenamiento?",img/cilindro.png,"1,570 ft³",,"3,140 ft³",,157 ft³,,785 ft³,,785 ft³
+10°,Matemáticas,"En una clase hay 25 estudiantes. Si el 40% son mujeres, ¿cuántos son hombres?",img/niñas_niños.png,10,,14,,15,,20,,15
+10°,Matemáticas,"La gráfica de una función pasa por los puntos (0,4) y (3,13). ¿Cuál es su ecuación si es lineal?",,y=3x+4,,y=4x+3,,y=2x+4,,y=3x−4,,y=3x+4
+10°,Matemáticas,"Resuelve la desigualdad: 4(3−x) ≥ 2x + 8",,x ≤ 1,,x ≤ 2/3,,x ≥ −1,,x ≤ −1,,x ≤ 2/3
+10°,Matemáticas,"Si 10 pulgadas en un mapa representan una distancia actual de 100 pies, entonces ¿qué distancia real es representada por 25 pulgadas en el mapa?",img/perimetro_casa.png,25 pies,,100 pies,,150 pies,,250 pies,,250 pies
+10°,Matemáticas,"Si (x−2)(x+7)=x²+ax+b, ¿cuáles son los valores de a y b?",,5 y −14,,7 y −14,,5 y 14,,−5 y 14,,5 y −14
+10°,Matemáticas,"Si a=−4 , y b=3 , ¿cuál es |a−b| ?",,1,,3,,4,,7,,7
+10°,Matemáticas,"Si f(x)=2x²−5x+3, calcula f(4)",,15,,17,,19,,21,,15
+10°,Matemáticas,"Sofía está manejando a Texas. Ella viaja a 70 kilómetros por hora por cada 2 horas, y a 63 kilómetros por hora cada 5 horas. En un período de 7 horas ¿Cuál es la velocidad promedio de Sofía?",img/velocimetro.png,64 km/h,,65 km/h,,66 km/h,,67 km/h,,65 km/h
+10°,Matemáticas,"Una caja contiene 6 bolas rojas, 5 azules y 9 verdes. Si se extrae una al azar, ¿cuál es la probabilidad de que NO sea azul?",img/caja_bolas.png,10/11,,9/20,,11/20,,15/20,,15/20
+10°,Matemáticas,"Una compañía de teléfono cobra $2 por los primeros cinco minutos de una llamada y 30 centavos por cada minuto después. Si Bill hace una llamada que dura 25 minutos, ¿cuánto será el costo de esa llamada?",img/telefono.png,$8.00,,$8.50,,$9.00,,$9.50,,$8.00
+10°,Matemáticas,"Una fábrica produce 500 teléfonos por mes. El costo de manufactura por cada teléfono es de $200. Si la compañía desea tener una ganancia total de $10,000 o más en 500 teléfonos, ¿Cuál de las siguientes desigualdades nos dará el precio de venta Y por cada teléfono para poder obtener la ganancia deseada?",img/telefono_pantalla.png,500Y + 200 ≥ 300,,"500Y − 100,000 ≥ 10,000",,"500Y + 200 ≥ 10,000",,"500Y − 200 ≤ 10,000",,"500Y − 100,000 ≥ 10,000"
+10°,Matemáticas,"Una tienda ofrece un 15% de descuento sobre un artículo que cuesta $240. Si además se aplica un impuesto del 8%, ¿cuál es el precio final a pagar?",img/descuento.png,$198.72,,$205.00,,$220.32,,$230.50,,$220.32
+10°,Matemáticas,"¿Cuál es el resultado simplificado de la expresión: (5x⁻² y³)(2x⁴ y⁻¹)?",,10x²y²,,7x²y²,,10x⁶y⁻⁴,,10x²y⁴,,10x²y²
+10°,Matemáticas,"¿Cuál es la ecuación de la línea que pasa a través de los puntos A(1, 2) y B(4, 3)?",,y=x+5,,y=1/3x+5,,y=1/3x+5/3,,y=x+5/3,,y=1/3x+5/3
+10°,Matemáticas,"¿Cuál es la pendiente de la recta perpendicular a y=−1/2x+9?",,2,,−2,,1/2,,−1/2,,2
+10°,Matemáticas,"¿Cuál opción muestra el orden de menor a mayor en los siguientes números? 0.4, 1/6, 1/3, 0.16, 3/22",img/menor_mayor.png,"3/22, 0.16, 1/3, 1/6, 0.4",,"3/22 0.16, 1/6, 1/3, 0.4",,"0.16, 3/22, 1/6, 0.4, 1/3",,"0.16, 3/22, 1/6, 1/3, 0.4",,"3/22 0.16, 1/6, 1/3, 0.4"
+10°,Matemáticas,"¿Cuántas contraseñas se pueden formar del conjunto de letras {A, B, C, D} si cada letra se puede usar solo una vez?",img/clave.png,6,,24,,120,,720,,24
+10°,Matemáticas,Factoriza: 4y(3x+2)−2(3x+2),,(4y− 2)(3x+ 2),,(3x− 2)(4y+ 2),,(4y+ 2)(6x),,(3x+ 2)(4y+ 2),,(4y− 2)(3x+ 2)
+10°,Matemáticas,Hace cinco años Amy tenía tres veces más edad que Mike. Si Mike tiene 10 años ahora ¿Qué edad tiene Amy?,img/sister_brother.png,15,,20,,25,,30,,20
+10°,Matemáticas,Joe tiene un presupuesto de $300 para gastar en los días festivos. Joe decide comprar zapatos para sus nietos. Si cada par de zapatos cuesta $40 y Joe tiene n nietos ¿Cuál de las siguientes desigualdades representa la restricción presupuestaria de Joe?,img/zapatos.png,40n>300,,40+n>300,,40+n≤300,,40n≤300,,40n≤300
+10°,Matemáticas,Resuelve (3x+4y)(2x+5y)=?,,3x²+ 8xy + 20y²,,3x²+ 15xy + 20y²,,6x²+ 15xy + 20y²,,6x²+ 23xy + 20y²,,6x²+ 23xy + 20y²
+10°,Matemáticas,Si el área de un círculo es de 100π . ¿Cuál es el diámetro (D) del círculo?,img/diametro_radio.png,10,,20,,30,,40,,20
+10°,Matemáticas,Un rectángulo está cortado a la mitad para crear dos cuadrados los cuales tienen un área de 25 cada uno. ¿Cuál es el perímetro del rectángulo original? ,img/perimetro_rectangulo.png,100,,30,,50,,25,,30
+10°,Matemáticas,¿Cuál de las siguientes expresiones es equivalente a 3x(2+5y)?,,3x + 5y,,6x + 5y,,6x+ 15y,,6x + 15xy,,6x + 15xy
+10°,Matemáticas,¿Cuál es la pendiente de la línea y=3x−7 ?,,2,,3,,5,,7,,3
+10°,Matemáticas,¿Cuál es la probabilidad de seleccionar un hombre de un grupo de 4 hombres y 8 mujeres?,img/grupo.png,1/3,,1/2,,2/3,,4/5,,1/3
+10°,Matemáticas,¿Cuáles son las soluciones a la siguiente ecuación? x²+8x+15=0,,"(2, 3)",,"(3, 5)",,"(−2, −3)",,"(−3, −5)",,"(−3, −5)"
+10°,Matemáticas,¿Si y=3ab+2b³ a qué equivale y cuando a=1 y b=2?,,16,,18,,20,,22,,22
+11°,Inglés,"Choose the correct option to complete the sentence: If I had more time, I ___ travel around the world.",img/conditional.png,would,,will,,can,,am going to,,would
+11°,Inglés,"Choose the correct option: The students were able to finish the project on time ___ their excellent teamwork.",img/linking_words.png,because of,,although,,however,,unless,,because of
+11°,Inglés,"Choose the correct reported speech: He said: “I am studying now.”",img/reported_speech.png,"He said that he was studying then.",,"He said that he is studying now.",,"He says that he was studying now.",,"He said that he was study then.",,"He said that he was studying then."
+11°,Inglés,"Choose the option that best completes the statement: The book was so engaging ___ I read it in one day.",img/so_that.png,that,,than,,because,,when,,that
+11°,Inglés,"Read the advertisement: “Looking for someone passionate about learning and committed to excellence. Join our team and grow with us!” What is the purpose of the ad?",img/advertisement.png,"to attract potential employees",,"to promote an academic course",,"to announce a scholarship",,"to sell learning materials",,"to attract potential employees"
+11°,Inglés,"Read the dialogue: Mark: I can't believe the results! Tina: I told you the test was tricky. Mark: Yeah… I should have prepared better. What does Mark mean by “I should have prepared better”?",img/dialogue.png,"He regrets not studying enough.",,"He believes the test was unfair.",,"He thinks the teacher didn’t explain well.",,"He wants to retake the test.",,"He regrets not studying enough."
+11°,Inglés,"Read the following short text: “The documentary highlights the impact of plastic waste on marine life and calls for immediate global action.”  What is the text mainly about?",img/documentary.png,"the environmental damage caused by plastic waste",,"the economic value of marine species",,"the history of environmental documentaries",,"the benefits of recycling companies",,"the environmental damage caused by plastic waste"
+11°,Inglés,"Read the sentence: “The company aims to reduce its carbon footprint by implementing sustainable practices.” The phrase “carbon footprint” refers to:",img/carbon_footprint.png,"the amount of pollution a company produces",,"the money a company spends on energy",,"the size of the company’s facilities",,"the number of employees working there",,"the amount of pollution a company produces"
+11°,Inglés,"Read the sentence: “The manager encouraged the team to think outside the box.” The expression “think outside the box” means:",img/idiom.png,"to think creatively",,"to follow strict rules",,"to avoid risks",,"to work individually",,"to think creatively"
+11°,Inglés,"Read the text: “Maria didn’t attend the meeting because she had been informed too late.” What can be inferred?",img/inference.png,"She didn’t know about the meeting in time.",,"She forgot the meeting date.",,"She chose not to attend.",,"She was responsible for planning the meeting.",,"She didn’t know about the meeting in time."
+11°,Inglés,"Read the text: “The new policy will take effect next semester. Until then, the current rules must be followed.” The expression “until then” indicates:",img/cohesion.png,"a temporary situation that will change",,"a permanent rule",,"a condition that must be met",,"a cause–effect relationship",,"a temporary situation that will change"
+11°,Inglés,"Select the correct phrasal verb: We need to ___ the meeting until next week.",img/phrasal_verbs.png,put on,,put out,,put off,,put in,,put off
+11°,Inglés,"Select the sentence in which “despite” is used correctly:",img/despite.png,"Despite the rain, we continued playing.",,"Despite it was raining, we continued playing.",,"Despite of the rain, we continued playing.",,"We continued playing despite was raining.",,"Despite the rain, we continued playing."
+11°,Inglés,"Select the sentence with correct punctuation:",img/punctuation.png,"When I arrived, the meeting had already started.",,"When I arrived the meeting, had already started.",,"When I arrived the meeting had already started.",,"When, I arrived the meeting had already started.",,"When I arrived, the meeting had already started."
+11°,Inglés,"What does the word “achievement” mean?",img/vocabulary.png,"a successful accomplishment",,"a difficult problem",,"a future plan",,"an unexpected failure",,"a successful accomplishment"
+11°,Inglés,"What is the correct comparative form of “efficient”?",img/comparative.png,more efficient,,efficienter,,most efficient,,more efficiency,,more efficient
+11°,Inglés,"Which option completes the sentence correctly? She has lived in this city ___ 2010.",img/since_for.png,for,,since,,during,,from,,since
+11°,Inglés,"Which sentence is written in the passive voice?",img/passive_voice.png,"The teacher explains the lesson.",,"The lesson is explained by the teacher.",,"The students completed the task.",,"They study every afternoon.",,"The lesson is explained by the teacher."
+11°,Inglés,"Which sentence uses the future perfect correctly?",img/future_perfect.png,"By next year, she will have finished her degree.",,"She will finished her degree next year.",,"She will have finish her degree.",,"By next year, she will finish to her degree.",,"By next year, she will have finished her degree."
+11°,Inglés,"Which word is the correct synonym of “reliable”?",img/synonym.png,trustworthy,,funny,,difficult,,unsafe,,trustworthy
+11°,Lenguaje,"Según el texto, ¿qué rol tiene la ciudadanía en el reciclaje?",img/texto36.png,Ninguno,,Supervisar plantas de reciclaje,,Financiar políticas públicas,,Participar activamente separando residuos,,Participar activamente separando residuos
+11°,Lenguaje,¿Cuál es la causa principal de la necesidad de reciclar?,img/texto36.png,La migración urbana,,La acumulación de residuos y la contaminación,,La reducción de recursos tecnológicos,,La falta de empleo,,La acumulación de residuos y la contaminación
+11°,Lenguaje,¿Cuál es la función del narrador?,img/texto35.png,Presentar hechos sin perspectiva,,Expresar los sentimientos y reflexiones del personaje,,Criticar el lugar visitado,,Comparar ciudades antiguas y modernas,,Expresar los sentimientos y reflexiones del personaje
+11°,Lenguaje,¿Cuál es la idea central del texto?,img/texto36.png,El reciclaje es esencial para proteger el medio ambiente y generar beneficios,,La contaminación es inevitable,,Separar residuos no tiene impacto,,La economía no se ve afectada por los residuos,,El reciclaje es esencial para proteger el medio ambiente y generar beneficios
+11°,Lenguaje,¿Cuál es la idea principal del texto?,img/texto35.png,Clara quería viajar sola para conocer ciudades modernas,,El valor del viaje reside en la conexión con las raíces y recuerdos.,,Clara tenía miedo de viajar sola y decidió no hacerlo.,,Las ciudades antiguas carecen de interés para los jóvenes,,El valor del viaje reside en la conexión con las raíces y recuerdos.
+11°,Lenguaje,¿Cuál es la intención del autor al presentar datos y ejemplos?,img/texto36.png,Convencer al lector sobre la importancia del reciclaje,,Mostrar cifras sin interpretación,,Criticar el reciclaje,,Proponer leyes de manera estricta,,Convencer al lector sobre la importancia del reciclaje
+11°,Lenguaje,¿Cuál es la tesis principal del texto?,img/texto37.png,Los dispositivos electrónicos son perjudiciales siempre,,Los adolescentes deben evitar la tecnología,,Se requiere un equilibrio en el uso de tecnología para adolescentes,,La tecnología no tiene impacto en los jóvenes,,Se requiere un equilibrio en el uso de tecnología para adolescentes
+11°,Lenguaje,¿Qué consecuencia se menciona en el texto?,img/texto36.png,La desaparición de especies animales,,La pérdida de biodiversidad,,El aumento de consumo de agua,,La generación de empleos y la disminución de la contaminación,,La generación de empleos y la disminución de la contaminación
+11°,Lenguaje,¿Qué contraargumento se menciona?,img/texto37.png,Los jóvenes no deben usar tecnología,,"Con uso responsable, mejora la comunicación y el aprendizaje",,La tecnología es peligrosa,,No hay evidencia científica,,"Con uso responsable, mejora la comunicación y el aprendizaje"
+11°,Lenguaje,¿Qué efecto produce el final del texto?,img/texto35.png,Refuerza la reflexión sobre la identidad y las raíces,,Genera sorpresa por un evento inesperado,,Indica un conflicto sin resolver,,Muestra la indiferencia de Clara,,Refuerza la reflexión sobre la identidad y las raíces
+11°,Lenguaje,¿Qué efecto tiene el lenguaje del texto?,img/texto37.png,Persuade a encontrar un uso responsable de la tecnología,,Provoca miedo sobre la tecnología,,Desalienta el uso de internet,,Confunde al lector,,Persuade a encontrar un uso responsable de la tecnología
+11°,Lenguaje,¿Qué elemento del texto refleja un conflicto interno de Clara?,img/texto35.png,La descripción de las calles,,La conexión con sus abuelos,,La llegada a la ciudad,,El miedo mezclado con emoción,,El miedo mezclado con emoción
+11°,Lenguaje,¿Qué evidencia respalda la preocupación sobre el uso excesivo?,img/texto37.png,"Afecta la concentración, memoria y habilidades sociales",,Mejora la comunicación,,Permite acceso a información,,Facilita el aprendizaje,,"Afecta la concentración, memoria y habilidades sociales"
+11°,Lenguaje,¿Qué inferencia se puede hacer sobre la importancia del reciclaje?,img/texto36.png,Solo tiene beneficios económicos,,Contribuye al bienestar ambiental y social,,Es una moda pasajera,,No tiene impacto real,,Contribuye al bienestar ambiental y social
+11°,Lenguaje,¿Qué información es secundaria?,img/texto36.png,El reciclaje ayuda a la economía local,,La acumulación de residuos contamina el suelo y el agua,,"Separar materiales reciclables como plástico, vidrio y papel",,El reciclaje permite dar nuevos usos a los materiales,,El reciclaje ayuda a la economía local
+11°,Lenguaje,¿Qué mensaje principal transmite el texto?,img/texto35.png,Viajar es aburrido,,La soledad es negativa,,Las ciudades antiguas son peligrosas,,El valor de los recuerdos y las raíces,,El valor de los recuerdos y las raíces
+11°,Lenguaje,¿Qué postura crítica podría adoptarse frente al argumento del autor?,img/texto37.png,Ignorar los riesgos de la tecnología,,Evaluar políticas escolares para regular su uso,,Prohibir dispositivos electrónicos,,Fomentar el uso ilimitado de tecnología,,Evaluar políticas escolares para regular su uso
+11°,Lenguaje,¿Qué rasgo del personaje se evidencia en su decisión de viajar sola?,img/texto35.png,Miedo constante,,Indiferencia,,Curiosidad y valentía,,Inmadurez,,Curiosidad y valentía
+11°,Lenguaje,¿Qué se puede inferir sobre la relación de Clara con sus abuelos?,img/texto35.png,Era inexistente,,Era superficial,,Era cercana y significativa,,Era conflictiva,,Era cercana y significativa
+11°,Lenguaje,¿Qué suposición subyace en el texto?,img/texto37.png,Que todos los adolescentes son responsables,,Que la tecnología solo produce daño,,Que los padres no influyen en el uso de dispositivos,,Que un uso equilibrado de la tecnología es posible y beneficioso,,Que un uso equilibrado de la tecnología es posible y beneficioso
+11°,Matemáticas,"El perímetro de un rectángulo es 42 cm. Si su largo mide 13 cm, ¿cuál es el ancho?",img/rectangulo.png,5 cm,,8 cm,,10 cm,,12 cm,,8 cm
+11°,Matemáticas,"El valor de un automóvil disminuye 18% cada año. Si su valor actual es $25,000, ¿cuál será su valor en 2 años?",img/car_value.png,"$16,805.00",,"$18,250.00",,"$21,000.00",,"$14,500.00",,"$16,805.00"
+11°,Matemáticas,"El volumen de un cubo es 216 cm³. ¿Cuánto mide la longitud de cada arista?",img/cubo.png,6 cm,,8 cm,,12 cm,,18 cm,,6 cm
+11°,Matemáticas,"El área de un círculo es 49π. ¿Cuál es su radio?",img/circulo_area.png,5,,6,,7,,14,,7
+11°,Matemáticas,"El área de un triángulo es 48 cm² y su base mide 12 cm. ¿Cuál es su altura?",img/triangulo_area.png,4 cm,,6 cm,,8 cm,,12 cm,,8 cm
+11°,Matemáticas,"En un triángulo, los ángulos interiores están en proporción 2:3:4. ¿Cuál es el ángulo mayor?",img/triangulo.png,40°,,60°,,80°,,100°,,80°
+11°,Matemáticas,"La pendiente de una recta que pasa por los puntos (−2,4) y (3,−1) es:",img/recta_pendiente.png,−1,,1,,−5/5,,−3,,−1
+11°,Matemáticas,"Resuelve la ecuación exponencial: 2^(x+1)=16",,x=2,,x=3,,x=4,,x=5,,x=3
+11°,Matemáticas,"Resuelve: 3(2x−4)−5(x+2)=7",,x=9,,x=1,,x=−9,,x=−1,,x=1
+11°,Matemáticas,"Resuelve: √(5x−5)=5",img/radical.png,x=4,,x=6,,x=7,,x=5,,x=6
+11°,Matemáticas,"Si 4^(x)=64, ¿cuál es el valor de x?",img/exponencial.png,2,,3,,4,,6,,3
+11°,Matemáticas,"Si P(A)=0.4 y P(B)=0.5 y los eventos son independientes, ¿cuál es P(A∩B)?",img/probabilidad.png,0.2,,0.9,,0.1,,0.25,,0.2
+11°,Matemáticas,"Si f(x)=3x−7, ¿cuál es el valor de f(5)?",img/funcion_lineal.png,8,,10,,7,,15,,8
+11°,Matemáticas,"Si g(x)=x²−9x+8, ¿para qué valor de x el valor de la función es mínimo?",img/parabola.png,4.5,,3,,4,,9,,4.5
+11°,Matemáticas,"Si la probabilidad de que llueva un día es 0.3, ¿cuál es la probabilidad de que NO llueva?",img/lluvia.png,0.7,,0.3,,0.5,,0.9,,0.7
+11°,Matemáticas,"Si una función lineal pasa por los puntos (2,5) y (6,17), ¿cuál es su ecuación?",img/recta_puntos.png,y=3x−1,,y=4x+2,,y=3x+1,,y=2x+3,,y=3x−1
+11°,Matemáticas,"Si una transformación lineal cumple T(2)=6 y T(5)=15, ¿cuál es la forma explícita de T(x) si es lineal?",img/trans_lineal.png,T(x)=3x,,T(x)=2x+2,,T(x)=x+4,,T(x)=4x−2,,T(x)=3x
+11°,Matemáticas,"Simplifica la expresión: (4x³y²)(3x⁻¹y⁴)",,12x²y⁶,,7x²y⁶,,12x⁴y²,,12xy⁶,,12x²y⁶
+11°,Matemáticas,"Un ciclista viaja 50 km en 2 horas y luego 30 km en 1 hora. ¿Cuál es su velocidad promedio?",img/bicicleta.png,20 km/h,,25 km/h,,30 km/h,,26.67 km/h,,26.67 km/h
+11°,Matemáticas,"Una tienda aumenta el precio de un artículo en 12%. Si el precio final es $224, ¿cuál era el precio original?",img/aumento_precio.png,$180.00,,$190.00,,$200.00,,$210.00,,$200.00
