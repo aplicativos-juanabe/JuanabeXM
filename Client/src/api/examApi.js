@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || '/api';  // URL de la API de Railway
+const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');  // URL de la API de Railway (sin slash final)
 
 // Debug: mostrar qué URL se está usando
 console.log('📡 URL de API:', API_URL);
