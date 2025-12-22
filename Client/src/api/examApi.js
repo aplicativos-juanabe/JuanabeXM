@@ -1,8 +1,11 @@
-const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');  // URL de la API de Railway (sin slash final)
+const API_URL = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace(/\/$/, '') + '/api'  // Si VITE_API_URL existe, agregar /api
+  : '/api';  // Fallback para desarrollo
 
 // Debug: mostrar qué URL se está usando
 console.log('📡 URL de API:', API_URL);
 console.log('🔍 VITE_API_URL disponible:', !!import.meta.env.VITE_API_URL);
+console.log('🔍 VITE_API_URL raw:', import.meta.env.VITE_API_URL);
 
 export const examApi = {
   // Verificar si estudiante existe y si ya realizó el examen
