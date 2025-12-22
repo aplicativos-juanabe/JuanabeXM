@@ -20,6 +20,12 @@ export function normalizeImagePath(raw) {
     }
   }
 
+  // Si es una ruta absoluta que no está en /img/ (ej. '/texto33.webp'), convertir a /img/
+  if (/^\//.test(s) && !/^\/img\//.test(s)) {
+    // Convertir '/archivo.webp' a '/img/archivo.webp'
+    s = '/img' + s;
+  }
+
   // Si es solo un nombre de archivo (ej. 'imagen.png'), también convertir a /img/imagen.png
   if (!/^(https?:\/\/|\/|img\/)/i.test(s) && /\.[a-zA-Z]{2,5}$/.test(s)) {
     // Si es solo nombre de archivo (ej. 'imagen.png'), asumir que está en /img/
