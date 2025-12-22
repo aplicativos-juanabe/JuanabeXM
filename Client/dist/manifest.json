@@ -1,0 +1,9 @@
+{
+  "name": "JUANABE - Plataforma de Evaluación",
+  "short_name": "JUANABE",
+  "description": "Sistema de exámenes de admisión para la Institución Educativa Técnica JUANA ARIAS DE BENAVIDES",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626"
+}
