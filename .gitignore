@@ -1,4 +1,33 @@
-/node_modules
-/dist
-/.env
-node_modules
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Production
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+server/exam.db*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
