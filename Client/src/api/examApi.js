@@ -4,8 +4,6 @@ const API_URL = import.meta.env.VITE_API_URL
 
 // Debug: mostrar qué URL se está usando
 console.log('📡 URL de API:', API_URL);
-console.log('🔍 VITE_API_URL disponible:', !!import.meta.env.VITE_API_URL);
-console.log('🔍 VITE_API_URL raw:', import.meta.env.VITE_API_URL);
 
 export const examApi = {
   // Verificar si estudiante existe y si ya realizó el examen
@@ -182,30 +180,13 @@ export const examApi = {
   // Funciones para la gestión de preguntas (ADMINISTRACIÓN)
   async obtenerTodasLasPreguntas() {
     console.log('📚 Obteniendo todas las preguntas...');
-    const fullUrl = `${API_URL}/preguntas`;
-    console.log('🔗 URL completa:', fullUrl);
-
     try {
-      console.log('📡 Enviando petición...');
-      const response = await fetch(fullUrl);
-      console.log('📊 Status de respuesta:', response.status);
-      console.log('📄 Headers de respuesta:', Object.fromEntries(response.headers.entries()));
-
-      if (!response.ok) {
-        console.log('❌ Respuesta no OK');
-        const textResponse = await response.text();
-        console.log('📝 Respuesta de error (primeros 200 chars):', textResponse.substring(0, 200));
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      console.log('✅ Respuesta OK, intentando parsear JSON...');
+      const response = await fetch(`${API_URL}/preguntas`);
+      if (!response.ok) throw new Error('Error obteniendo preguntas');
       const data = await response.json();
-      console.log('✅ JSON parseado correctamente, items:', Array.isArray(data) ? data.length : 'no array');
       return data;
     } catch (error) {
       console.error('❌ Error en obtenerTodasLasPreguntas:', error);
-      console.error('❌ Tipo de error:', error.constructor.name);
-      console.error('❌ Mensaje de error:', error.message);
       throw error;
     }
   },
