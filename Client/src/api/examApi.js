@@ -1,4 +1,4 @@
-const API_URL = '/api';  // ← CAMBIAR DE http://localhost:3001/api A SOLO /api
+const API_URL = import.meta.env.VITE_API_URL || '/api';  // URL de la API de Railway
 
 export const examApi = {
   // Verificar si estudiante existe y si ya realizó el examen
