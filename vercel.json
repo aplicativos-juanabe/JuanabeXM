@@ -1,9 +1,8 @@
 {
-  "rootDirectory": "Client",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
-  "framework": "vite",
+  "framework": null,
   "rewrites": [
     {
       "source": "/((?!api/).*)",
