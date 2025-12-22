@@ -1,5 +1,9 @@
 const API_URL = import.meta.env.VITE_API_URL || '/api';  // URL de la API de Railway
 
+// Debug: mostrar qué URL se está usando
+console.log('📡 URL de API:', API_URL);
+console.log('🔍 VITE_API_URL disponible:', !!import.meta.env.VITE_API_URL);
+
 export const examApi = {
   // Verificar si estudiante existe y si ya realizó el examen
   async verificarEstudiante(documento) {
