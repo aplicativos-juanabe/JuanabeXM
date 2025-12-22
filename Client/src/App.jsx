@@ -9,6 +9,9 @@ import { examApi } from "./api/examApi";
 export default function App() {
   const [questionBank, setQuestionBank] = useState({});
   const [loading, setLoading] = useState(true);
+
+  // Debug: verificar si los estilos básicos funcionan
+  console.log('🎨 App renderizada - verificando estilos');
   const [studentData, setStudentData] = useState({
     nombre: "",
     apellido: "",
@@ -209,8 +212,8 @@ export default function App() {
           )}
         </main>
 
-        <footer className="absolute bottom-0 w-full text-center py-6 text-gray-600 text-sm">
-          © {new Date().getFullYear()} JUANABE – Sistema de Admisión
+        <footer className="absolute bottom-0 w-full text-center py-6 text-gray-600 text-sm" style={{backgroundColor: 'red', color: 'white', padding: '10px'}}>
+          © {new Date().getFullYear()} JUANABE – Sistema de Admisión - DEBUG: Estilos inline funcionan
         </footer>
       </div>
     </NotificationProvider>
