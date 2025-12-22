@@ -8,6 +8,8 @@ const __dirname = dirname(__filename);
 
 // Esperar a que la base de datos se inicialice
 async function waitForDB() {
+  // La base de datos se inicializa automáticamente al importar el módulo
+  // pero podemos asegurarnos llamando a una función que requiere DB
   try {
     const conteos = await dbFunctions.obtenerConteos();
     console.log('✅ Base de datos inicializada');
@@ -56,16 +58,6 @@ function parseCSV(text) {
   return rows.map((r) => r.map((c) => c.trim().replace(/^"|"$/g, "")));
 }
 
-// Normalizar ruta de imagen
-function normalizeImagePath(p) {
-  if (!p) return null;
-  let path = p.trim();
-  if (!path) return null;
-  path = path.replace(/^\/img\//, '').replace(/^img\//, '');
-  path = path.replace(/^\//, '');
-  return path;
-}
-
 // Normalizar nombre de área
 function normalizeArea(area) {
   if (!area) return '';
@@ -82,21 +74,27 @@ function normalizeGrade(raw) {
   if (!raw) return '';
   let s = String(raw).trim();
   if (!s) return '';
+  
+  // Buscar número en la cadena
   const m = s.match(/(\d{1,2})/);
   if (m) return `${m[1]}°`;
+  
   return s;
 }
 
 async function seedQuestions() {
   try {
+    // Esperar a que la base de datos se inicialice
     console.log('🔄 Inicializando base de datos...');
     await waitForDB();
     
     console.log('🔄 Iniciando importación de preguntas desde CSV...');
     
+    // Leer el archivo CSV
     const csvPath = join(__dirname, '..', 'public', 'preguntas.csv');
     console.log(`📂 Leyendo archivo: ${csvPath}`);
     
+    // Verificar que el archivo existe y leerlo
     let csvContent;
     try {
       csvContent = readFileSync(csvPath, 'utf-8');
@@ -116,9 +114,11 @@ async function seedQuestions() {
       throw new Error('El archivo CSV está vacío o no tiene datos');
     }
     
+    // Obtener encabezados
     const headers = rows[0].map(h => h.trim());
     console.log('📋 Encabezados encontrados:', headers);
     
+    // Mapear índices de columnas (buscando variaciones de nombres)
     const headerMap = {
       grado: headers.findIndex(h => {
         const lower = h.toLowerCase();
@@ -174,6 +174,7 @@ async function seedQuestions() {
       }),
     };
     
+    // Validar que se encontraron todos los encabezados necesarios
     const requiredHeaders = ['grado', 'area', 'pregunta', 'respuesta'];
     for (const header of requiredHeaders) {
       if (headerMap[header] === -1) {
@@ -183,43 +184,57 @@ async function seedQuestions() {
     
     console.log('✅ Encabezados mapeados correctamente');
     
+    // Procesar filas de datos
     const questionsToInsert = [];
     const errors = [];
     
     for (let i = 1; i < rows.length; i++) {
       const row = rows[i];
-      if (row.every(cell => !cell || cell.trim() === '')) continue;
+      
+      // Saltar filas vacías
+      if (row.every(cell => !cell || cell.trim() === '')) {
+        continue;
+      }
       
       const grado = normalizeGrade(row[headerMap.grado] || '');
       const area = normalizeArea(row[headerMap.area] || '');
       const pregunta = (row[headerMap.pregunta] || '').trim();
-      const imagenPregunta = normalizeImagePath(row[headerMap.imagenPregunta]);
+      const imagenPregunta = (row[headerMap.imagenPregunta] || '').trim();
       const respuesta = (row[headerMap.respuesta] || '').trim();
       
+      // Validar campos obligatorios
       if (!grado || !area || !pregunta || !respuesta) {
-        errors.push(`Fila ${i + 1}: Faltan campos obligatorios`);
+        errors.push(`Fila ${i + 1}: Faltan campos obligatorios (grado: "${grado}", area: "${area}", pregunta: "${pregunta ? 'OK' : 'FALTA'}", respuesta: "${respuesta ? 'OK' : 'FALTA'}")`);
         continue;
       }
       
+      // Construir opciones (asegurar que siempre haya 4)
       const opciones = [];
       for (let j = 1; j <= 4; j++) {
         const texto = (row[headerMap[`opcion${j}`]] || '').trim();
-        const imagen = normalizeImagePath(row[headerMap[`imagenOpcion${j}`]]);
-        opciones.push({ texto: texto || '', imagen: imagen || null });
+        const imagen = (row[headerMap[`imagenOpcion${j}`]] || '').trim();
+        // Incluir todas las opciones, incluso si están vacías (se rellenarán en insertarPregunta)
+        opciones.push({ 
+          texto: texto || '', 
+          imagen: imagen || null 
+        });
       }
       
+      // Validar que haya al menos una opción con texto
       const opcionesConTexto = opciones.filter(opt => opt.texto && opt.texto.trim() !== '');
       if (opcionesConTexto.length === 0) {
-        errors.push(`Fila ${i + 1}: No se encontraron opciones con texto`);
+        errors.push(`Fila ${i + 1}: No se encontraron opciones con texto para la pregunta`);
         continue;
       }
       
+      // Validar que la respuesta correcta esté en las opciones (solo las que tienen texto)
       const opcionesTexto = opcionesConTexto.map(opt => opt.texto);
       if (!opcionesTexto.includes(respuesta)) {
-        errors.push(`Fila ${i + 1}: La respuesta correcta "${respuesta}" no coincide con ninguna opción`);
+        errors.push(`Fila ${i + 1}: La respuesta correcta "${respuesta}" no coincide con ninguna opción. Opciones: ${opcionesTexto.join(', ')}`);
         continue;
       }
       
+      // Preparar pregunta para insertar
       questionsToInsert.push({
         grado,
         area,
@@ -234,61 +249,105 @@ async function seedQuestions() {
     if (errors.length > 0) {
       console.warn(`⚠️ Errores encontrados: ${errors.length}`);
       errors.slice(0, 10).forEach(err => console.warn(`  - ${err}`));
+      if (errors.length > 10) {
+        console.warn(`  ... y ${errors.length - 10} errores más`);
+      }
     }
     
     if (questionsToInsert.length === 0) {
       throw new Error('No se encontraron preguntas válidas para insertar');
     }
     
+    // Eliminar todas las preguntas existentes
     console.log('🗑️ Eliminando preguntas existentes...');
     await dbFunctions.eliminarTodasLasPreguntas();
     
+    // Insertar preguntas
     console.log('💾 Insertando preguntas en la base de datos...');
     let inserted = 0;
+    let failed = 0;
+    
     for (const q of questionsToInsert) {
       try {
         await dbFunctions.insertarPregunta(q);
         inserted++;
-        if (inserted % 50 === 0) console.log(`  ✅ Insertadas ${inserted} preguntas...`);
+        if (inserted % 50 === 0) {
+          console.log(`  ✅ Insertadas ${inserted} preguntas...`);
+        }
       } catch (error) {
-        console.error(`  ❌ Error insertando pregunta:`, error.message);
+        console.error(`  ❌ Error insertando pregunta (${q.grado}, ${q.area}):`, error.message);
+        failed++;
       }
     }
     
     console.log(`✅ Preguntas insertadas: ${inserted}`);
+    if (failed > 0) {
+      console.warn(`⚠️ Preguntas fallidas: ${failed}`);
+    }
     
+    // Crear configuraciones de examen
     console.log('⚙️ Creando configuraciones de examen...');
+
     const configs = await dbFunctions.obtenerConfiguracionesExamen();
 
-    const upsertConfig = async (nombre, tiempo) => {
-      const existing = configs.find(c => c.nombre.toLowerCase() === nombre.toLowerCase());
-      const data = {
-        nombre,
-        tiempo_limite_minutos: tiempo,
+    // Configuración de 40 minutos
+    const config40 = configs.find(c => c.nombre.toLowerCase() === 'examen 40 minutos');
+    if (config40) {
+      await dbFunctions.actualizarConfiguracionExamen(config40.id, {
+        nombre: 'Examen 40 minutos',
+        tiempo_limite_minutos: 40,
         preguntas_lenguaje: 5,
         preguntas_ingles: 5,
         preguntas_matematicas: 5,
         orden_aleatorio: 1
-      };
-      if (existing) {
-        await dbFunctions.actualizarConfiguracionExamen(existing.id, data);
-        console.log(`✅ Configuración "${nombre}" actualizada`);
-      } else {
-        await dbFunctions.crearConfiguracionExamen(data);
-        console.log(`✅ Configuración "${nombre}" creada`);
-      }
-    };
+      });
+      console.log('✅ Configuración "Examen 40 minutos" actualizada');
+    } else {
+      await dbFunctions.crearConfiguracionExamen({
+        nombre: 'Examen 40 minutos',
+        tiempo_limite_minutos: 40,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 40 minutos" creada');
+    }
 
-    await upsertConfig('Examen 40 minutos', 40);
-    await upsertConfig('Examen 60 minutos', 60);
+    // Configuración de 60 minutos
+    const config60 = configs.find(c => c.nombre.toLowerCase() === 'examen 60 minutos');
+    if (config60) {
+      await dbFunctions.actualizarConfiguracionExamen(config60.id, {
+        nombre: 'Examen 60 minutos',
+        tiempo_limite_minutos: 60,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 60 minutos" actualizada');
+    } else {
+      await dbFunctions.crearConfiguracionExamen({
+        nombre: 'Examen 60 minutos',
+        tiempo_limite_minutos: 60,
+        preguntas_lenguaje: 5,
+        preguntas_ingles: 5,
+        preguntas_matematicas: 5,
+        orden_aleatorio: 1
+      });
+      console.log('✅ Configuración "Examen 60 minutos" creada');
+    }
     
     console.log('🎉 ¡Proceso completado exitosamente!');
+    
   } catch (error) {
     console.error('❌ Error durante el proceso de seeding:', error);
+    console.error('Stack:', error.stack);
     process.exit(1);
   }
 }
 
+// Ejecutar el script
 seedQuestions()
   .then(() => {
     console.log('✅ Script finalizado');

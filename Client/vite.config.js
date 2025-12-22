@@ -8,13 +8,13 @@ export default defineConfig({
     host: '0.0.0.0',
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false
       }
     },
     allowedHosts: [
-      "unmanufactured-superannuated-wanda.ngrok-free.dev"
+      "sunny-dangerless-endlessly.ngrok-free.dev"
     ]
   }
 })
