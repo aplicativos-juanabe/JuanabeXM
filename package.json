@@ -1,17 +1,36 @@
 {
-  "name": "exam-platform-server",
+  "name": "juanabe-exam",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server/server.js",
+    "client": "cd Client && npm run dev",
+    "build": "cd Client && npm run build",
+    "preview": "cd Client && npm run preview",
     "start": "node server/server.js",
     "seed": "node server/seed-questions.js"
   },
   "dependencies": {
-    "express": "^4.22.1",
+    "@lmstudio/sdk": "^1.5.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
-    "multer": "^2.0.2",
-    "sharp": "^0.32.6",
     "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "lucide-react": "^0.287.0",
+    "multer": "^2.0.2",
+    "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.32.6",
     "sql.js": "^1.10.3",
+    "tailwindcss": "^3.4.18",
+    "vite": "^7.2.2",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "terser": "^5.39.0"
   }
 }
