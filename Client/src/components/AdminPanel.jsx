@@ -472,7 +472,7 @@ export default function AdminPanel() {
 
       {/* Tabla de resultados */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-        <div className="px-6 py-4 bg-juanabe-rojo text-white flex justify-between items-center">
+        <div className="px-6 py-4 bg-juanabe-rojo text-white flex justify-start gap-3 items-center">
           <h2 className="text-xl font-bold">
             Resultados de Exámenes ({resultadosFiltrados.length})
           </h2>
