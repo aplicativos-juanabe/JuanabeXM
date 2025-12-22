@@ -51,6 +51,8 @@ export default function ZoomableImage({ src, alt, className = "" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
+
+  console.log('🖼️ ZoomableImage renderizado con src:', src, 'alt:', alt);
   // Keep local state in sync with incoming src prop
   useEffect(() => {
     setCurrentSrc(src);
@@ -110,7 +112,9 @@ export default function ZoomableImage({ src, alt, className = "" }) {
           alt={alt}
           className={`${className} transition-transform duration-200 group-hover:scale-105`}
           onError={(e) => {
-            console.error('Error en imagen:', currentSrc);
+            console.error('❌ Error cargando imagen:', currentSrc);
+            console.error('❌ Alt text:', alt);
+            console.error('❌ Event details:', e);
             // No intentamos rutas de respaldo (p.ej. /img_original) — marcamos error y mostramos placeholder
             setImageError(true);
           }}
