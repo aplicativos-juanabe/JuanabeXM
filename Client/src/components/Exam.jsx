@@ -114,7 +114,7 @@ export default function Exam({ student, config, onDone }) {
   // Loading state when questions are not available
   if (!config.questions || config.questions.length === 0) {
     return (
-      <div className="w-full bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full max-w-full bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-red-600 mx-auto mb-4"></div>
           <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
@@ -307,9 +307,9 @@ export default function Exam({ student, config, onDone }) {
 
   if (finished && results) {
     return (
-      <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full max-w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         {/* NUEVO: Mostrar información del estudiante */}
-        <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+        <div className="w-full bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
           <h3 className="text-base sm:text-lg font-semibold text-gray-700">Aspirante:</h3>
           <p className="text-xl sm:text-2xl font-bold text-red-700">
             {student.nombre} {student.apellido}
@@ -340,7 +340,7 @@ export default function Exam({ student, config, onDone }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-6 rounded-lg shadow text-center">
             <h3 className="font-semibold text-blue-800 mb-2 text-sm sm:text-base">Lenguaje</h3>
             <p className="text-2xl sm:text-3xl font-bold text-blue-900">
@@ -361,7 +361,7 @@ export default function Exam({ student, config, onDone }) {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <div className="w-full flex flex-col sm:flex-row gap-3 sm:gap-4">
           <button
             onClick={generatePDF}
             className="flex-1 px-4 sm:px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition font-semibold text-sm sm:text-base min-h-[44px]"
@@ -383,7 +383,7 @@ export default function Exam({ student, config, onDone }) {
   }
 
   return (
-    <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+    <div className="w-full max-w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 pb-4 border-b gap-2 sm:gap-0">
         <div className="font-medium text-gray-700 text-sm sm:text-base">
           Pregunta {i + 1} de {config.questions.length}
@@ -401,7 +401,7 @@ export default function Exam({ student, config, onDone }) {
           {q.area.charAt(0).toUpperCase() + q.area.slice(1)}
         </span>
 
-        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4 max-w-full break-words">
           {q.pregunta}
         </h3>
 
@@ -418,7 +418,7 @@ export default function Exam({ student, config, onDone }) {
         )}
       </div>
 
-      <div className="grid gap-2 sm:gap-3 mb-6 sm:mb-8">
+      <div className="w-full grid gap-2 sm:gap-3 mb-6 sm:mb-8">
         {q.opciones.map((opcion, k) => {
           const textoOpcion = opcion?.texto || "";
           const imagenOpcion = opcion?.imagen || null;
@@ -448,14 +448,14 @@ export default function Exam({ student, config, onDone }) {
                   />
                 )}
 
-                <span className="flex-1 text-sm sm:text-base">{textoOpcion || `Opción ${k + 1}`}</span>
+                <span className="flex-1 text-sm sm:text-base max-w-full break-words">{textoOpcion || `Opción ${k + 1}`}</span>
               </div>
             </button>
           );
         })}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+      <div className="w-full flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
         <button
           className="px-4 sm:px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition disabled:opacity-50 text-sm sm:text-base min-h-[44px] w-full sm:w-auto"
           onClick={() => setI((x) => Math.max(x - 1, 0))}

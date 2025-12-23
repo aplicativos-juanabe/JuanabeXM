@@ -248,7 +248,7 @@ export default function StudentRegistration({
       const currentQuestionIndex = savedProgress.current_question_index || 0;
 
     return (
-      <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full max-w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="text-center mb-4 sm:mb-6">
           <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl sm:text-3xl">📚</span>
@@ -349,7 +349,7 @@ export default function StudentRegistration({
       console.error("Error parseando progreso guardado:", error);
       // Si hay error parseando, mostrar opción de nuevo examen
       return (
-        <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+        <div className="w-full max-w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
           <div className="text-center mb-4 sm:mb-6">
             <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl sm:text-3xl">⚠️</span>
@@ -383,7 +383,7 @@ export default function StudentRegistration({
 
   if (examenPrevio) {
     return (
-      <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full max-w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="text-center mb-4 sm:mb-6">
           <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl sm:text-3xl">⚠️</span>

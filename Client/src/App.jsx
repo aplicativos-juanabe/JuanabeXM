@@ -182,7 +182,7 @@ export default function App() {
           </div>
         </header>
 
-        <main className="flex-grow max-w-4xl mx-auto p-4 sm:p-6 pb-20 sm:pb-6">
+        <main className="flex-grow w-full max-w-4xl mx-auto p-4 sm:p-6 pb-20 sm:pb-6">
           {!examConfig ? (
             <StudentRegistration
               questionBank={questionBank}
