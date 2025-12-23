@@ -114,13 +114,13 @@ export default function Exam({ student, config, onDone }) {
   // Loading state when questions are not available
   if (!config.questions || config.questions.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-red-600 mx-auto mb-4"></div>
-          <h2 className="text-xl font-bold text-gray-800 mb-2">
+          <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-red-600 mx-auto mb-4"></div>
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
             Cargando Examen...
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm sm:text-base">
             Preparando las preguntas del examen.
           </p>
         </div>
@@ -307,64 +307,64 @@ export default function Exam({ student, config, onDone }) {
 
   if (finished && results) {
     return (
-      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
+      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         {/* NUEVO: Mostrar información del estudiante */}
-        <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-4 mb-6">
-          <h3 className="text-lg font-semibold text-gray-700">Aspirante:</h3>
-          <p className="text-2xl font-bold text-red-700">
+        <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-700">Aspirante:</h3>
+          <p className="text-xl sm:text-2xl font-bold text-red-700">
             {student.nombre} {student.apellido}
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600">
             Documento: {student.documento} | Grado: {student.grado}
           </p>
         </div>
 
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-gray-800">
           Resultados del Examen
         </h2>
 
         <div
-          className={`text-center p-6 rounded-lg mb-6 ${results.passed
+          className={`text-center p-4 sm:p-6 rounded-lg mb-4 sm:mb-6 ${results.passed
               ? "bg-green-100 border-2 border-green-500"
               : "bg-red-100 border-2 border-red-500"
             }`}
         >
           <p
-            className={`text-2xl font-bold ${results.passed ? "text-green-700" : "text-red-700"
+            className={`text-xl sm:text-2xl font-bold ${results.passed ? "text-green-700" : "text-red-700"
               }`}
           >
             {results.passed ? "✓ APROBADO" : "✗ REPROBADO"}
           </p>
-          <p className="text-gray-700 mt-2">
+          <p className="text-gray-700 mt-2 text-sm sm:text-base">
             Puntaje: {results.score} / {config.questions.length}
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow text-center">
-            <h3 className="font-semibold text-blue-800 mb-2">Lenguaje</h3>
-            <p className="text-3xl font-bold text-blue-900">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-6 rounded-lg shadow text-center">
+            <h3 className="font-semibold text-blue-800 mb-2 text-sm sm:text-base">Lenguaje</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-blue-900">
               {results.byArea.lenguaje}/5
             </p>
           </div>
-          <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow text-center">
-            <h3 className="font-semibold text-green-800 mb-2">Inglés</h3>
-            <p className="text-3xl font-bold text-green-900">
+          <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 sm:p-6 rounded-lg shadow text-center">
+            <h3 className="font-semibold text-green-800 mb-2 text-sm sm:text-base">Inglés</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-green-900">
               {results.byArea.ingles}/5
             </p>
           </div>
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg shadow text-center">
-            <h3 className="font-semibold text-purple-800 mb-2">Matemáticas</h3>
-            <p className="text-3xl font-bold text-purple-900">
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 sm:p-6 rounded-lg shadow text-center sm:col-span-2 lg:col-span-1">
+            <h3 className="font-semibold text-purple-800 mb-2 text-sm sm:text-base">Matemáticas</h3>
+            <p className="text-2xl sm:text-3xl font-bold text-purple-900">
               {results.byArea.matematicas}/5
             </p>
           </div>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <button
             onClick={generatePDF}
-            className="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition font-semibold"
+            className="flex-1 px-4 sm:px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition font-semibold text-sm sm:text-base min-h-[44px]"
           >
             🖨️ Imprimir/Guardar PDF
           </button>
@@ -373,7 +373,7 @@ export default function Exam({ student, config, onDone }) {
               onDone(); // Llamar a la función de finalización original
               // El progreso se elimina automáticamente en un useEffect cuando finished es true
             }}
-            className="flex-1 px-6 py-3 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-700 transition font-semibold"
+            className="flex-1 px-4 sm:px-6 py-3 bg-gray-600 text-white rounded-lg shadow hover:bg-gray-700 transition font-semibold text-sm sm:text-base min-h-[44px]"
           >
             Finalizar
           </button>
@@ -383,42 +383,42 @@ export default function Exam({ student, config, onDone }) {
   }
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-6">
-      <div className="flex justify-between items-center mb-6 pb-4 border-b">
-        <div className="font-medium text-gray-700">
+    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 pb-4 border-b gap-2 sm:gap-0">
+        <div className="font-medium text-gray-700 text-sm sm:text-base">
           Pregunta {i + 1} de {config.questions.length}
         </div>
         <div
-          className={`font-bold text-xl ${t < 300 ? "text-red-600" : "text-gray-700"
+          className={`font-bold text-lg sm:text-xl ${t < 300 ? "text-red-600" : "text-gray-700"
             }`}
         >
           ⏱️ {Math.floor(t / 60)}:{String(t % 60).padStart(2, "0")}
         </div>
       </div>
 
-      <div className="mb-6">
-        <span className="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-3">
+      <div className="mb-4 sm:mb-6">
+        <span className="inline-block px-2 sm:px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-medium mb-3">
           {q.area.charAt(0).toUpperCase() + q.area.slice(1)}
         </span>
 
-        <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
           {q.pregunta}
         </h3>
 
         {/* Mostrar imagen de la pregunta si existe */}
         {q.imagenPregunta && (
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4 sm:mb-6">
             <ZoomableImage
               key={`q-${q.id}-img`}
               src={q.imagenPregunta}
               alt="Imagen de la pregunta"
-              className="max-w-md max-h-64 object-contain rounded-lg shadow-md border-2 border-gray-200"
+              className="max-w-sm sm:max-w-md max-h-48 sm:max-h-64 object-contain rounded-lg shadow-md border-2 border-gray-200"
             />
           </div>
         )}
       </div>
 
-      <div className="grid gap-3 mb-8">
+      <div className="grid gap-2 sm:gap-3 mb-6 sm:mb-8">
         {q.opciones.map((opcion, k) => {
           const textoOpcion = opcion?.texto || "";
           const imagenOpcion = opcion?.imagen || null;
@@ -428,13 +428,13 @@ export default function Exam({ student, config, onDone }) {
             <button
               key={k}
               onClick={() => handle(textoOpcion)}
-              className={`px-4 py-3 rounded-lg border-2 text-left transition ${selected
+              className={`px-3 sm:px-4 py-3 sm:py-4 rounded-lg border-2 text-left transition min-h-[44px] sm:min-h-[48px] ${selected
                   ? "bg-blue-600 text-white border-blue-800 shadow-lg"
                   : "bg-gray-50 border-gray-300 hover:bg-gray-100 hover:border-blue-400"
                 }`}
             >
-              <div className="flex items-center gap-3">
-                <span className="font-semibold">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="font-semibold text-sm sm:text-base">
                   {String.fromCharCode(65 + k)}.
                 </span>
 
@@ -444,38 +444,38 @@ export default function Exam({ student, config, onDone }) {
                     key={`q-${q.id}-opt-${k}`}
                     src={imagenOpcion}
                     alt={`Opción ${k + 1}`}
-                    className="w-16 h-16 object-contain rounded"
+                    className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded"
                   />
                 )}
 
-                <span className="flex-1">{textoOpcion || `Opción ${k + 1}`}</span>
+                <span className="flex-1 text-sm sm:text-base">{textoOpcion || `Opción ${k + 1}`}</span>
               </div>
             </button>
           );
         })}
       </div>
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
         <button
-          className="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition disabled:opacity-50"
+          className="px-4 sm:px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition disabled:opacity-50 text-sm sm:text-base min-h-[44px] w-full sm:w-auto"
           onClick={() => setI((x) => Math.max(x - 1, 0))}
           disabled={i === 0}
         >
           ← Anterior
         </button>
-        <div className="text-sm text-gray-600">
+        <div className="text-xs sm:text-sm text-gray-600 order-first sm:order-none">
           Respondidas: {Object.keys(ans).length} / {config.questions.length}
         </div>
         {i < config.questions.length - 1 ? (
           <button
-            className="px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+            className="px-4 sm:px-5 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition text-sm sm:text-base min-h-[44px] w-full sm:w-auto"
             onClick={() => setI((x) => x + 1)}
           >
             Siguiente →
           </button>
         ) : (
           <button
-            className={`px-5 py-2 rounded-lg font-semibold transition ${Object.keys(ans).length === config.questions.length
+            className={`px-4 sm:px-5 py-2 rounded-lg font-semibold transition text-sm sm:text-base min-h-[44px] w-full sm:w-auto ${Object.keys(ans).length === config.questions.length
                 ? "bg-red-600 text-white hover:bg-red-700"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}

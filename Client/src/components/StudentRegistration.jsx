@@ -247,117 +247,117 @@ export default function StudentRegistration({
       const totalQuestions = savedQuestions.length;
       const currentQuestionIndex = savedProgress.current_question_index || 0;
 
-      return (
-        <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
-          <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl">📚</span>
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
-              Examen en Progreso
-            </h2>
-            <p className="text-gray-600">
-              Se encontró un examen sin completar para el documento <strong>{studentData.documento}</strong>
-            </p>
+    return (
+      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+        <div className="text-center mb-4 sm:mb-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl sm:text-3xl">📚</span>
           </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+            Examen en Progreso
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base">
+            Se encontró un examen sin completar para el documento <strong>{studentData.documento}</strong>
+          </p>
+        </div>
 
-          <div className="bg-blue-50 rounded-lg p-6 mb-6">
-            <h3 className="font-semibold text-blue-800 mb-3">Detalles del Examen Guardado:</h3>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <span className="text-blue-600">Configuración:</span>
-                <span className="font-bold ml-2">{savedConfig.nombre}</span>
-              </div>
-              <div>
-                <span className="text-blue-600">Tiempo:</span>
-                <span className="font-bold ml-2">{savedConfig.tiempo_limite_minutos} minutos</span>
-              </div>
-              <div>
-                <span className="text-blue-600">Preguntas Totales:</span>
-                <span className="font-bold ml-2">{totalQuestions}</span>
-              </div>
-              <div>
-                <span className="text-blue-600">Respondidas:</span>
-                <span className="font-bold ml-2">{answeredCount} / {totalQuestions}</span>
-              </div>
-              <div>
-                <span className="text-blue-600">Último Guardado:</span>
-                <span className="font-bold ml-2">
-                  {savedProgress.last_saved_time ?
-                    new Date(savedProgress.last_saved_time).toLocaleString('es-CO') :
-                    'N/A'
-                  }
-                </span>
-              </div>
-              <div>
-                <span className="text-blue-600">Pregunta Actual:</span>
-                <span className="font-bold ml-2">{currentQuestionIndex + 1}</span>
-              </div>
+        <div className="bg-blue-50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+          <h3 className="font-semibold text-blue-800 mb-3 text-sm sm:text-base">Detalles del Examen Guardado:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
+            <div>
+              <span className="text-blue-600">Configuración:</span>
+              <span className="font-bold ml-2">{savedConfig.nombre}</span>
             </div>
-          </div>
-
-          <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <span className="text-green-400">✅</span>
-              </div>
-              <div className="ml-3">
-                <p className="text-sm text-green-700">
-                  <strong>Recuperación Completa:</strong> Al continuar, verás exactamente las mismas preguntas que tenías antes,
-                  con tus respuestas ya seleccionadas y el progreso exacto donde lo dejaste.
-                </p>
-              </div>
+            <div>
+              <span className="text-blue-600">Tiempo:</span>
+              <span className="font-bold ml-2">{savedConfig.tiempo_limite_minutos} minutos</span>
             </div>
-          </div>
-
-          <div className="flex gap-4">
-            <button
-              onClick={() => {
-                // Recuperar el examen con las preguntas y configuración guardadas
-                const examConfigData = {
-                  questions: savedQuestions,
-                  time: savedConfig.tiempo_limite_minutos * 60,
-                  config: savedConfig
-                };
-                setExamConfig(examConfigData);
-                notify.push("success", "¡Examen recuperado! Continuando donde lo dejaste.");
-              }}
-              className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
-            >
-              Continuar Examen
-            </button>
-            <button
-              onClick={async () => {
-                // Eliminar progreso y permitir nuevo examen
-                try {
-                  await examApi.eliminarProgresoExamen(studentData.documento);
-                  setSavedProgress(null);
-                  setSelectedConfigId(examConfigurations.length > 0 ? Number(examConfigurations[0].id) : null);
-                  notify.push("info", "Progreso eliminado. Puedes iniciar un nuevo examen.");
-                } catch (error) {
-                  notify.push("error", "Error eliminando progreso.");
+            <div>
+              <span className="text-blue-600">Preguntas Totales:</span>
+              <span className="font-bold ml-2">{totalQuestions}</span>
+            </div>
+            <div>
+              <span className="text-blue-600">Respondidas:</span>
+              <span className="font-bold ml-2">{answeredCount} / {totalQuestions}</span>
+            </div>
+            <div className="sm:col-span-2">
+              <span className="text-blue-600">Último Guardado:</span>
+              <span className="font-bold ml-2">
+                {savedProgress.last_saved_time ?
+                  new Date(savedProgress.last_saved_time).toLocaleString('es-CO') :
+                  'N/A'
                 }
-              }}
-              className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold"
-            >
-              Nuevo Examen
-            </button>
+              </span>
+            </div>
+            <div>
+              <span className="text-blue-600">Pregunta Actual:</span>
+              <span className="font-bold ml-2">{currentQuestionIndex + 1}</span>
+            </div>
           </div>
         </div>
-      );
+
+        <div className="bg-green-50 border-l-4 border-green-400 p-3 sm:p-4 mb-4 sm:mb-6">
+          <div className="flex">
+            <div className="flex-shrink-0">
+              <span className="text-green-400 text-lg">✅</span>
+            </div>
+            <div className="ml-3">
+              <p className="text-xs sm:text-sm text-green-700">
+                <strong>Recuperación Completa:</strong> Al continuar, verás exactamente las mismas preguntas que tenías antes,
+                con tus respuestas ya seleccionadas y el progreso exacto donde lo dejaste.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <button
+            onClick={() => {
+              // Recuperar el examen con las preguntas y configuración guardadas
+              const examConfigData = {
+                questions: savedQuestions,
+                time: savedConfig.tiempo_limite_minutos * 60,
+                config: savedConfig
+              };
+              setExamConfig(examConfigData);
+              notify.push("success", "¡Examen recuperado! Continuando donde lo dejaste.");
+            }}
+            className="flex-1 px-4 sm:px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold text-sm sm:text-base"
+          >
+            Continuar Examen
+          </button>
+          <button
+            onClick={async () => {
+              // Eliminar progreso y permitir nuevo examen
+              try {
+                await examApi.eliminarProgresoExamen(studentData.documento);
+                setSavedProgress(null);
+                setSelectedConfigId(examConfigurations.length > 0 ? Number(examConfigurations[0].id) : null);
+                notify.push("info", "Progreso eliminado. Puedes iniciar un nuevo examen.");
+              } catch (error) {
+                notify.push("error", "Error eliminando progreso.");
+              }
+            }}
+            className="px-4 sm:px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold text-sm sm:text-base"
+          >
+            Nuevo Examen
+          </button>
+        </div>
+      </div>
+    );
     } catch (error) {
       console.error("Error parseando progreso guardado:", error);
       // Si hay error parseando, mostrar opción de nuevo examen
       return (
-        <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
-          <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl">⚠️</span>
+        <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+          <div className="text-center mb-4 sm:mb-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl sm:text-3xl">⚠️</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
               Error en Progreso Guardado
             </h2>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 mb-4 text-sm sm:text-base">
               Hay un problema con el progreso guardado. Puedes iniciar un nuevo examen.
             </p>
             <button
@@ -371,7 +371,7 @@ export default function StudentRegistration({
                   notify.push("error", "Error eliminando progreso.");
                 }
               }}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="px-4 sm:px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm sm:text-base"
             >
               Iniciar Nuevo Examen
             </button>
@@ -383,22 +383,22 @@ export default function StudentRegistration({
 
   if (examenPrevio) {
     return (
-      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
-        <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-3xl">⚠️</span>
+      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+        <div className="text-center mb-4 sm:mb-6">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl sm:text-3xl">⚠️</span>
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
             Examen Ya Realizado
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm sm:text-base">
             El documento <strong>{studentData.documento}</strong> ya realizó el examen
           </p>
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-6 mb-6">
-          <h3 className="font-semibold text-gray-700 mb-3">Resultados Anteriores:</h3>
-          <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+          <h3 className="font-semibold text-gray-700 mb-3 text-sm sm:text-base">Resultados Anteriores:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
             <div>
               <span className="text-gray-600">Puntaje Total:</span>
               <span className="font-bold ml-2">{examenPrevio.puntaje_total}/15</span>
@@ -453,7 +453,7 @@ export default function StudentRegistration({
               grado: ""
             });
           }}
-          className="w-full px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition"
+          className="w-full px-4 sm:px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition text-sm sm:text-base"
         >
           Registrar Otro Estudiante
         </button>
@@ -462,16 +462,16 @@ export default function StudentRegistration({
   }
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-red-700 mb-6">
+    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <h2 className="text-xl sm:text-2xl font-bold text-red-700 mb-4 sm:mb-6">
         Registro del Estudiante
       </h2>
 
-      <div className="space-y-5">
+        <div className="space-y-4 sm:space-y-5">
         <div>
           <div className="flex gap-2">
             <input
-              className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+              className="flex-1 px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
               placeholder="Documento de identidad *"
               value={studentData.documento}
               onChange={(e) => setStudentData({ ...studentData, documento: e.target.value })}
@@ -480,7 +480,7 @@ export default function StudentRegistration({
             <button
               onClick={verificarDocumento}
               disabled={verificando}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 text-xl"
+              className="px-4 sm:px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition disabled:bg-gray-400 text-lg sm:text-xl min-w-[44px] sm:min-w-[64px]"
             >
               {verificando ? "..." : "✓"}
             </button>
@@ -490,15 +490,15 @@ export default function StudentRegistration({
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
-            className="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+            className="px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
             placeholder="Nombre *"
             value={studentData.nombre}
             onChange={(e) => setStudentData({ ...studentData, nombre: e.target.value })}
           />
           <input
-            className="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+            className="px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
             placeholder="Apellido *"
             value={studentData.apellido}
             onChange={(e) => setStudentData({ ...studentData, apellido: e.target.value })}
@@ -506,7 +506,7 @@ export default function StudentRegistration({
         </div>
 
         <input
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+          className="w-full px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
           placeholder="Email"
           type="email"
           value={studentData.email}
@@ -514,14 +514,14 @@ export default function StudentRegistration({
         />
 
         <input
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+          className="w-full px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
           placeholder="Teléfono"
           value={studentData.telefono}
           onChange={(e) => setStudentData({ ...studentData, telefono: e.target.value })}
         />
 
         <select
-          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+          className="w-full px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
           value={studentData.grado}
           onChange={(e) => setStudentData({ ...studentData, grado: e.target.value })}
         >
@@ -534,7 +534,7 @@ export default function StudentRegistration({
         {examConfigurations.length > 0 && (
           <div>
             <select
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none"
+              className="w-full px-3 sm:px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-500 focus:outline-none text-sm sm:text-base"
               value={selectedConfigId || ""}
               onChange={(e) => setSelectedConfigId(e.target.value ? Number(e.target.value) : null)}
             >
@@ -550,7 +550,7 @@ export default function StudentRegistration({
 
         <button
           onClick={handleSubmit}
-          className="w-full px-6 py-4 bg-juanabe-rojo text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg"
+          className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-juanabe-rojo text-white font-bold rounded-lg hover:bg-red-700 transition shadow-lg text-sm sm:text-base"
         >
           Comenzar Examen
         </button>
