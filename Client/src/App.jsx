@@ -163,7 +163,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex hidden items-center gap-2 sm:gap-4">
             {Object.keys(questionBank).length > 0 && (
               <div className="text-xs sm:text-sm text-gray-600 bg-green-50 px-2 sm:px-3 py-1 sm:py-2 rounded">
                 ✅ {Object.keys(questionBank).length} grado(s) cargado(s)
