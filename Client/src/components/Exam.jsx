@@ -114,7 +114,7 @@ export default function Exam({ student, config, onDone }) {
   // Loading state when questions are not available
   if (!config.questions || config.questions.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-red-600 mx-auto mb-4"></div>
           <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
@@ -307,7 +307,7 @@ export default function Exam({ student, config, onDone }) {
 
   if (finished && results) {
     return (
-      <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+      <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
         {/* NUEVO: Mostrar información del estudiante */}
         <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
           <h3 className="text-base sm:text-lg font-semibold text-gray-700">Aspirante:</h3>
@@ -383,7 +383,7 @@ export default function Exam({ student, config, onDone }) {
   }
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
+    <div className="w-full bg-white/30 backdrop-blur-sm rounded-lg shadow-lg p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 sm:mb-6 pb-4 border-b gap-2 sm:gap-0">
         <div className="font-medium text-gray-700 text-sm sm:text-base">
           Pregunta {i + 1} de {config.questions.length}
