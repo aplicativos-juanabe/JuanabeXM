@@ -139,39 +139,39 @@ export default function App() {
   // establecer imagen de fondo bg-[url('/background.jpg')]
   return (
     <NotificationProvider>
-      <div className="min-h-screen  bg-cover bg-center bg-no-repeat bg-gradient-to-br from-green-100 via-white to-red-100">
-        <header className="bg-white header-shadow px-6 py-5 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
+      <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat bg-gradient-to-br from-green-100 via-white to-red-100">
+        <header className="bg-white header-shadow px-4 sm:px-6 py-3 sm:py-5 flex justify-between items-center">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {/* Espacio para el logo */}
             <div className="flex-shrink-0">
               <img
                 src="/logo.png"
                 alt="Logo de la Institución"
-                className="h-20 w-20 object-contain"
+                className="h-12 sm:h-20 w-12 sm:w-20 object-contain"
               />
             </div>
             <div>
-              <h2 className="text-2xl font-semibold text-gray-600">
+              <h2 className="text-lg sm:text-2xl font-semibold text-gray-600">
                 Institución Educativa Técnica Departamental
               </h2>
-              <h1 className="text-3xl font-bold text-red-700">
+              <h1 className="text-xl sm:text-3xl font-bold text-red-700">
                 JUANA ARIAS DE BENAVIDES
               </h1>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs sm:text-sm text-gray-600">
                 Examen de Admisión para el año lectivo 2026
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {Object.keys(questionBank).length > 0 && (
-              <div className="text-sm text-gray-600 bg-green-50 px-3 py-2 rounded">
+              <div className="text-xs sm:text-sm text-gray-600 bg-green-50 px-2 sm:px-3 py-1 sm:py-2 rounded">
                 ✅ {Object.keys(questionBank).length} grado(s) cargado(s)
               </div>
             )}
             <button
               onClick={() => setShowAdmin(true)}
-              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 text-sm"
+              className="px-3 sm:px-4 py-1 sm:py-2 bg-gray-500 text-white rounded hover:bg-gray-600 text-xs sm:text-sm"
               // Ocultar el boton de admin
               disabled={true}
               style={{ display: 'none' }}
@@ -182,7 +182,7 @@ export default function App() {
           </div>
         </header>
 
-        <main className="max-w-4xl mx-auto p-6">
+        <main className="flex-grow max-w-4xl mx-auto p-4 sm:p-6 pb-20 sm:pb-6">
           {!examConfig ? (
             <StudentRegistration
               questionBank={questionBank}
@@ -209,7 +209,7 @@ export default function App() {
           )}
         </main>
 
-        <footer className="absolute bottom-0 w-full text-center py-6 text-gray-600 text-sm">
+        <footer className="mt-auto w-full text-center py-4 sm:py-6 text-gray-600 text-xs sm:text-sm bg-white/80 backdrop-blur-sm border-t border-gray-200">
           © {new Date().getFullYear()} JUANABE – Sistema de Admisión
         </footer>
       </div>
